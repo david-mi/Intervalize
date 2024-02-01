@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, View, Button } from 'react-native';
-import { Session, SessionStatus } from "../../types";
+import { Text, View } from 'react-native';
 import { mockSession as currentSession } from "../../mocks";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
 function CurrentSession() {
-  const [sessionStatus, setSessionStatus] = React.useState<SessionStatus>("STARTED")
+  const { sessionStatus, setSessionStatus } = useContext(GlobalContext)
   const [sessionTimer, setSessionTimer] = React.useState({
     minutes: 0,
     seconds: 0

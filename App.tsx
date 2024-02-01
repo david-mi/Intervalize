@@ -1,24 +1,9 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, Ionicons } from '@expo/vector-icons';
-
-function CreatedIntervals() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function CurrentInterval() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import CurrentSession from "./src/components/CurrentSession/CurrentSession";
+import CreatedSessions from "./src/components/CreatedSessions/CreatedSessions";
+import { mockSession } from "./src/mocks";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,18 +12,18 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="Current Interval"
-          component={CurrentInterval}
+          name="Session en cours"
+          component={CurrentSession}
           options={{
-            tabBarLabel: "Current Interval",
+            tabBarLabel: "Session en cours",
             tabBarIcon: () => <Ionicons name="timer-outline" size={24} color="black" />
           }}
         />
         <Tab.Screen
-          name="Created Intervals"
-          component={CreatedIntervals}
+          name="Mes sessions"
+          component={CreatedSessions}
           options={{
-            tabBarLabel: "Created Intervals",
+            tabBarLabel: "Mes sessions",
             tabBarIcon: () => <Feather name="list" size={24} color="black" />
           }}
         />

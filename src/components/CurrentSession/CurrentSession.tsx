@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import SessionTimer from "./SessionTimer/SessionTimer";
 import StepTimer from "./StepTimer/StepTimer";
@@ -14,7 +13,13 @@ import Finished from "./Finished/Finished";
 type Props = BottomTabScreenProps<TabNavParamList, "Session en cours">
 
 function CurrentSession({ navigation }: Props) {
-  const { sessionStatus } = useContext(GlobalContext)
+  const { sessionStatus, currentSession } = React.useContext(GlobalContext)
+
+  React.useEffect(() => {
+    if (currentSession) {
+      navigation.setOptions({ title: currentSession.name })
+    }
+  }, [currentSession])
 
   const sessionComponents: { [key in SessionStatus]: React.JSX.Element } = {
     NOT_SELECTED: <NotSelected navigation={navigation} />,

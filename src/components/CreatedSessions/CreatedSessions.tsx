@@ -39,7 +39,7 @@ function CreatedSessions({ navigation }: Props) {
     if (haveAnActiveSession) {
       Alert.alert(
         "Une session est en cours",
-        "Démarrer une nouvelle session ?",
+        "Sélectionner une nouvelle session ?",
         [
           { text: "Annuler", style: "cancel", },
           { text: "Démarrer", onPress: () => startNewSession(foundSession) }

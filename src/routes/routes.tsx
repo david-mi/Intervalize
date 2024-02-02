@@ -9,13 +9,11 @@ import { GlobalContext } from "../context/GlobalContext";
 const Tab = createBottomTabNavigator();
 
 export default function Routes() {
-  const { currentSession } = React.useContext(GlobalContext)
-
   return (
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name={currentSession.name}
+          name={"Session en cours"}
           component={CurrentSession}
           options={{
             tabBarLabel: "Session en cours",

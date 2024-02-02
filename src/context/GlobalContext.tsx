@@ -1,6 +1,6 @@
 import * as React from "react"
 import { SessionStatus, Session } from "../types";
-import { mockSession } from "../mocks";
+import { mockSessions } from "../mocks";
 
 interface GlobalContextType {
   sessionStatus: SessionStatus,
@@ -14,9 +14,9 @@ interface GlobalContextType {
 export const GlobalContext = React.createContext<GlobalContextType>({
   sessionStatus: "STARTED",
   setSessionStatus: () => { },
-  sessions: [mockSession],
+  sessions: mockSessions,
   setSessions: () => { },
-  currentSession: mockSession,
+  currentSession: mockSessions[0],
   setCurrentSession: () => { }
 })
 
@@ -26,7 +26,7 @@ interface Props {
 
 const GlobalContextProvider = ({ children }: Props) => {
   const [sessionStatus, setSessionStatus] = React.useState<SessionStatus>("STARTED")
-  const [sessions, setSessions] = React.useState<Session[]>([mockSession])
+  const [sessions, setSessions] = React.useState<Session[]>(mockSessions)
   const [currentSession, setCurrentSession] = React.useState<Session>(sessions[0])
 
   return (

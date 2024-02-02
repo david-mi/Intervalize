@@ -12,7 +12,13 @@ export interface Step {
 }
 
 export interface Session {
+  id: string
   name: string
   createdAt: Date
   steps: Step[]
 }
+
+export type TabNavParamList = {
+  "Mes sessions": undefined
+  "Session en cours": undefined
+};

@@ -15,16 +15,6 @@ function CreatedSessions({ navigation }: Props) {
     setSessionStatus
   } = React.useContext(GlobalContext)
 
-  const createTwoButtonAlert = () =>
-    Alert.alert('Alert Title', 'My Alert Msg', [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      { text: 'OK', onPress: () => console.log('OK Pressed') },
-    ]);
-
   function startNewSession(session: Session) {
     setCurrentSession(session)
     setSessionStatus("READY_TO_START")

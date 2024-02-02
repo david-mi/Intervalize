@@ -6,6 +6,7 @@ import SessionTimer from "./SessionTimer/SessionTimer";
 import StepTimer from "./StepTimer/StepTimer";
 import { SessionStatus } from "../../types";
 import NotSelected from "./NotSelected/NotSelected";
+import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { Session, TabNavParamList } from "../../types";
 
@@ -16,7 +17,7 @@ function CurrentSession({ navigation }: Props) {
 
   const sessionComponents: { [key in SessionStatus]: React.JSX.Element } = {
     NOT_SELECTED: <NotSelected navigation={navigation} />,
-    READY_TO_START: <Text>Prêt à démarrer</Text>,
+    READY_TO_START: <ReadyToStart />,
     ACTIVE: (
       <>
         <SessionTimer />

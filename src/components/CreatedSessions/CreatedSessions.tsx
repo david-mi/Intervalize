@@ -12,6 +12,7 @@ function CreatedSessions({ navigation }: Props) {
     sessions,
     currentSession,
     setCurrentSession,
+    sessionStatus,
     setSessionStatus
   } = React.useContext(GlobalContext)
 
@@ -29,7 +30,8 @@ function CreatedSessions({ navigation }: Props) {
       return Alert.alert("Session non trouvée")
     }
 
-    if (currentSession !== null) {
+    const haveAnActiveSession = currentSession !== null && sessionStatus !== "READY_TO_START"
+    if (haveAnActiveSession) {
       Alert.alert(
         "Une session est en cours",
         "Démarrer une nouvelle session ?",

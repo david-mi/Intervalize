@@ -1,42 +1,16 @@
 import * as React from "react"
-import { Text } from "react-native"
-import { GlobalContext } from "../../../context/GlobalContext"
+import { Text, View } from "react-native"
+import { useSessionTimer } from "../../../hooks/useSessionTimer"
 
 function SessionTimer() {
-  const { sessionStatus, setSessionStatus } = React.useContext(GlobalContext)
-  const [sessionTimer, setSessionTimer] = React.useState({
-    minutes: 0,
-    seconds: 0
-  })
-
-  React.useEffect(() => {
-    if (sessionStatus === "FINISHED") return
-
-    const intervalId = setTimeout(() => {
-      if (sessionTimer.seconds === 59) {
-        setSessionTimer(({ minutes }) => ({
-          minutes: minutes + 1,
-          seconds: 0
-        }))
-      } else {
-        setSessionTimer(({ minutes, seconds }) => ({
-          minutes,
-          seconds: seconds + 1
-        }))
-      }
-    }, 1000)
-
-    return () => {
-      clearTimeout(intervalId)
-    }
-  }, [sessionTimer.seconds, sessionStatus])
+  const { elapsedMinutes, elapsedSeconds } = useSessionTimer()
 
   return (
-    <Text>
-      TEMPS TOTAL :
-      {String(sessionTimer.minutes).padStart(2, "0")}:
-      {String(sessionTimer.seconds).padStart(2, "0")}
-    </Text>
+    <View>
+      <Text>Temps total</Text>
+      <Text>{elapsedMinutes}:</Text>
+      <Text>{elapsedSeconds}</Text>
+    </View>
   );
 }
 

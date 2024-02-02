@@ -3,8 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import CurrentSession from "../components/CurrentSession/CurrentSession";
-import CreatedSessions from "../components/CreatedSessions/CreatedSessions";
-import { GlobalContext } from "../context/GlobalContext";
+import MySessions from "../components/MySessions/MySessions";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +21,7 @@ export default function Routes() {
         />
         <Tab.Screen
           name="Mes sessions"
-          component={CreatedSessions}
+          component={MySessions}
           options={{
             tabBarLabel: "Mes sessions",
             tabBarIcon: () => <Feather name="list" size={24} color="black" />

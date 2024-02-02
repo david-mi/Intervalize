@@ -7,7 +7,7 @@ import { Session, TabNavParamList } from "../../types";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Mes sessions">
 
-function CreatedSessions({ navigation }: Props) {
+function MySessions({ navigation }: Props) {
   const {
     sessions,
     currentSession,
@@ -64,4 +64,4 @@ function CreatedSessions({ navigation }: Props) {
   );
 }
 
-export default CreatedSessions
+export default MySessions

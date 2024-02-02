@@ -1,19 +1,67 @@
 import * as React from "react"
-import { View, Text, FlatList, Button } from "react-native";
+import { View, Text, FlatList, Button, Alert } from "react-native";
 import { GlobalContext } from "../../context/GlobalContext";
+import { TabActions } from '@react-navigation/native';
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { Session, TabNavParamList } from "../../types";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Mes sessions">
 
 function CreatedSessions({ navigation }: Props) {
+  const {
+    sessions,
+    currentSession,
+    setCurrentSession,
+    setSessionStatus
+  } = React.useContext(GlobalContext)
+
+  const createTwoButtonAlert = () =>
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      { text: 'OK', onPress: () => console.log('OK Pressed') },
+    ]);
+
+  function startNewSession(session: Session) {
+    setCurrentSession(session)
+    setSessionStatus("READY_TO_START")
+    const jumpToAction = TabActions.jumpTo("Session en cours");
+    navigation.dispatch(jumpToAction);
+  }
+
+  function handlePress(sessionId: string) {
+    const foundSession = sessions.find(session => session.id === sessionId)!
+
+    if (foundSession.id === undefined) {
+      return Alert.alert("Session non trouvée")
+    }
+
+    if (currentSession !== null) {
+      Alert.alert(
+        "Une session est en cours",
+        "Démarrer une nouvelle session ?",
+        [
+          { text: "Annuler", style: "cancel", },
+          { text: "Démarrer", onPress: () => startNewSession(foundSession) }
+        ]
+      );
+    } else {
+      startNewSession(foundSession)
+    }
+  }
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Mes Sessions</Text>
       <FlatList
         data={sessions}
-        renderItem={({ item }) => <Button title={item.name} />}
+        renderItem={({ item }) => {
+          console.log(item)
+          return <Button onPress={() => handlePress(item.id)} title={item.name} />
+        }}
       />
     </View>
   );

@@ -30,7 +30,12 @@ function CreatedSessions({ navigation }: Props) {
       return Alert.alert("Session non trouvée")
     }
 
-    const haveAnActiveSession = currentSession !== null && sessionStatus !== "READY_TO_START"
+    const haveAnActiveSession = (
+      currentSession !== null &&
+      sessionStatus !== "READY_TO_START"
+      && sessionStatus !== "FINISHED"
+    )
+
     if (haveAnActiveSession) {
       Alert.alert(
         "Une session est en cours",

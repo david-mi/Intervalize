@@ -8,7 +8,8 @@ import { SessionStatus } from "../../types";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { Session, TabNavParamList } from "../../types";
+import { TabNavParamList } from "../../types";
+import Finished from "./Finished/Finished";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Session en cours">
 
@@ -25,7 +26,7 @@ function CurrentSession({ navigation }: Props) {
       </>
     ),
     PAUSED: <Text>Session en pause</Text>,
-    FINISHED: <Text>Session Terminée</Text>
+    FINISHED: <Finished navigation={navigation} />
   }
 
   return (

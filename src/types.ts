@@ -1,6 +1,6 @@
 export type IntensityLevel = "LOW" | "MEDIUM" | "HARD"
 
-export type SessionStatus = "STARTED" | "PAUSED" | "FINISHED"
+export type SessionStatus = "NOT_SELECTED" | "READY_TO_START" | "ACTIVE" | "PAUSED" | "FINISHED"
 
 export interface Step {
   name: string

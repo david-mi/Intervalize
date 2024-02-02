@@ -7,16 +7,16 @@ interface GlobalContextType {
   setSessionStatus: React.Dispatch<React.SetStateAction<SessionStatus>>
   sessions: Session[]
   setSessions: React.Dispatch<React.SetStateAction<Session[]>>
-  currentSession: Session
-  setCurrentSession: React.Dispatch<React.SetStateAction<Session>>
+  currentSession: Session | null
+  setCurrentSession: React.Dispatch<React.SetStateAction<Session | null>>
 }
 
 export const GlobalContext = React.createContext<GlobalContextType>({
-  sessionStatus: "STARTED",
+  sessionStatus: "READY_TO_START",
   setSessionStatus: () => { },
   sessions: mockSessions,
   setSessions: () => { },
-  currentSession: mockSessions[0],
+  currentSession: null,
   setCurrentSession: () => { }
 })
 
@@ -25,9 +25,9 @@ interface Props {
 }
 
 const GlobalContextProvider = ({ children }: Props) => {
-  const [sessionStatus, setSessionStatus] = React.useState<SessionStatus>("STARTED")
+  const [sessionStatus, setSessionStatus] = React.useState<SessionStatus>("NOT_SELECTED")
   const [sessions, setSessions] = React.useState<Session[]>(mockSessions)
-  const [currentSession, setCurrentSession] = React.useState<Session>(sessions[0])
+  const [currentSession, setCurrentSession] = React.useState<Session | null>(null)
 
   return (
     <GlobalContext.Provider value={{

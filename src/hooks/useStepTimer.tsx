@@ -1,25 +1,15 @@
 import * as React from "react"
-import { GlobalContext } from "../context/GlobalContext"
+import { Step } from "../types"
 
-export function useStep() {
-  const { sessionStatus, setSessionStatus, currentSession } = React.useContext(GlobalContext)
-  const currentStepIndexRef = React.useRef(0)
-  const currentStep = currentSession!.steps[currentStepIndexRef.current]
-  const [currentStepTimer, setCurrentStepTimer] = React.useState(currentStep.duration)
+export function useStepTimer(currentStepDuration: Step["duration"]) {
+  const [finishedStepTrigger, setfinishedStepTrigger] = React.useState(false)
+  const [currentStepTimer, setCurrentStepTimer] = React.useState(currentStepDuration)
 
   React.useEffect(() => {
     const intervalId = setTimeout(() => {
       if (currentStepTimer.seconds <= 0) {
         if (currentStepTimer.minutes <= 0) {
-          const nextStepIndex = currentStepIndexRef.current + 1
-          const nextStep = currentSession!.steps[nextStepIndex]
-
-          if (!nextStep) {
-            setSessionStatus("FINISHED")
-          } else {
-            currentStepIndexRef.current += 1
-            setCurrentStepTimer(nextStep.duration)
-          }
+          setfinishedStepTrigger(finishedStepTrigger => !finishedStepTrigger)
         } else {
           setCurrentStepTimer(({ minutes }) => ({
             minutes: minutes - 1,
@@ -38,11 +28,12 @@ export function useStep() {
     return () => {
       clearTimeout(intervalId)
     }
-  }, [currentStepTimer.seconds, sessionStatus])
+  }, [currentStepTimer.seconds])
 
   return {
-    currentStepName: currentStep.name,
+    setCurrentStepTimer,
     remainingCurrentStepMinutes: String(currentStepTimer.minutes).padStart(2, "0"),
-    remainingCurrentStepSeconds: String(currentStepTimer.seconds).padStart(2, "0")
+    remainingCurrentStepSeconds: String(currentStepTimer.seconds).padStart(2, "0"),
+    finishedStepTrigger
   }
 }

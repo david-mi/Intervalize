@@ -1,13 +1,13 @@
 import * as React from "react"
 import { View, Text } from "react-native"
-import { useStep } from "../../../hooks/useStepTimer";
+import { useSteps } from "../../../hooks/useSteps";
 
 function StepTimer() {
   const {
     currentStepName,
     remainingCurrentStepMinutes,
     remainingCurrentStepSeconds
-  } = useStep()
+  } = useSteps()
 
   return (
     <View>

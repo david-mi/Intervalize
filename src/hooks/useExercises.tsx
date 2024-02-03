@@ -6,14 +6,12 @@ export function useExercises() {
   const { setSessionStatus, currentSession } = React.useContext(GlobalContext)
   const currentExerciseIndexRef = React.useRef(0)
   const currentExercise = currentSession!.exercises[currentExerciseIndexRef.current]
-  const {
-    formattedRemainingCurrentExerciseMinutes,
-    formattedRemainingCurrentExerciseSeconds,
-    finishedExerciseTrigger,
-    setCurrentExerciseTimer
-  } = useExerciseTimer(currentExercise.duration)
+  const { formattedRemainingCurrentExerciseTime, setCurrentExerciseTimer } = useExerciseTimer({
+    duration: currentExercise.duration,
+    onFinishedExerciceTimer
+  })
 
-  React.useEffect(() => {
+  function onFinishedExerciceTimer() {
     const nextExerciseIndex = currentExerciseIndexRef.current + 1
     const nextExercise = currentSession!.exercises[nextExerciseIndex]
 
@@ -23,11 +21,10 @@ export function useExercises() {
       currentExerciseIndexRef.current += 1
       setCurrentExerciseTimer(nextExercise.duration)
     }
-  }, [finishedExerciseTrigger])
+  }
 
   return {
     currentExerciseName: currentExercise.name,
-    formattedRemainingCurrentExerciseMinutes,
-    formattedRemainingCurrentExerciseSeconds
+    formattedRemainingCurrentExerciseTime
   }
 }

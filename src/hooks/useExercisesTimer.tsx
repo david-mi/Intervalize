@@ -1,15 +1,19 @@
 import * as React from "react"
 import { Exercise } from "../types"
 
-export function useExerciseTimer(currentExerciseDuration: Exercise["duration"]) {
-  const [finishedExerciseTrigger, setfinishedExerciseTrigger] = React.useState(false)
-  const [currentExerciseTimer, setCurrentExerciseTimer] = React.useState(currentExerciseDuration)
+interface Props {
+  duration: Exercise["duration"]
+  onFinishedExerciceTimer: () => void
+}
+
+export function useExerciseTimer({ duration, onFinishedExerciceTimer }: Props) {
+  const [currentExerciseTimer, setCurrentExerciseTimer] = React.useState(duration)
 
   React.useEffect(() => {
     const intervalId = setTimeout(() => {
       if (currentExerciseTimer.seconds <= 0) {
         if (currentExerciseTimer.minutes <= 0) {
-          setfinishedExerciseTrigger(finishedExerciseTrigger => !finishedExerciseTrigger)
+          onFinishedExerciceTimer()
         } else {
           setCurrentExerciseTimer(({ minutes }) => ({
             minutes: minutes - 1,
@@ -32,8 +36,9 @@ export function useExerciseTimer(currentExerciseDuration: Exercise["duration"]) 
 
   return {
     setCurrentExerciseTimer,
-    formattedRemainingCurrentExerciseMinutes: String(currentExerciseTimer.minutes).padStart(2, "0"),
-    formattedRemainingCurrentExerciseSeconds: String(currentExerciseTimer.seconds).padStart(2, "0"),
-    finishedExerciseTrigger
+    formattedRemainingCurrentExerciseTime: {
+      minutes: String(currentExerciseTimer.minutes).padStart(2, "0"),
+      seconds: String(currentExerciseTimer.seconds).padStart(2, "0")
+    }
   }
 }

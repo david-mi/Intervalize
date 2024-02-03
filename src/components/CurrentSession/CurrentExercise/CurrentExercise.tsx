@@ -3,17 +3,13 @@ import { View, Text } from "react-native"
 import { useExercises } from "../../../hooks/useExercises";
 
 function CurrentExercise() {
-  const {
-    currentExerciseName,
-    formattedRemainingCurrentExerciseMinutes,
-    formattedRemainingCurrentExerciseSeconds
-  } = useExercises()
+  const { currentExerciseName, formattedRemainingCurrentExerciseTime } = useExercises()
 
   return (
     <View>
       <Text>{currentExerciseName}</Text>
-      <Text>{formattedRemainingCurrentExerciseMinutes}:</Text>
-      <Text>{formattedRemainingCurrentExerciseSeconds}</Text>
+      <Text>{formattedRemainingCurrentExerciseTime.minutes}:</Text>
+      <Text>{formattedRemainingCurrentExerciseTime.seconds}</Text>
     </View>
   );
 }

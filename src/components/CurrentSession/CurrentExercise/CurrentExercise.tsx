@@ -1,10 +1,16 @@
 import * as React from "react"
 import { View, Text } from "react-native"
-import { useExercises } from "../../../hooks/useExercises";
+import { Exercise } from "../../../types";
 
-function CurrentExercise() {
-  const { currentExerciseName, formattedRemainingCurrentExerciseTime } = useExercises()
+interface Props {
+  formattedRemainingCurrentExerciseTime: {
+    minutes: string
+    seconds: string
+  }
+  currentExerciseName: string
+}
 
+function CurrentExercise({ formattedRemainingCurrentExerciseTime, currentExerciseName }: Props) {
   return (
     <View>
       <Text>{currentExerciseName}</Text>

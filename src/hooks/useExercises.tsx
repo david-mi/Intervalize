@@ -1,22 +1,37 @@
 import * as React from "react"
-import { GlobalContext } from "../context/GlobalContext"
 import { useExerciseTimer } from "./useExercisesTimer"
+import { Block } from "../types"
 
-export function useExercises() {
-  const { setSessionStatus, currentSession } = React.useContext(GlobalContext)
+interface Props {
+  currentBlock: Block
+  onFinishedExercises: () => void
+}
+
+export function useExercises({ currentBlock, onFinishedExercises }: Props) {
   const currentExerciseIndexRef = React.useRef(0)
-  const currentExercise = currentSession!.exercises[currentExerciseIndexRef.current]
   const { formattedRemainingCurrentExerciseTime, setCurrentExerciseTimer } = useExerciseTimer({
-    duration: currentExercise.duration,
-    onFinishedExerciceTimer
+    duration: currentBlock.exercises[currentExerciseIndexRef.current].duration,
+    onFinishedExerciseTimer
   })
+  const [remainingCurrentBlockRepetitions, setRemainingCurrentBlockRepetitions] = React.useState(currentBlock.repetitions)
 
-  function onFinishedExerciceTimer() {
+  React.useEffect(() => {
+    currentExerciseIndexRef.current = 0
+    setRemainingCurrentBlockRepetitions(currentBlock.repetitions)
+    setCurrentExerciseTimer(currentBlock.exercises[currentExerciseIndexRef.current].duration)
+  }, [currentBlock])
+
+  function onFinishedExerciseTimer() {
     const nextExerciseIndex = currentExerciseIndexRef.current + 1
-    const nextExercise = currentSession!.exercises[nextExerciseIndex]
+    const nextExercise = currentBlock.exercises[nextExerciseIndex]
 
     if (!nextExercise) {
-      setSessionStatus("FINISHED")
+      if (remainingCurrentBlockRepetitions > 1) {
+        setRemainingCurrentBlockRepetitions(remainingCurrentBlockRepetitions => remainingCurrentBlockRepetitions - 1)
+        setCurrentExerciseTimer(currentBlock.exercises[currentExerciseIndexRef.current].duration)
+      } else {
+        onFinishedExercises()
+      }
     } else {
       currentExerciseIndexRef.current += 1
       setCurrentExerciseTimer(nextExercise.duration)
@@ -24,7 +39,9 @@ export function useExercises() {
   }
 
   return {
-    currentExerciseName: currentExercise.name,
-    formattedRemainingCurrentExerciseTime
+    currentExerciseName: currentBlock.exercises[currentExerciseIndexRef.current].name,
+    formattedRemainingCurrentExerciseTime,
+    remainingCurrentBlockRepetitions,
+    setRemainingCurrentBlockRepetitions
   }
 }

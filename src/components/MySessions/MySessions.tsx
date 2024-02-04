@@ -56,7 +56,6 @@ function MySessions({ navigation }: Props) {
       <FlatList
         data={sessions}
         renderItem={({ item }) => {
-          console.log(item)
           return <Button onPress={() => handlePress(item.id)} title={item.name} />
         }}
       />

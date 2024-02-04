@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { GlobalContext } from "../../context/GlobalContext";
 import SessionTimer from "./SessionTimer/SessionTimer";
-import CurrentExercise from "./CurrentExercise/CurrentExercise";
+import CurrentBlock from "./CurrentBlock/CurrentBlock";
 import { SessionStatus } from "../../types";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
@@ -27,7 +27,7 @@ function CurrentSession({ navigation }: Props) {
     ACTIVE: (
       <>
         <SessionTimer />
-        <CurrentExercise />
+        <CurrentBlock />
       </>
     ),
     PAUSED: <Text>Session en pause</Text>,

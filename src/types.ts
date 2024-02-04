@@ -11,11 +11,16 @@ export interface Exercise {
   }
 }
 
+export interface Block {
+  repetitions: number
+  exercises: Exercise[]
+}
+
 export interface Session {
   id: string
   name: string
   createdAt: Date
-  exercises: Exercise[]
+  blocks: Block[]
 }
 
 export type TabNavParamList = {

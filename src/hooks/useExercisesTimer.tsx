@@ -3,17 +3,17 @@ import { Exercise } from "../types"
 
 interface Props {
   duration: Exercise["duration"]
-  onFinishedExerciceTimer: () => void
+  onFinishedExerciseTimer: () => void
 }
 
-export function useExerciseTimer({ duration, onFinishedExerciceTimer }: Props) {
+export function useExerciseTimer({ duration, onFinishedExerciseTimer }: Props) {
   const [currentExerciseTimer, setCurrentExerciseTimer] = React.useState(duration)
 
   React.useEffect(() => {
     const intervalId = setTimeout(() => {
       if (currentExerciseTimer.seconds <= 0) {
         if (currentExerciseTimer.minutes <= 0) {
-          onFinishedExerciceTimer()
+          onFinishedExerciseTimer()
         } else {
           setCurrentExerciseTimer(({ minutes }) => ({
             minutes: minutes - 1,

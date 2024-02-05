@@ -2,21 +2,32 @@ import { View, Text, Button } from "react-native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { TabActions } from '@react-navigation/native';
 import { TabNavParamList } from "../../../types";
+import CustomButton from "../../CustomButton/CustomButton";
+import TextWithCustomFont from "../../TextWithCustomFont/TextWithCustomFont";
+import TitleWithCustomFont from "../../TitleWithCustomFont/TitleWithCustomFont";
+import { styles } from "./notSelected.styles";
 
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Session en cours">, "navigation">
 
 function NotSelected({ navigation }: Props) {
 
-  function onPress() {
+  function redirectToMySessions() {
     const jumpToAction = TabActions.jumpTo("Mes sessions");
     navigation.dispatch(jumpToAction);
   }
 
   return (
-    <View>
-      <Text>Pas de session sélectionnée</Text>
-      <Text>Veuillez choisir une session à lancer</Text>
-      <Button title="Mes sessions" onPress={onPress} />
+    <View style={styles.container}>
+      <View style={styles.infos}>
+        <TitleWithCustomFont style={styles.title}>Pas de session sélectionnée</TitleWithCustomFont>
+        <TextWithCustomFont style={styles.instructions}>Veuillez choisir une session à lancer</TextWithCustomFont>
+      </View>
+      <CustomButton
+        icon={{ name: "format-list-bulleted" }}
+        title="Mes sessions"
+        style={styles.button}
+        onPress={redirectToMySessions}
+      />
     </View>
   );
 }

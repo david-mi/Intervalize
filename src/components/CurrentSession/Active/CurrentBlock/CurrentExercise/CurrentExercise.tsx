@@ -1,7 +1,7 @@
 import * as React from "react"
 import { View } from "react-native"
-import Timer from "../Timer/Timer"
-import TextWithCustomFont from "../../TextWithCustomFont/TextWithCustomFont"
+import Timer from "../../../Timer/Timer"
+import TextWithCustomFont from "../../../../TextWithCustomFont/TextWithCustomFont"
 import { styles } from "./currentExercise.styles"
 
 interface Props {

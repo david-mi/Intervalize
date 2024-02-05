@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignSelf: "stretch",
+  container: {},
+  title: {
+    fontSize: 30,
+    textAlign: "center"
   }
 })

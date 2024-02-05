@@ -1,7 +1,7 @@
 import SessionTimer from "./SessionTimer/SessionTimer";
 import CurrentBlock from "./CurrentBlock/CurrentBlock";
 import { View } from "react-native";
-import { styles } from "../currentSession.styles";
+import { styles } from "./active.styles";
 
 function Active() {
   return (

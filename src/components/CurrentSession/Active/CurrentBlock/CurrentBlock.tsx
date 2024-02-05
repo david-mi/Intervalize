@@ -2,6 +2,7 @@ import * as React from "react"
 import { View, Text } from "react-native"
 import { useBlocks } from "../../../../hooks/useBlocks";
 import CurrentExercise from "../../CurrentExercise/CurrentExercise";
+import { styles } from "./currentBlock.styles";
 
 function CurrentBlock() {
   const {
@@ -12,7 +13,7 @@ function CurrentBlock() {
   } = useBlocks()
 
   return (
-    <View>
+    <View style={styles.container}>
       <View>
         <Text>Répétitions : {remainingCurrentBlockRepetitions}/{currentBlock.repetitions}</Text>
       </View>

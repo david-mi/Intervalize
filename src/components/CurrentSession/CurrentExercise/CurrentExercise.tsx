@@ -1,6 +1,8 @@
 import * as React from "react"
-import { View, Text } from "react-native"
-import { Exercise } from "../../../types";
+import { View } from "react-native"
+import Timer from "../Timer/Timer"
+import TextWithCustomFont from "../../TextWithCustomFont/TextWithCustomFont"
+import { styles } from "./currentExercise.styles"
 
 interface Props {
   formattedRemainingCurrentExerciseTime: {
@@ -12,10 +14,13 @@ interface Props {
 
 function CurrentExercise({ formattedRemainingCurrentExerciseTime, currentExerciseName }: Props) {
   return (
-    <View>
-      <Text>{currentExerciseName}</Text>
-      <Text>{formattedRemainingCurrentExerciseTime.minutes}:</Text>
-      <Text>{formattedRemainingCurrentExerciseTime.seconds}</Text>
+    <View style={styles.container}>
+      <TextWithCustomFont fontFamily="oswald-bold" style={styles.title}>{currentExerciseName}</TextWithCustomFont>
+      <Timer
+        size={"big"}
+        minutes={formattedRemainingCurrentExerciseTime.minutes}
+        seconds={formattedRemainingCurrentExerciseTime.seconds}
+      />
     </View>
   );
 }

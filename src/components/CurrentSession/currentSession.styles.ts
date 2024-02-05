@@ -7,6 +7,7 @@ export const styles = StyleSheet.create(({
     padding: globalStyle.padding,
     alignSelf: "stretch",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "blue"
   }
 }))

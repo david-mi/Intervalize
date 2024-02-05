@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Text, View } from "react-native"
-import { useSessionTimer } from "../../../hooks/useSessionTimer"
+import { useSessionTimer } from "../../../../hooks/useSessionTimer"
 
 function SessionTimer() {
   const { remainingMinutes, remainingSeconds } = useSessionTimer()

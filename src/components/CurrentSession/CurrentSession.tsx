@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { GlobalContext } from "../../context/GlobalContext";
-import SessionTimer from "./SessionTimer/SessionTimer";
-import CurrentBlock from "./CurrentBlock/CurrentBlock";
+import SessionTimer from "./Active/SessionTimer/SessionTimer";
+import CurrentBlock from "./Active/CurrentBlock/CurrentBlock";
 import { SessionStatus } from "../../types";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
+import Active from "./Active/Active";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { TabNavParamList } from "../../types";
 import Finished from "./Finished/Finished";
@@ -25,12 +26,7 @@ function CurrentSession({ navigation }: Props) {
   const sessionComponents: { [key in SessionStatus]: React.JSX.Element } = {
     NOT_SELECTED: <NotSelected navigation={navigation} />,
     READY_TO_START: <ReadyToStart />,
-    ACTIVE: (
-      <>
-        <SessionTimer />
-        <CurrentBlock />
-      </>
-    ),
+    ACTIVE: <Active />,
     PAUSED: <Text>Session en pause</Text>,
     FINISHED: <Finished navigation={navigation} />
   }

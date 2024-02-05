@@ -1,7 +1,7 @@
 import * as React from "react"
 import { View, Text } from "react-native"
-import { useBlocks } from "../../../hooks/useBlocks";
-import CurrentExercise from "../CurrentExercise/CurrentExercise";
+import { useBlocks } from "../../../../hooks/useBlocks";
+import CurrentExercise from "../../CurrentExercise/CurrentExercise";
 
 function CurrentBlock() {
   const {

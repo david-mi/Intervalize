@@ -2,13 +2,15 @@ export type IntensityLevel = "LOW" | "MEDIUM" | "HARD"
 
 export type SessionStatus = "NOT_SELECTED" | "READY_TO_START" | "ACTIVE" | "PAUSED" | "FINISHED"
 
+export interface Time<T extends number | string = number> {
+  minutes: T
+  seconds: T
+}
+
 export interface Exercise {
   name: string
   intensityLevel: IntensityLevel
-  duration: {
-    minutes: number
-    seconds: number
-  }
+  duration: Time
 }
 
 export interface Block {

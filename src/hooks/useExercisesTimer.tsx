@@ -1,8 +1,8 @@
 import * as React from "react"
-import { Exercise } from "../types"
+import { Time } from "../types"
 
 interface Props {
-  duration: Exercise["duration"]
+  duration: Time
   onFinishedExerciseTimer: () => void
 }
 

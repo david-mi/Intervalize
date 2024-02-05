@@ -1,9 +1,11 @@
 import * as React from "react"
-import { View, Text, FlatList, Button, Alert } from "react-native";
+import { View, FlatList, Alert } from "react-native";
 import { GlobalContext } from "../../context/GlobalContext";
 import { TabActions } from '@react-navigation/native';
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { Session, TabNavParamList } from "../../types";
+import CustomButton from "../CustomButton/CustomButton";
+import { styles } from "./mySessions.styles";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Mes sessions">
 
@@ -52,11 +54,19 @@ function MySessions({ navigation }: Props) {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Mes Sessions</Text>
       <FlatList
+        horizontal={false}
         data={sessions}
+        contentContainerStyle={styles.list}
+        style={styles.wrapper}
         renderItem={({ item }) => {
-          return <Button onPress={() => handlePress(item.id)} title={item.name} />
+          return (
+            <CustomButton
+              icon={{ name: "touch-app" }}
+              onPress={() => handlePress(item.id)}
+              title={item.name}
+            />
+          )
         }}
       />
     </View>

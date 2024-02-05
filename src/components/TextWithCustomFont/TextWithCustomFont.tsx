@@ -4,7 +4,7 @@ import { ComponentProps } from "react";
 
 type Props = ComponentProps<typeof Text> & {
   fontFamily?: CustomFont
-  children: string | string[]
+  children: (string | number) | (string | number)[]
 }
 
 function TextWithCustomFont({ fontFamily = "oswald-regular", children, ...props }: Props) {

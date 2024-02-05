@@ -27,3 +27,5 @@ export type TabNavParamList = {
   "Mes sessions": undefined
   "Session en cours": undefined
 };
+
+export type CustomFont = "clockicons" | "oswald-light" | "oswald-regular" | "oswald-medium" | "oswald-bold";

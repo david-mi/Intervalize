@@ -28,4 +28,12 @@ export type TabNavParamList = {
   "Session en cours": undefined
 };
 
-export type CustomFont = "clockicons" | "oswald-light" | "oswald-regular" | "oswald-medium" | "oswald-bold";
+export enum CustomFontsList {
+  CLOCKICONS = "clockicons",
+  OSWALD_LIGHT = "oswald-light",
+  OSWALD_REGULAR = "oswald-regular",
+  OSWALD_MEDIUM = "oswald-medium",
+  OSWALD_BOLD = "oswald-bold",
+}
+
+export type CustomFont = `${CustomFontsList}`

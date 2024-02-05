@@ -3,13 +3,13 @@ import { Text, View } from "react-native"
 import { useSessionTimer } from "../../../hooks/useSessionTimer"
 
 function SessionTimer() {
-  const { elapsedMinutes, elapsedSeconds } = useSessionTimer()
+  const { remainingMinutes, remainingSeconds } = useSessionTimer()
 
   return (
     <View>
-      <Text>Temps total</Text>
-      <Text>{elapsedMinutes}:</Text>
-      <Text>{elapsedSeconds}</Text>
+      <Text>Temps restant</Text>
+      <Text>{remainingMinutes}:</Text>
+      <Text>{remainingSeconds}</Text>
     </View>
   );
 }

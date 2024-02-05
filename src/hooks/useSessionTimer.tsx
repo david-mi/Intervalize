@@ -1,22 +1,48 @@
 import * as React from "react"
+import { GlobalContext } from "../context/GlobalContext"
 
 export function useSessionTimer() {
-  const [sessionTimer, setSessionTimer] = React.useState({
-    minutes: 0,
-    seconds: 0
-  })
+  const { currentSession } = React.useContext(GlobalContext)
+  const currentSessionBlocks = currentSession!.blocks
+
+  const sessionTimerInitialValue = React.useMemo(() => {
+    let totalMinutes = 0
+    let totalSeconds = 0
+
+    currentSessionBlocks.forEach(({ exercises, repetitions }) => {
+      exercises.forEach(({ duration }) => {
+        totalSeconds += duration.seconds * repetitions
+        totalSeconds += duration.minutes * 60 * repetitions
+      })
+    })
+
+    totalMinutes = Math.floor(totalSeconds / 60);
+    totalSeconds %= 60;
+
+    return {
+      minutes: totalMinutes,
+      seconds: totalSeconds
+    }
+  }, [])
+
+  const [sessionTimer, setSessionTimer] = React.useState(sessionTimerInitialValue)
 
   React.useEffect(() => {
     const intervalId = setTimeout(() => {
-      if (sessionTimer.seconds === 59) {
-        setSessionTimer(({ minutes }) => ({
-          minutes: minutes + 1,
-          seconds: 0
-        }))
+      if (sessionTimer.seconds <= 0) {
+        if (sessionTimer.minutes <= 0) {
+          clearTimeout(intervalId)
+        } else {
+          setSessionTimer(({ minutes }) => ({
+            minutes: minutes - 1,
+            seconds: 59
+          }))
+        }
+
       } else {
         setSessionTimer(({ minutes, seconds }) => ({
           minutes,
-          seconds: seconds + 1
+          seconds: seconds - 1
         }))
       }
     }, 1000)
@@ -27,7 +53,7 @@ export function useSessionTimer() {
   }, [sessionTimer.seconds])
 
   return {
-    elapsedMinutes: String(sessionTimer.minutes).padStart(2, "0"),
-    elapsedSeconds: String(sessionTimer.seconds).padStart(2, "0")
+    remainingMinutes: String(sessionTimer.minutes).padStart(2, "0"),
+    remainingSeconds: String(sessionTimer.seconds).padStart(2, "0")
   }
 }

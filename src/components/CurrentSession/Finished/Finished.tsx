@@ -1,9 +1,12 @@
 import * as React from "react"
 import { GlobalContext } from "../../../context/GlobalContext";
-import { Button, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { TabActions } from '@react-navigation/native';
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { TabNavParamList } from "../../../types";
+import CustomButton from "../../CustomButton/CustomButton";
+import { styles } from "./finished.styles";
+import TitleWithCustomFont from "../../TitleWithCustomFont/TitleWithCustomFont";
 
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Session en cours">, "navigation">
 
@@ -20,10 +23,22 @@ function Finished({ navigation }: Props) {
   }
 
   return (
-    <View>
-      <Text>Session Terminée</Text>
-      <Button title="Recommencer" onPress={handleRestartSession} />
-      <Button title="Mes sessions" onPress={redirectToMySessions} />
+    <View style={styles.container}>
+      <TitleWithCustomFont style={styles.title}>
+        Session Terminée
+      </TitleWithCustomFont>
+      <View style={styles.buttonsContainer}>
+        <CustomButton
+          icon={{ name: "restart-alt" }}
+          title="Recommencer"
+          onPress={handleRestartSession}
+        />
+        <CustomButton
+          icon={{ name: "format-list-bulleted" }}
+          title="Mes sessions"
+          onPress={redirectToMySessions}
+        />
+      </View>
     </View>
   );
 }

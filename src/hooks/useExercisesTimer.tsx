@@ -10,8 +10,8 @@ export function useExerciseTimer({ duration, onFinishedExerciseTimer }: Props) {
   const [currentExerciseTimer, setCurrentExerciseTimer] = React.useState(duration)
 
   React.useEffect(() => {
-    const intervalId = setTimeout(() => {
-      if (currentExerciseTimer.seconds <= 0) {
+    const timeoutId = setTimeout(() => {
+      if (currentExerciseTimer.seconds <= 1) {
         if (currentExerciseTimer.minutes <= 0) {
           onFinishedExerciseTimer()
         } else {
@@ -30,7 +30,7 @@ export function useExerciseTimer({ duration, onFinishedExerciseTimer }: Props) {
     }, 1000)
 
     return () => {
-      clearTimeout(intervalId)
+      clearTimeout(timeoutId)
     }
   }, [currentExerciseTimer.seconds])
 

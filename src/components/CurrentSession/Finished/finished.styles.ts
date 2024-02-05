@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: "stretch",
-    gap: globalStyle.gap,
-    padding: globalStyle.padding,
+    gap: globalStyle.gap
   }
 })

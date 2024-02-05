@@ -1,12 +1,10 @@
 import { StyleSheet } from "react-native";
-import { globalStyle } from "../../../styles/styles.variables.global";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: "stretch",
-    justifyContent: "center",
-    padding: globalStyle.padding
+    justifyContent: "center"
   },
   title: {
     marginBottom: "auto",

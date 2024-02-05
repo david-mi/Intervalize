@@ -9,6 +9,7 @@ import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { TabNavParamList } from "../../types";
 import Finished from "./Finished/Finished";
+import { styles } from "./currentSession.styles";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Session en cours">
 
@@ -35,7 +36,7 @@ function CurrentSession({ navigation }: Props) {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       {sessionComponents[sessionStatus]}
     </View>
   );

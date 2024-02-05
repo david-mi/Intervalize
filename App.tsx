@@ -5,6 +5,7 @@ import 'expo-dev-client';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from "react";
+import { styles } from "./app.styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,7 +30,7 @@ export default function App() {
 
   return (
     <GlobalContextProvider>
-      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <View style={styles.app} onLayout={onLayoutRootView}>
         <Routes />
       </View>
     </GlobalContextProvider>

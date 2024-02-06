@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-evenly"
   },
   button: {
-    // backgroundColor: "black",
+    backgroundColor: "white",
     borderRadius: 50,
     borderWidth: 5
 

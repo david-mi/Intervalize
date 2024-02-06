@@ -6,6 +6,15 @@ export const styles = StyleSheet.create({
     paddingTop: 45,
     paddingBottom: 30,
     fontSize: 30,
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "white"
+  },
+  intensityOverlay: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "pink"
   }
 })

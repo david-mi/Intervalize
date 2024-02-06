@@ -2,14 +2,17 @@ import SessionTimer from "./SessionTimer/SessionTimer";
 import CurrentBlock from "./CurrentBlock/CurrentBlock";
 import { View } from "react-native";
 import { styles } from "./active.styles";
-import Controls from "./CurrentBlock/CurrentExercise/Controls/Controls";
 
-function Active() {
+interface Props {
+  children: JSX.Element
+}
+
+function Active({ children }: Props) {
   return (
     <View style={styles.container}>
       <SessionTimer />
       <CurrentBlock />
-      <Controls />
+      {children}
     </View>
   );
 }

@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { GlobalContext } from "../../context/GlobalContext";
 import SessionTimer from "./Active/SessionTimer/SessionTimer";
 import CurrentBlock from "./Active/CurrentBlock/CurrentBlock";
+import Controls from "./Active/CurrentBlock/CurrentExercise/Controls/Controls";
 import { SessionStatus } from "../../types";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
@@ -23,17 +24,35 @@ function CurrentSession({ navigation }: Props) {
     }
   }, [currentSession])
 
-  const sessionComponents: { [key in SessionStatus]: React.JSX.Element } = {
-    NOT_SELECTED: <NotSelected navigation={navigation} />,
-    READY_TO_START: <ReadyToStart />,
-    ACTIVE: <Active />,
-    PAUSED: <Text>Session en pause</Text>,
-    FINISHED: <Finished navigation={navigation} />
+  // const sessionComponents: { [key in SessionStatus]: React.JSX.Element } = {
+  //   NOT_SELECTED: <NotSelected navigation={navigation} />,
+  //   READY_TO_START: <ReadyToStart />,
+  //   ACTIVE: <Active />,
+  //   PAUSED: <Active />,
+  //   FINISHED: <Finished navigation={navigation} />
+  // }
+
+  function getCurrentComponent() {
+    switch (sessionStatus) {
+      case "NOT_SELECTED": return <NotSelected navigation={navigation} />
+      case "READY_TO_START": return <ReadyToStart />
+      case "ACTIVE": return (
+        <Active>
+          <Controls displayPauseButton />
+        </Active>
+      )
+      case "PAUSED": return (
+        <Active>
+          <Controls displayResumeButton />
+        </Active>
+      )
+      case "FINISHED": return <Finished navigation={navigation} />
+    }
   }
 
   return (
     <View style={styles.container}>
-      {sessionComponents[sessionStatus]}
+      {getCurrentComponent()}
     </View>
   );
 }

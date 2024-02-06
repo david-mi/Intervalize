@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     gap: 5,
     backgroundColor: "black",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   text: {
     color: "white"
@@ -16,6 +16,6 @@ export const styles = StyleSheet.create({
     fontSize: 80
   },
   medium: {
-    fontSize: 40
+    fontSize: 40,
   }
 })

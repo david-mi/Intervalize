@@ -11,7 +11,7 @@ type Props = Time<string> & {
 function Timer({ minutes, seconds, size }: Props) {
   const timerContainerStyles = {
     ...styles.container,
-    ...styles[size]
+    flex: size === "big" ? 0 : 1
   }
 
   const textStyles = {

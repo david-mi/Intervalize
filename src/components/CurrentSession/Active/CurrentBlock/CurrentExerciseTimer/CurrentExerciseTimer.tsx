@@ -1,7 +1,6 @@
 import * as React from "react"
 import { View } from "react-native"
 import Timer from "../../../Timer/Timer"
-import TextWithCustomFont from "../../../../TextWithCustomFont/TextWithCustomFont"
 import { styles } from "./currentExercise.styles"
 
 interface Props {
@@ -9,10 +8,9 @@ interface Props {
     minutes: string
     seconds: string
   }
-  currentExerciseName: string
 }
 
-function CurrentExercise({ formattedRemainingCurrentExerciseTime, currentExerciseName }: Props) {
+function CurrentExerciseTimer({ formattedRemainingCurrentExerciseTime }: Props) {
   return (
     <View style={styles.container}>
       <Timer
@@ -24,4 +22,4 @@ function CurrentExercise({ formattedRemainingCurrentExerciseTime, currentExercis
   );
 }
 
-export default CurrentExercise;
+export default CurrentExerciseTimer;

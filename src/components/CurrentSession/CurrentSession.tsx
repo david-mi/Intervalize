@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { GlobalContext } from "../../context/GlobalContext";
-import SessionTimer from "./Active/SessionTimer/SessionTimer";
-import CurrentBlock from "./Active/CurrentBlock/CurrentBlock";
-import Controls from "./Active/CurrentBlock/CurrentExercise/Controls/Controls";
-import { SessionStatus } from "../../types";
+import { TabNavParamList } from "../../types";
+import Controls from "./Active/CurrentBlock/CurrentExerciseTimer/Controls/Controls";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import Active from "./Active/Active";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { TabNavParamList } from "../../types";
 import Finished from "./Finished/Finished";
 import { styles } from "./currentSession.styles";
 
@@ -23,14 +20,6 @@ function CurrentSession({ navigation }: Props) {
       navigation.setOptions({ title: currentSession.name })
     }
   }, [currentSession])
-
-  // const sessionComponents: { [key in SessionStatus]: React.JSX.Element } = {
-  //   NOT_SELECTED: <NotSelected navigation={navigation} />,
-  //   READY_TO_START: <ReadyToStart />,
-  //   ACTIVE: <Active />,
-  //   PAUSED: <Active />,
-  //   FINISHED: <Finished navigation={navigation} />
-  // }
 
   function getCurrentComponent() {
     switch (sessionStatus) {

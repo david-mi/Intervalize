@@ -4,16 +4,14 @@ import TextWithCustomFont from "../../../../../TextWithCustomFont/TextWithCustom
 
 interface Props {
   exerciseName: string
-  exerciseIndex: number
-  currentExerciseIndex: number
 }
 
-function OtherExerciseName({ currentExerciseIndex, exerciseIndex, exerciseName }: Props) {
+function OtherExerciseName({ exerciseName }: Props) {
   return (
     <TextWithCustomFont
       style={{
         ...styles.otherExerciseName,
-        fontSize: 15 / Math.abs(currentExerciseIndex - exerciseIndex)
+        transform: [{ scale: 0.6 }]
       }}
     >
       {exerciseName}

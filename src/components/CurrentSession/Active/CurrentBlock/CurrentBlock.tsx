@@ -10,22 +10,14 @@ function CurrentBlock() {
   const {
     currentBlock,
     remainingCurrentBlockRepetitions,
-    currentExerciseName,
+    currentExercise,
     formattedRemainingCurrentExerciseTime,
-    currentExerciseIndex
   } = useBlocks()
 
   return (
     <View style={styles.container}>
-      <Repetitions
-        currentBlockRepetitions={currentBlock.repetitions}
-        remainingCurrentBlockRepetitions={remainingCurrentBlockRepetitions}
-      />
-      <ExercisesList
-        currentExerciseName={currentExerciseName}
-        currentExerciseIndex={currentExerciseIndex}
-        exercises={currentBlock.exercises}
-      />
+      <Repetitions currentBlockRepetitions={currentBlock.repetitions} remainingCurrentBlockRepetitions={remainingCurrentBlockRepetitions} />
+      <ExercisesList currentExercise={currentExercise} exercises={currentBlock.exercises} />
       <CurrentExerciseTimer formattedRemainingCurrentExerciseTime={formattedRemainingCurrentExerciseTime} />
     </View>
   );

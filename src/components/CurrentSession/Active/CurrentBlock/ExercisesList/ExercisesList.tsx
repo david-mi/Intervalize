@@ -7,11 +7,10 @@ import OtherExerciseName from "./OtherExerciseName/OtherExerciseName";
 
 interface Props {
   exercises: Exercise[]
-  currentExerciseName: string
-  currentExerciseIndex: number
+  currentExercise: Exercise
 }
 
-function ExercisesList({ currentExerciseIndex, currentExerciseName, exercises }: Props) {
+function ExercisesList({ currentExercise, exercises }: Props) {
   const flatListRef = React.useRef<FlatList>(null!)
 
   return (
@@ -20,20 +19,16 @@ function ExercisesList({ currentExerciseIndex, currentExerciseName, exercises }:
         data={exercises}
         contentContainerStyle={styles.exercisesList}
         ref={flatListRef}
-        renderItem={({ item, index }) => item.name === currentExerciseName
-          ? <CurrentExerciseName
-            currentExerciseName={currentExerciseName}
-            scrollHandler={() => {
-              setTimeout(() => {
-                flatListRef.current?.scrollToIndex({ index, viewOffset: 15 })
-              }, 150)
-            }}
-          />
-          : <OtherExerciseName
-            currentExerciseIndex={currentExerciseIndex}
-            exerciseIndex={index}
-            exerciseName={item.name}
-          />
+        renderItem={({ item, index }) => item.id === currentExercise.id
+          ? (
+            <CurrentExerciseName
+              currentExerciseName={currentExercise.name}
+              scrollHandler={() => {
+                flatListRef.current?.scrollToIndex({ index, viewOffset: 10 })
+              }}
+            />
+          )
+          : <OtherExerciseName exerciseName={item.name} />
         }
       />
     </View>

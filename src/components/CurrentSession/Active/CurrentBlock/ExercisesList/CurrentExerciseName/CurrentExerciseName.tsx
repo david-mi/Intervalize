@@ -9,7 +9,7 @@ interface Props {
 
 function CurrentExerciseName({ scrollHandler, currentExerciseName }: Props) {
   React.useEffect(() => {
-    scrollHandler()
+    setTimeout(scrollHandler, 150)
   }, [])
 
   return (

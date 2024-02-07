@@ -2,18 +2,24 @@ import { View } from "react-native";
 import TextWithCustomFont from "../../../../TextWithCustomFont/TextWithCustomFont";
 import { styles } from "./repetitions.styles";
 import { MaterialIcons } from '@expo/vector-icons'
+import * as React from "react"
+
 
 interface Props {
-  remainingCurrentBlockRepetitions: number
-  currentBlockRepetitions: number
+  blockIterationsCount: number
+  currentBlockIterations: number
 }
 
-function Repetitions({ remainingCurrentBlockRepetitions, currentBlockRepetitions }: Props) {
+function Repetitions({ blockIterationsCount, currentBlockIterations }: Props) {
+  if (currentBlockIterations === 1) {
+    return null
+  }
+
   return (
     <View style={styles.container}>
       <MaterialIcons name="loop" size={120} color="black" style={styles.icon} />
       <TextWithCustomFont style={styles.text}>
-        {remainingCurrentBlockRepetitions}/{currentBlockRepetitions}
+        {blockIterationsCount}/{currentBlockIterations}
       </TextWithCustomFont>
     </View>
   );

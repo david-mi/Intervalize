@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     lineHeight: 36
   },
   icon: {
-    margin: -30
+    margin: -30,
+    transform: [{ rotateX: "180deg" }]
   }
 })

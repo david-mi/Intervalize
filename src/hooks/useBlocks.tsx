@@ -64,6 +64,7 @@ export function useBlocks() {
   }
 
   return {
+    currentExerciseIndex,
     currentBlock,
     currentExerciseName: currentExercise.name,
     formattedRemainingCurrentExerciseTime,

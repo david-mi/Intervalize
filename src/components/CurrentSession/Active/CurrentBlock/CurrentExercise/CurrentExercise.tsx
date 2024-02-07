@@ -15,7 +15,6 @@ interface Props {
 function CurrentExercise({ formattedRemainingCurrentExerciseTime, currentExerciseName }: Props) {
   return (
     <View style={styles.container}>
-      <TextWithCustomFont fontFamily="oswald-bold" style={styles.title}>{currentExerciseName}</TextWithCustomFont>
       <Timer
         size={"big"}
         minutes={formattedRemainingCurrentExerciseTime.minutes}

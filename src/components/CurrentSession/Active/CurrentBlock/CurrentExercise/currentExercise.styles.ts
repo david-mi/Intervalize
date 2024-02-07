@@ -1,13 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {},
-  title: {
-    paddingTop: 45,
-    paddingBottom: 30,
-    fontSize: 30,
-    textAlign: "center",
-    backgroundColor: "white"
+  container: {
+    // marginTop: 30,
   },
   intensityOverlay: {
     position: "absolute",
@@ -15,6 +10,5 @@ export const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "pink"
   }
 })

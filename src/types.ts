@@ -8,6 +8,7 @@ export interface Time<T extends number | string = number> {
 }
 
 export interface Exercise {
+  id: string
   name: string
   intensityLevel: IntensityLevel
   duration: Time

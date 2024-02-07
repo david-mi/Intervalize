@@ -15,7 +15,7 @@ export interface Exercise {
 }
 
 export interface Block {
-  repetitions: number
+  iterations: number
   exercises: Exercise[]
 }
 

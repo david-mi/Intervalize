@@ -10,10 +10,10 @@ export function useSessionTimer() {
     let totalMinutes = 0
     let totalSeconds = 0
 
-    currentSessionBlocks.forEach(({ exercises, repetitions }) => {
+    currentSessionBlocks.forEach(({ exercises, iterations }) => {
       exercises.forEach(({ duration }) => {
-        totalSeconds += duration.seconds * repetitions
-        totalSeconds += duration.minutes * 60 * repetitions
+        totalSeconds += duration.seconds * iterations
+        totalSeconds += duration.minutes * 60 * iterations
       })
     })
 

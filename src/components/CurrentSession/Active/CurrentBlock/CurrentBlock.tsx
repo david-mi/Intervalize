@@ -9,14 +9,14 @@ import ExercisesList from "./ExercisesList/ExercisesList";
 function CurrentBlock() {
   const {
     currentBlock,
-    remainingCurrentBlockRepetitions,
+    blockIterationsCount,
     currentExercise,
     formattedRemainingCurrentExerciseTime,
   } = useBlocks()
 
   return (
     <View style={styles.container}>
-      <Repetitions currentBlockRepetitions={currentBlock.repetitions} remainingCurrentBlockRepetitions={remainingCurrentBlockRepetitions} />
+      <Repetitions currentBlockIterations={currentBlock.iterations} blockIterationsCount={blockIterationsCount} />
       <ExercisesList currentExercise={currentExercise} exercises={currentBlock.exercises} />
       <CurrentExerciseTimer formattedRemainingCurrentExerciseTime={formattedRemainingCurrentExerciseTime} />
     </View>

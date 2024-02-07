@@ -9,8 +9,7 @@ export function useBlocks() {
 
   const currentBlockIndexRef = React.useRef(0)
   const [currentBlock, setCurrentBlock] = React.useState(currentSessionBlocks[currentBlockIndexRef.current])
-  const [remainingCurrentBlockRepetitions, setRemainingCurrentBlockRepetitions] = React.useState(currentBlock.repetitions)
-
+  const [blockIterationsCount, setBlockIterationsCount] = React.useState(1)
   const [currentExerciseIndex, setCurrentExerciseIndex] = React.useState(0)
   const currentExercise = currentBlock.exercises[currentExerciseIndex]
   const { formattedRemainingCurrentExerciseTime, setCurrentExerciseTimer } = useExerciseTimer({
@@ -37,7 +36,7 @@ export function useBlocks() {
     currentBlockIndexRef.current += 1
     setCurrentExerciseIndex(0)
     setCurrentBlock(nextBlock)
-    setRemainingCurrentBlockRepetitions(nextBlock.repetitions)
+    setBlockIterationsCount(1)
     setCurrentExerciseTimer(nextBlock.exercises[0].duration)
   }
 
@@ -51,8 +50,8 @@ export function useBlocks() {
     const nextExercise = currentBlock.exercises[nextExerciseIndex]
 
     if (!nextExercise) {
-      if (remainingCurrentBlockRepetitions > 1) {
-        setRemainingCurrentBlockRepetitions(remainingCurrentBlockRepetitions => remainingCurrentBlockRepetitions - 1)
+      if (blockIterationsCount < currentBlock.iterations) {
+        setBlockIterationsCount(blockIterationsCount => blockIterationsCount + 1)
         restartCurrentBlock()
       } else {
         onFinishedBlockExercises()
@@ -68,6 +67,6 @@ export function useBlocks() {
     currentBlock,
     currentExercise,
     formattedRemainingCurrentExerciseTime,
-    remainingCurrentBlockRepetitions,
+    blockIterationsCount,
   }
 }

@@ -7,7 +7,7 @@ export const mockSessions: Session[] = [
     name: "Mock Session 1",
     blocks: [
       {
-        repetitions: 2,
+        iterations: 2,
         exercises: [
           {
             id: "1a25483b-02bb-4044-9d2d-731ed6b3397d",
@@ -21,7 +21,7 @@ export const mockSessions: Session[] = [
         ]
       },
       {
-        repetitions: 2,
+        iterations: 2,
         exercises: [
           {
             id: "bd8f22f5-c624-4a47-b09a-67b00b6f10fd",
@@ -53,7 +53,7 @@ export const mockSessions: Session[] = [
         ]
       },
       {
-        repetitions: 1,
+        iterations: 1,
         exercises: [
           {
             id: "7c2e35e6-0e90-499f-8d5b-14b17b3bc924",
@@ -74,7 +74,7 @@ export const mockSessions: Session[] = [
     name: "Mock Session 2",
     blocks: [
       {
-        repetitions: 1,
+        iterations: 1,
         exercises: [
           {
             id: "af186e81-7086-4eb0-8a28-9e1f71c3d6d1",
@@ -88,7 +88,7 @@ export const mockSessions: Session[] = [
         ]
       },
       {
-        repetitions: 2,
+        iterations: 2,
         exercises: [
           {
             id: "b0e1e4d7-c72a-4783-8be8-cf956f40a903",
@@ -129,7 +129,7 @@ export const mockSessions: Session[] = [
         ]
       },
       {
-        repetitions: 1,
+        iterations: 1,
         exercises: [
           {
             id: "5719515e-90e5-48c4-a7a8-34dcdcb3c72b",

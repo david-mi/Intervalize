@@ -1,23 +1,9 @@
 import * as React from "react"
 import { FlatList, View } from "react-native";
-import TextWithCustomFont from "../../../../TextWithCustomFont/TextWithCustomFont";
 import { styles } from "./exercisesList.styles";
 import { Exercise } from "../../../../../types";
-
-interface WrapperProps {
-  scrollHandler: () => void
-  currentExerciseName: string
-}
-
-function Wrapper({ scrollHandler, currentExerciseName }: WrapperProps) {
-  React.useEffect(() => {
-    setTimeout(scrollHandler, 100)
-  }, [])
-
-  return (
-    <TextWithCustomFont fontFamily="oswald-bold" style={styles.title}>{currentExerciseName}</TextWithCustomFont>
-  )
-}
+import CurrentExerciseName from "./CurrentExerciseName/CurrentExerciseName";
+import OtherExerciseName from "./OtherExerciseName/OtherExerciseName";
 
 interface Props {
   exercises: Exercise[]
@@ -34,23 +20,21 @@ function ExercisesList({ currentExerciseIndex, currentExerciseName, exercises }:
         data={exercises}
         contentContainerStyle={styles.exercisesList}
         ref={flatListRef}
-        renderItem={({ item, index }) => {
-          return item.name === currentExerciseName
-            ? <Wrapper
-              currentExerciseName={currentExerciseName}
-              scrollHandler={() => {
-                flatListRef.current?.scrollToIndex({ index, viewOffset: 15, animated: true })
-              }}
-            />
-            : <TextWithCustomFont
-              style={{
-                ...styles.notCurrentExercise,
-                fontSize: 15 / Math.abs(currentExerciseIndex - index)
-              }}
-            >
-              {item.name}
-            </TextWithCustomFont>
-        }}
+        renderItem={({ item, index }) => item.name === currentExerciseName
+          ? <CurrentExerciseName
+            currentExerciseName={currentExerciseName}
+            scrollHandler={() => {
+              setTimeout(() => {
+                flatListRef.current?.scrollToIndex({ index, viewOffset: 15 })
+              }, 150)
+            }}
+          />
+          : <OtherExerciseName
+            currentExerciseIndex={currentExerciseIndex}
+            exerciseIndex={index}
+            exerciseName={item.name}
+          />
+        }
       />
     </View>
   );

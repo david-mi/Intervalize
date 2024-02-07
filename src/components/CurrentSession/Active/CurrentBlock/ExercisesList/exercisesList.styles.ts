@@ -10,14 +10,5 @@ export const styles = StyleSheet.create({
     paddingTop: 45,
     paddingBottom: 15,
     height: 145,
-  },
-  notCurrentExercise: {
-    textAlign: "center",
-    color: "grey",
-    alignItems: "center"
-  },
-  title: {
-    fontSize: 25,
-    textAlign: "center",
-  },
+  }
 })

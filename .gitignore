@@ -36,3 +36,6 @@ yarn-error.*
 
 # Local builds
 local_builds/
+
+# Reminder
+reminder.md

@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import TextWithCustomFont from "../../../../TextWithCustomFont/TextWithCustomFont";
-import { styles } from "./repetitions.styles";
+import { styles } from "./iterations.styles";
 import { MaterialIcons } from '@expo/vector-icons'
 import * as React from "react"
 
@@ -10,7 +10,7 @@ interface Props {
   currentBlockIterations: number
 }
 
-function Repetitions({ blockIterationsCount, currentBlockIterations }: Props) {
+function Iterations({ blockIterationsCount, currentBlockIterations }: Props) {
   if (currentBlockIterations === 1) {
     return null
   }
@@ -25,4 +25,4 @@ function Repetitions({ blockIterationsCount, currentBlockIterations }: Props) {
   );
 }
 
-export default Repetitions;
+export default Iterations;

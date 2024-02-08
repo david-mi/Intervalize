@@ -14,7 +14,7 @@ function ExercisesList({ currentExercise, exercises }: Props) {
   const flatListRef = React.useRef<FlatList>(null!)
 
   return (
-    <View style={styles.exercisesListContainer}>
+    <View pointerEvents={"none"} style={styles.exercisesListContainer}>
       <FlatList
         data={exercises}
         contentContainerStyle={styles.exercisesList}

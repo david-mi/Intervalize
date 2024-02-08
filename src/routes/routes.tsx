@@ -1,33 +1,28 @@
 import * as React from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialIcons } from '@expo/vector-icons';
-import CurrentSession from "../components/CurrentSession/CurrentSession";
-import MySessions from "../components/MySessions/MySessions";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Settings from "../screens/UserSettings/UserSettings";
+import type { RootStackParamList } from "../types";
+import Home from "../screens/Home/Home";
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
-          name={"Session en cours"}
-          component={CurrentSession}
+      <Stack.Navigator screenOptions={{ animation: "slide_from_left" }}>
+        <Stack.Screen
+          name="Home"
+          component={Home}
           options={{
-            tabBarLabel: "Session en cours",
-            tabBarIcon: () => <MaterialIcons name="directions-run" size={24} color="black" />
+            headerShown: false
           }}
         />
-        <Tab.Screen
-          name="Mes sessions"
-          component={MySessions}
-          options={{
-            tabBarLabel: "Mes sessions",
-            tabBarIcon: () => <MaterialIcons name="format-list-bulleted" size={24} color="black" />
-          }}
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
         />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

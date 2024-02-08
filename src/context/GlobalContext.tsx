@@ -1,6 +1,8 @@
 import * as React from "react"
 import { SessionStatus, Session, IntensityLevel } from "../types";
 import { mockSessions } from "../mocks";
+import { UserSettings } from "../types";
+import { defaultUserSettings } from "../data/defaultUserSettings";
 
 interface GlobalContextType {
   sessionStatus: SessionStatus,
@@ -11,6 +13,8 @@ interface GlobalContextType {
   setCurrentSession: React.Dispatch<React.SetStateAction<Session | null>>
   currentExerciseIntensityLevel: null | IntensityLevel
   setCurrentExerciseIntensityLevel: React.Dispatch<React.SetStateAction<null | IntensityLevel>>
+  userSettings: UserSettings
+  setUserSettings: React.Dispatch<React.SetStateAction<UserSettings>>
 }
 
 export const GlobalContext = React.createContext<GlobalContextType>({
@@ -21,7 +25,9 @@ export const GlobalContext = React.createContext<GlobalContextType>({
   currentSession: null,
   setCurrentSession: () => { },
   currentExerciseIntensityLevel: null,
-  setCurrentExerciseIntensityLevel: () => { }
+  setCurrentExerciseIntensityLevel: () => { },
+  userSettings: defaultUserSettings,
+  setUserSettings: () => { }
 })
 
 interface Props {
@@ -33,6 +39,7 @@ const GlobalContextProvider = ({ children }: Props) => {
   const [sessions, setSessions] = React.useState<Session[]>(mockSessions)
   const [currentSession, setCurrentSession] = React.useState<Session | null>(null)
   const [currentExerciseIntensityLevel, setCurrentExerciseIntensityLevel] = React.useState<null | IntensityLevel>(null)
+  const [userSettings, setUserSettings] = React.useState<UserSettings>(defaultUserSettings)
 
   return (
     <GlobalContext.Provider value={{
@@ -43,7 +50,9 @@ const GlobalContextProvider = ({ children }: Props) => {
       currentSession,
       setCurrentSession,
       currentExerciseIntensityLevel,
-      setCurrentExerciseIntensityLevel
+      setCurrentExerciseIntensityLevel,
+      userSettings,
+      setUserSettings
     }}>
       {children}
     </GlobalContext.Provider>

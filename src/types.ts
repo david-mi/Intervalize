@@ -31,6 +31,11 @@ export type TabNavParamList = {
   "Session en cours": undefined
 };
 
+export type RootStackParamList = {
+  Home: undefined
+  Settings: undefined
+};
+
 export enum CustomFontsList {
   CLOCKICONS = "clockicons",
   OSWALD_LIGHT = "oswald-light",
@@ -40,3 +45,7 @@ export enum CustomFontsList {
 }
 
 export type CustomFont = `${CustomFontsList}`
+
+export interface UserSettings {
+  vibrationsEnabled: boolean
+}

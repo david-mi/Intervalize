@@ -1,10 +1,10 @@
 import * as React from "react"
-import { GlobalContext } from "../../../context/GlobalContext";
+import { GlobalContext } from "@/context/GlobalContext";
 import { View } from "react-native";
 import { TabActions } from '@react-navigation/native';
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { TabNavParamList } from "@/types";
-import CustomButton from "../../CustomButton/CustomButton";
+import CustomButton from "@/components/CustomButton/CustomButton";
 import { styles } from "./finished.styles";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 

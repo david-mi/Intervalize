@@ -1,7 +1,7 @@
 import * as React from "react"
 import { View } from "react-native"
 import { useSessionTimer } from "@/hooks/useSessionTimer"
-import Timer from "../../Timer/Timer"
+import Timer from "@/components/Timer/Timer"
 import { styles } from "./sessionTimer.styles"
 
 function SessionTimer() {
@@ -10,7 +10,6 @@ function SessionTimer() {
   return (
     <View style={styles.container}>
       <Timer
-
         size={"medium"}
         minutes={remainingMinutes}
         seconds={remainingSeconds}

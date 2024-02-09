@@ -2,6 +2,7 @@ import * as React from "react"
 import type { UserSettings } from "../types"
 import { useContext } from "react"
 import { GlobalContext } from "@/context/GlobalContext"
+import { storageService } from "@/services/Storage/Storage";
 
 export type UseUserSettingsReturnType = UserSettings & {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
@@ -21,14 +22,11 @@ export function useUserSettings(): UseUserSettingsReturnType {
       }
 
       setUserSettings(newSettings)
-      await updateStorageUserSettings(newSettings)
+      await storageService.setData("userSettings", newSettings)
     }
     catch (error) {
       setUpdateError((error as Error) || new Error("Une erreur est survenue"))
     }
-  }, [])
-
-  const updateStorageUserSettings = React.useCallback(async (newUserSettings: UserSettings) => {
   }, [])
 
   return {

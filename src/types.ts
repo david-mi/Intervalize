@@ -49,3 +49,7 @@ export type CustomFont = `${CustomFontsList}`
 export interface UserSettings {
   vibrationsEnabled: boolean
 }
+
+export interface AsyncStorageType {
+  userSettings: UserSettings
+}

@@ -2,6 +2,7 @@ import * as React from "react"
 import { SessionStatus, Session, IntensityLevel, UserSettings } from "@/types";
 import { mockSessions } from "@/mocks";
 import { defaultUserSettings } from "../data/defaultUserSettings";
+import { storageService } from "@/services/Storage/Storage";
 
 interface GlobalContextType {
   sessionStatus: SessionStatus,
@@ -39,6 +40,23 @@ const GlobalContextProvider = ({ children }: Props) => {
   const [currentSession, setCurrentSession] = React.useState<Session | null>(null)
   const [currentExerciseIntensityLevel, setCurrentExerciseIntensityLevel] = React.useState<null | IntensityLevel>(null)
   const [userSettings, setUserSettings] = React.useState<UserSettings>(defaultUserSettings)
+
+  React.useEffect(() => {
+    async function loadUserSettings() {
+      try {
+        const userSettingsFromStorage = await storageService.getData("userSettings")
+        if (userSettings === null) {
+          await storageService.setData("userSettings", defaultUserSettings)
+        }
+        setUserSettings(userSettingsFromStorage)
+      }
+      catch (error) {
+        console.error(error)
+      }
+    }
+
+    loadUserSettings()
+  }, [])
 
   return (
     <GlobalContext.Provider value={{

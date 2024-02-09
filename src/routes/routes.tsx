@@ -21,6 +21,9 @@ export default function Routes() {
         <Stack.Screen
           name="Settings"
           component={Settings}
+          options={{
+            headerShown: false
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

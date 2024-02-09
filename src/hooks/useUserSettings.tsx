@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { GlobalContext } from "@/context/GlobalContext"
 import { storageService } from "@/services/Storage/Storage";
 
-export type UseUserSettingsReturnType = UserSettings & {
+export type UseUserSettingsReturnType = {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
   updateError: Error | null
   setUpdateError: React.Dispatch<React.SetStateAction<Error>>
@@ -32,7 +32,6 @@ export function useUserSettings(): UseUserSettingsReturnType {
   return {
     updateUserSettings,
     updateError,
-    setUpdateError,
-    ...userSettings
+    setUpdateError
   }
 }

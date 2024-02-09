@@ -36,6 +36,12 @@ export type RootStackParamList = {
   Settings: undefined
 };
 
+export type UserSettingsParamList = {
+  List: undefined
+  Vibrations: undefined
+};
+
+
 export enum CustomFontsList {
   CLOCKICONS = "clockicons",
   OSWALD_LIGHT = "oswald-light",

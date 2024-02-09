@@ -1,8 +1,7 @@
 import { View, Text } from "react-native";
-import { Time } from "../../../types";
-import TextWithCustomFont from "../../TextWithCustomFont/TextWithCustomFont";
+import { Time } from "@/types";
+import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
 import { styles } from "./timer.styles";
-import { ComponentProps } from "react";
 
 type Props = Time<string> & {
   size: "medium" | "big"

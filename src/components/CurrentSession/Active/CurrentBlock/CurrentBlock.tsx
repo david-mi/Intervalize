@@ -1,6 +1,6 @@
 import * as React from "react"
 import { View } from "react-native"
-import { useBlocks } from "../../../../hooks/useBlocks";
+import { useBlocks } from "@/hooks/useBlocks";
 import CurrentExerciseTimer from "./CurrentExerciseTimer/CurrentExerciseTimer";
 import Iterations from "./Iterations/Iterations";
 import { styles } from "./currentBlock.styles";

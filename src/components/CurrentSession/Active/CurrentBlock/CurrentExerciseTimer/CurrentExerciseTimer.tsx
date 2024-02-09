@@ -1,6 +1,6 @@
 import * as React from "react"
 import { View } from "react-native"
-import Timer from "../../../Timer/Timer"
+import Timer from "@/components/CurrentSession/Timer/Timer"
 import { styles } from "./currentExercise.styles"
 
 interface Props {

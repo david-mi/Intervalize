@@ -2,9 +2,9 @@ import SessionTimer from "./SessionTimer/SessionTimer";
 import CurrentBlock from "./CurrentBlock/CurrentBlock";
 import { View } from "react-native";
 import { styles } from "./active.styles";
-import { GlobalContext } from "../../../context/GlobalContext";
+import { GlobalContext } from "@/context/GlobalContext";
 import { useContext } from "react";
-import { IntensityLevel } from "../../../types";
+import { IntensityLevel } from "@/types";
 
 interface Props {
   children: JSX.Element

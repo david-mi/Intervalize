@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GlobalContext } from "../context/GlobalContext"
+import { GlobalContext } from "@/context/GlobalContext"
 import { useExerciseTimer } from "./useExercisesTimer"
 import { Block } from "../types"
 

@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { TabNavParamList, RootStackParamList } from "../../types";
-import CurrentSession from "../../components/CurrentSession/CurrentSession";
+import { TabNavParamList, RootStackParamList } from "@/types";
+import CurrentSession from "@/components/CurrentSession/CurrentSession";
 import OpenUserSettingsButton from "./OpenUserSettingsButton/OpenUserSettingsButton";
-import MySessions from "../../components/MySessions/MySessions";
+import MySessions from "@/components/MySessions/MySessions";
 import { MaterialIcons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as React from "react"

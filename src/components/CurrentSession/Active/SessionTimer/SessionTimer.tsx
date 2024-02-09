@@ -1,6 +1,6 @@
 import * as React from "react"
 import { View } from "react-native"
-import { useSessionTimer } from "../../../../hooks/useSessionTimer"
+import { useSessionTimer } from "@/hooks/useSessionTimer"
 import Timer from "../../Timer/Timer"
 import { styles } from "./sessionTimer.styles"
 

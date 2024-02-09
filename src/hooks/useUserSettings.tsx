@@ -1,7 +1,7 @@
 import * as React from "react"
 import type { UserSettings } from "../types"
 import { useContext } from "react"
-import { GlobalContext } from "../context/GlobalContext"
+import { GlobalContext } from "@/context/GlobalContext"
 
 export interface UseUserSettingsReturnType {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>

@@ -1,8 +1,7 @@
-import { Pressable, View, Text } from "react-native";
+import { Pressable, Text } from "react-native";
 import { ComponentProps } from "react";
 import { styles } from "./customButton.styles";
 import { MaterialIcons } from '@expo/vector-icons';
-
 
 type Props = ComponentProps<typeof Pressable> & {
   title: string

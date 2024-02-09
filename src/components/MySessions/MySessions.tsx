@@ -1,10 +1,10 @@
 import * as React from "react"
 import { View, FlatList, Alert } from "react-native";
-import { GlobalContext } from "../../context/GlobalContext";
+import { GlobalContext } from "@/context/GlobalContext";
 import { TabActions } from '@react-navigation/native';
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { Session, TabNavParamList } from "../../types";
-import CustomButton from "../CustomButton/CustomButton";
+import { Session, TabNavParamList } from "@/types";
+import CustomButton from "@/components/CustomButton/CustomButton";
 import { styles } from "./mySessions.styles";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Mes sessions">

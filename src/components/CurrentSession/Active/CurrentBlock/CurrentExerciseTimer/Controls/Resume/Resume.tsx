@@ -1,6 +1,6 @@
 import { Pressable } from "react-native";
 import { useContext } from "react";
-import { GlobalContext } from "../../../../../../../context/GlobalContext";
+import { GlobalContext } from "@/context/GlobalContext";
 import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from "../controls.styles"
 

@@ -1,7 +1,6 @@
 import * as React from "react"
-import { SessionStatus, Session, IntensityLevel } from "../types";
-import { mockSessions } from "../mocks";
-import { UserSettings } from "../types";
+import { SessionStatus, Session, IntensityLevel, UserSettings } from "@/types";
+import { mockSessions } from "@/mocks";
 import { defaultUserSettings } from "../data/defaultUserSettings";
 
 interface GlobalContextType {

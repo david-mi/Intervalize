@@ -1,9 +1,9 @@
 import { Vibration, View } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { CustomFontsList } from "../../../types";
+import { CustomFontsList } from "@/types";
 import * as React from "react"
-import { GlobalContext } from "../../../context/GlobalContext";
-import type { UseUserSettingsReturnType } from "../../../hooks/useUserSettings";
+import { GlobalContext } from "@/context/GlobalContext";
+import type { UseUserSettingsReturnType } from "@/hooks/useUserSettings";
 
 interface Props {
   updateUserSettings: UseUserSettingsReturnType["updateUserSettings"]

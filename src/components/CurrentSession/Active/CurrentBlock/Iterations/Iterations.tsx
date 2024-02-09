@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import TextWithCustomFont from "../../../../TextWithCustomFont/TextWithCustomFont";
+import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
 import { styles } from "./iterations.styles";
 import { MaterialIcons } from '@expo/vector-icons'
 import * as React from "react"

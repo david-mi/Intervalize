@@ -1,10 +1,10 @@
-import { View, Text, Button } from "react-native";
+import { View } from "react-native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { TabActions } from '@react-navigation/native';
-import { TabNavParamList } from "../../../types";
-import CustomButton from "../../CustomButton/CustomButton";
-import TextWithCustomFont from "../../TextWithCustomFont/TextWithCustomFont";
-import TitleWithCustomFont from "../../TitleWithCustomFont/TitleWithCustomFont";
+import { TabNavParamList } from "@/types";
+import CustomButton from "@/components/CustomButton/CustomButton";
+import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
+import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 import { styles } from "./notSelected.styles";
 
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Session en cours">, "navigation">

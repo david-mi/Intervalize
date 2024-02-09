@@ -1,6 +1,6 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Pressable } from "react-native";
-import { RootStackParamList } from "../../../types";
+import { RootStackParamList } from "@/types";
 import { MaterialIcons } from '@expo/vector-icons';
 import * as React from "react"
 import { styles } from "./openUserSettingsButton.styles"

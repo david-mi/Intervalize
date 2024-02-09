@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { styles } from "./userSettings.styles";
 import { SectionList } from "react-native";
 import Vibrations from "./Vibrations/Vibrations";
-import { useUserSettings } from "../../hooks/useUserSettings";
+import { useUserSettings } from "@/hooks/useUserSettings";
 
 function UserSettings() {
   const { updateUserSettings, errorMessage } = useUserSettings()

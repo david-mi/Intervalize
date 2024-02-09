@@ -1,7 +1,7 @@
 import * as React from "react"
 import { FlatList, View } from "react-native";
 import { styles } from "./exercisesList.styles";
-import { Exercise } from "../../../../../types";
+import type { Exercise } from "@/types";
 import CurrentExerciseName from "./CurrentExerciseName/CurrentExerciseName";
 import OtherExerciseName from "./OtherExerciseName/OtherExerciseName";
 

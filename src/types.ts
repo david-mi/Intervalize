@@ -27,8 +27,8 @@ export interface Session {
 }
 
 export type TabNavParamList = {
-  "Mes sessions": undefined
-  "Session en cours": undefined
+  "Mes séances": undefined
+  "Séance en cours": undefined
 };
 
 export type RootStackParamList = {

@@ -8,7 +8,7 @@ import CustomButton from "@/components/CustomButton/CustomButton";
 import { styles } from "./finished.styles";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 
-type Props = Pick<BottomTabScreenProps<TabNavParamList, "Session en cours">, "navigation">
+type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
 
 function Finished({ navigation }: Props) {
   const { setSessionStatus } = React.useContext(GlobalContext)
@@ -18,7 +18,7 @@ function Finished({ navigation }: Props) {
   }
 
   function redirectToMySessions() {
-    const jumpToAction = TabActions.jumpTo("Mes sessions");
+    const jumpToAction = TabActions.jumpTo("Mes séances");
     navigation.dispatch(jumpToAction);
   }
 
@@ -35,7 +35,7 @@ function Finished({ navigation }: Props) {
         />
         <CustomButton
           icon={{ name: "format-list-bulleted" }}
-          title="Mes sessions"
+          title="Mes séances"
           onPress={redirectToMySessions}
         />
       </View>

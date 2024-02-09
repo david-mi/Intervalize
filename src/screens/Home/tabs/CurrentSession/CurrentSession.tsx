@@ -10,7 +10,7 @@ import Active from "./Active/Active";
 import Finished from "./Finished/Finished";
 import { styles } from "./currentSession.styles";
 
-type Props = BottomTabScreenProps<TabNavParamList, "Session en cours">
+type Props = BottomTabScreenProps<TabNavParamList, "Séance en cours">
 
 function CurrentSession({ navigation }: Props) {
   const { sessionStatus, currentSession } = React.useContext(GlobalContext)

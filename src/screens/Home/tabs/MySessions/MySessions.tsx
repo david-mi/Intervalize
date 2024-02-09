@@ -7,7 +7,7 @@ import { Session, TabNavParamList } from "@/types";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import { styles } from "./mySessions.styles";
 
-type Props = BottomTabScreenProps<TabNavParamList, "Mes sessions">
+type Props = BottomTabScreenProps<TabNavParamList, "Mes séances">
 
 function MySessions({ navigation }: Props) {
   const {
@@ -21,7 +21,7 @@ function MySessions({ navigation }: Props) {
   function startNewSession(session: Session) {
     setCurrentSession(session)
     setSessionStatus("READY_TO_START")
-    const jumpToAction = TabActions.jumpTo("Session en cours");
+    const jumpToAction = TabActions.jumpTo("Séance en cours");
     navigation.dispatch(jumpToAction);
   }
 
@@ -29,7 +29,7 @@ function MySessions({ navigation }: Props) {
     const foundSession = sessions.find(session => session.id === sessionId)!
 
     if (foundSession.id === undefined) {
-      return Alert.alert("Session non trouvée")
+      return Alert.alert("Séance non trouvée")
     }
 
     const haveAnActiveSession = (

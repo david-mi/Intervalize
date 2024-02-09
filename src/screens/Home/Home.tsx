@@ -15,20 +15,20 @@ function Home({ navigation }: Props) {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name={"Session en cours"}
+        name={"Séance en cours"}
         component={CurrentSession}
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
-          tabBarLabel: "Session en cours",
+          tabBarLabel: "Séance en cours",
           tabBarIcon: () => <MaterialIcons name="directions-run" size={24} color="black" />,
         }}
       />
       <Tab.Screen
-        name="Mes sessions"
+        name="Mes séances"
         component={MySessions}
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
-          tabBarLabel: "Mes sessions",
+          tabBarLabel: "Mes séances",
           tabBarIcon: () => <MaterialIcons name="format-list-bulleted" size={24} color="black" />
         }}
       />

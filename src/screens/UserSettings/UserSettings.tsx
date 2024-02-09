@@ -5,7 +5,11 @@ import Vibrations from "./Vibrations/Vibrations";
 import { useUserSettings } from "@/hooks/useUserSettings";
 
 function UserSettings() {
-  const { updateUserSettings, errorMessage } = useUserSettings()
+  const {
+    updateUserSettings,
+    updateError,
+    vibrationsEnabled
+  } = useUserSettings()
 
   const sections = [
     {
@@ -15,11 +19,16 @@ function UserSettings() {
   ]
 
   const userSettingsComponents = {
-    "vibrations": <Vibrations updateUserSettings={updateUserSettings} />
+    "vibrations": (
+      <Vibrations
+        updateUserSettings={updateUserSettings}
+        vibrationsEnabled={vibrationsEnabled}
+      />
+    )
   }
 
-  if (errorMessage) {
-    console.log(errorMessage)
+  if (updateError) {
+    console.log(updateError)
   }
 
   return (

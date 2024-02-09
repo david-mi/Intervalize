@@ -3,14 +3,14 @@ import type { UserSettings } from "../types"
 import { useContext } from "react"
 import { GlobalContext } from "@/context/GlobalContext"
 
-export interface UseUserSettingsReturnType {
+export type UseUserSettingsReturnType = UserSettings & {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
-  errorMessage: string | null
+  updateError: Error | null
 }
 
 export function useUserSettings(): UseUserSettingsReturnType {
   const { userSettings, setUserSettings } = useContext(GlobalContext)
-  const [errorMessage, setErrorMessage] = React.useState<string | null>(null)
+  const [updateError, setUpdateError] = React.useState<Error | null>(null)
 
   const updateUserSettings = React.useCallback(async <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => {
     try {
@@ -23,12 +23,16 @@ export function useUserSettings(): UseUserSettingsReturnType {
       await updateStorageUserSettings(newSettings)
     }
     catch (error) {
-      setErrorMessage((error as Error)?.message || "Une erreur est survenue")
+      setUpdateError((error as Error) || new Error("Une erreur est survenue"))
     }
   }, [])
 
   const updateStorageUserSettings = React.useCallback(async (newUserSettings: UserSettings) => {
   }, [])
 
-  return { updateUserSettings, errorMessage }
+  return {
+    updateUserSettings,
+    updateError,
+    ...userSettings
+  }
 }

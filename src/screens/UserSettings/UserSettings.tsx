@@ -2,8 +2,11 @@ import { View, Text } from "react-native";
 import { styles } from "./userSettings.styles";
 import { SectionList } from "react-native";
 import Vibrations from "./Vibrations/Vibrations";
+import { useUserSettings } from "../../hooks/useUserSettings";
 
 function UserSettings() {
+  const { updateUserSettings, errorMessage } = useUserSettings()
+
   const sections = [
     {
       title: "Vibrations",
@@ -12,7 +15,11 @@ function UserSettings() {
   ]
 
   const userSettingsComponents = {
-    "vibrations": <Vibrations />
+    "vibrations": <Vibrations updateUserSettings={updateUserSettings} />
+  }
+
+  if (errorMessage) {
+    console.log(errorMessage)
   }
 
   return (

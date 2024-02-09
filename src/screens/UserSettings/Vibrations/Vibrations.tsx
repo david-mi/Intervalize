@@ -3,16 +3,14 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { CustomFontsList } from "../../../types";
 import * as React from "react"
 import { GlobalContext } from "../../../context/GlobalContext";
+import type { UseUserSettingsReturnType } from "../../../hooks/useUserSettings";
 
-function Vibrations() {
-  const { userSettings, setUserSettings } = React.useContext(GlobalContext)
+interface Props {
+  updateUserSettings: UseUserSettingsReturnType["updateUserSettings"]
+}
 
-  function setVibrationsSettings(enabled: boolean) {
-    setUserSettings((settings) => ({
-      ...settings,
-      vibrationsEnabled: enabled
-    }))
-  }
+function Vibrations({ updateUserSettings }: Props) {
+  const { userSettings } = React.useContext(GlobalContext)
 
   function onPress(checked: boolean) {
     const vibrationPattern = [0, 400, 80, 400]
@@ -21,7 +19,7 @@ function Vibrations() {
       Vibration.vibrate(vibrationPattern)
     }
 
-    setVibrationsSettings(checked)
+    updateUserSettings("vibrationsEnabled", checked)
   }
 
   return (

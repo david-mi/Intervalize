@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import { styles } from "./userSettings.styles";
-import { SectionList } from "react-native";
+import { SectionList, Alert } from "react-native";
 import Vibrations from "./Vibrations/Vibrations";
 import { useUserSettings } from "@/hooks/useUserSettings";
 
@@ -8,6 +8,7 @@ function UserSettings() {
   const {
     updateUserSettings,
     updateError,
+    setUpdateError,
     vibrationsEnabled
   } = useUserSettings()
 
@@ -28,7 +29,18 @@ function UserSettings() {
   }
 
   if (updateError) {
-    console.log(updateError)
+    Alert.alert(
+      "Erreur",
+      updateError.message,
+      [{
+        text: "Ok",
+        onPress: () => setUpdateError(null),
+      },],
+      {
+        cancelable: true,
+        onDismiss: () => setUpdateError(null)
+      }
+    );
   }
 
   return (

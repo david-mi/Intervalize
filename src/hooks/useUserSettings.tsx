@@ -6,6 +6,7 @@ import { GlobalContext } from "@/context/GlobalContext"
 export type UseUserSettingsReturnType = UserSettings & {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
   updateError: Error | null
+  setUpdateError: React.Dispatch<React.SetStateAction<Error>>
 }
 
 export function useUserSettings(): UseUserSettingsReturnType {
@@ -33,6 +34,7 @@ export function useUserSettings(): UseUserSettingsReturnType {
   return {
     updateUserSettings,
     updateError,
+    setUpdateError,
     ...userSettings
   }
 }

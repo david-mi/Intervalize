@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { styles } from "./titleWithCustomFont.styles";
 
 type Props = ComponentProps<typeof Text> & {

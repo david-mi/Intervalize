@@ -1,7 +1,7 @@
 import * as React from "react"
 import { GlobalContext } from "@/context/GlobalContext"
 import { useExerciseTimer } from "./useExercisesTimer"
-import { Block } from "../types"
+import type { Block } from "@/types"
 
 export function useBlocks() {
   const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel } = React.useContext(GlobalContext)

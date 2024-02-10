@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { styles } from "./active.styles";
 import { GlobalContext } from "@/context/GlobalContext";
 import { useContext } from "react";
-import { IntensityLevel } from "@/types";
+import type { IntensityLevel } from "@/types";
 
 interface Props {
   children: JSX.Element

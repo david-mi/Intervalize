@@ -1,5 +1,5 @@
 import { Pressable, Text } from "react-native";
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { styles } from "./customButton.styles";
 import { MaterialIcons } from '@expo/vector-icons';
 

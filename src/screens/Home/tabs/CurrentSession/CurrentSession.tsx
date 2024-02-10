@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
+import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { GlobalContext } from "@/context/GlobalContext";
-import { TabNavParamList } from "@/types";
+import type { TabNavParamList } from "@/types";
 import Controls from "./Active/CurrentBlock/CurrentExerciseTimer/Controls/Controls";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";

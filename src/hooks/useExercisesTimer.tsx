@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Time } from "@/types"
+import type { Time } from "@/types"
 import { GlobalContext } from "../context/GlobalContext"
 
 interface Props {

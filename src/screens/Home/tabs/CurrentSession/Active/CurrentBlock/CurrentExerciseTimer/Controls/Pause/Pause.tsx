@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from "../controls.styles"
 
 function Pause() {
-  const { setSessionStatus, setCurrentSession } = useContext(GlobalContext)
+  const { setSessionStatus } = useContext(GlobalContext)
 
   function handlePause() {
     setSessionStatus("PAUSED")

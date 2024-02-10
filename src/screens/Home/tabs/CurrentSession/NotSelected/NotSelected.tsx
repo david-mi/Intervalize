@@ -1,7 +1,7 @@
 import { View } from "react-native";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { TabActions } from '@react-navigation/native';
-import { TabNavParamList } from "@/types";
+import type { TabNavParamList } from "@/types";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";

@@ -11,7 +11,7 @@ function CurrentBlock() {
     currentBlock,
     blockIterationsCount,
     currentExercise,
-    formattedRemainingCurrentExerciseTime,
+    formattedRemainingCurrentExerciseTime
   } = useBlocks()
 
   return (

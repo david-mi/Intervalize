@@ -2,6 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "target": "ESNext",
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
     "paths": {
       "@/*": [
         "src/*"

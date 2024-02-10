@@ -41,7 +41,6 @@ export type UserSettingsParamList = {
   Vibrations: undefined
 };
 
-
 export enum CustomFontsList {
   CLOCKICONS = "clockicons",
   OSWALD_LIGHT = "oswald-light",
@@ -53,7 +52,8 @@ export enum CustomFontsList {
 export type CustomFont = `${CustomFontsList}`
 
 export interface UserSettings {
-  vibrationsEnabled: boolean
+  vibrationsEnabled: boolean,
+  vibrationPattern: number[]
 }
 
 export interface AsyncStorageType {

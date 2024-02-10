@@ -7,7 +7,7 @@ import { storageService } from "@/services/Storage/Storage";
 export type UseUserSettingsReturnType = {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
   updateError: Error | null
-  setUpdateError: React.Dispatch<React.SetStateAction<Error>>
+  setUpdateError: React.Dispatch<React.SetStateAction<Error | null>>
 }
 
 export function useUserSettings(): UseUserSettingsReturnType {

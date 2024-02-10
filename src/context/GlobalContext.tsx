@@ -1,5 +1,5 @@
 import * as React from "react"
-import { SessionStatus, Session, IntensityLevel, UserSettings } from "@/types";
+import type { SessionStatus, Session, IntensityLevel, UserSettings } from "@/types";
 import { mockSessions } from "@/mocks";
 import { defaultUserSettings } from "../data/defaultUserSettings";
 import { storageService } from "@/services/Storage/Storage";
@@ -44,11 +44,13 @@ const GlobalContextProvider = ({ children }: Props) => {
   React.useEffect(() => {
     async function loadUserSettings() {
       try {
-        const userSettingsFromStorage = await storageService.getData("userSettings")
-        if (userSettings === null) {
+        let userSettingsFromStorage = await storageService.getData("userSettings")
+        if (userSettingsFromStorage === null) {
           await storageService.setData("userSettings", defaultUserSettings)
+        } else {
+          const completeUserSettings = await storageService.handleMissingProperties("userSettings", userSettingsFromStorage)
+          setUserSettings(completeUserSettings)
         }
-        setUserSettings(userSettingsFromStorage)
       }
       catch (error) {
         console.error(error)

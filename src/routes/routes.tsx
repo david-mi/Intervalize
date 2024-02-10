@@ -3,14 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "@/types";
 import Home from "@/screens/Home/Home";
-import Settings from "@/screens/UserSettings/UserSettings";
+import UserSettingsRoutes from "./userSettingsRoutes";
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ animation: "slide_from_left" }}>
+      <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
         <Stack.Screen
           name="Home"
           component={Home}
@@ -20,7 +20,7 @@ export default function Routes() {
         />
         <Stack.Screen
           name="Settings"
-          component={Settings}
+          component={UserSettingsRoutes}
           options={{
             headerShown: false
           }}

@@ -17,8 +17,9 @@ function UserSettingsList({ navigation }: Props) {
           style={styles.button}
           onPress={() => navigation.navigate("Vibrations")}
         >
+          <MaterialIcons name="vibration" style={styles.themeIcon} />
           <Text style={styles.text}>Vibrations</Text>
-          <MaterialIcons name="chevron-right" style={styles.icon} />
+          <MaterialIcons name="chevron-right" style={styles.arrowIcon} />
         </Pressable>
       )}
     />

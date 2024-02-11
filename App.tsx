@@ -1,11 +1,17 @@
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
 import { View } from "react-native";
+
+import { styles } from "./app.styles";
 import GlobalContextProvider from "./src/context/GlobalContext";
 import Routes from "./src/routes/routes";
-import 'expo-dev-client';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import { useCallback } from "react";
-import { styles } from "./app.styles";
+
+import "expo-dev-client";
+
+if (__DEV__) {
+  import("./ReactotronConfig").then(() => console.log("Reactotron Configured"));
+}
 
 SplashScreen.preventAutoHideAsync();
 
@@ -15,7 +21,7 @@ export default function App() {
     "oswald-light": require("./assets/fonts/Oswald-Light.ttf"),
     "oswald-regular": require("./assets/fonts/Oswald-Regular.ttf"),
     "oswald-medium": require("./assets/fonts/Oswald-Medium.ttf"),
-    "oswald-bold": require("./assets/fonts/Oswald-Bold.ttf")
+    "oswald-bold": require("./assets/fonts/Oswald-Bold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {

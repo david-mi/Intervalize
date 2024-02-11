@@ -10,6 +10,7 @@
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
+    "module": "ESNext",
     "paths": {
       "@/*": [
         "src/*"
@@ -19,6 +20,8 @@
   "extends": "expo/tsconfig.base",
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "ReactotronConfig.ts",
+    "ReactotronConfig.js"
   ]
 }

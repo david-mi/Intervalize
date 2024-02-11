@@ -1,8 +1,10 @@
 import * as React from "react"
-import type { SessionStatus, Session, IntensityLevel, UserSettings } from "@/types";
-import { mockSessions } from "@/mocks";
+
 import { defaultUserSettings } from "../data/defaultUserSettings";
+
+import { mockSessions } from "@/mocks";
 import { storageService } from "@/services/Storage/Storage";
+import type { SessionStatus, Session, IntensityLevel, UserSettings } from "@/types";
 
 interface GlobalContextType {
   sessionStatus: SessionStatus,
@@ -27,7 +29,7 @@ export const GlobalContext = React.createContext<GlobalContextType>({
   currentExerciseIntensityLevel: null,
   setCurrentExerciseIntensityLevel: () => { },
   userSettings: defaultUserSettings,
-  setUserSettings: () => { }
+  setUserSettings: () => { },
 })
 
 interface Props {
@@ -44,7 +46,7 @@ const GlobalContextProvider = ({ children }: Props) => {
   React.useEffect(() => {
     async function loadUserSettings() {
       try {
-        let userSettingsFromStorage = await storageService.getData("userSettings")
+        const userSettingsFromStorage = await storageService.getData("userSettings")
         if (userSettingsFromStorage === null) {
           await storageService.setData("userSettings", defaultUserSettings)
         } else {
@@ -71,7 +73,7 @@ const GlobalContextProvider = ({ children }: Props) => {
       currentExerciseIntensityLevel,
       setCurrentExerciseIntensityLevel,
       userSettings,
-      setUserSettings
+      setUserSettings,
     }}>
       {children}
     </GlobalContext.Provider>

@@ -1,12 +1,14 @@
-import * as React from "react"
-import { GlobalContext } from "@/context/GlobalContext";
-import { View } from "react-native";
-import { TabActions } from '@react-navigation/native';
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import type { TabNavParamList } from "@/types";
-import CustomButton from "@/components/CustomButton/CustomButton";
+import { TabActions } from "@react-navigation/native";
+import * as React from "react"
+import { View } from "react-native";
+
 import { styles } from "./finished.styles";
+
+import CustomButton from "@/components/CustomButton/CustomButton";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
+import { GlobalContext } from "@/context/GlobalContext";
+import type { TabNavParamList } from "@/types";
 
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
 

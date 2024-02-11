@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: "stretch",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   title: {
     marginBottom: "auto",
@@ -17,5 +17,5 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginBottom: "auto",
-  }
+  },
 })

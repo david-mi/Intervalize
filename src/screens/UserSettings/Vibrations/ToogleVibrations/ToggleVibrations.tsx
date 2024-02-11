@@ -1,8 +1,9 @@
+import * as React from "react"
 import { Vibration } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import * as React from "react"
-import { UserSettingsContext } from "@/context/UserSettingsContext";
+
 import { GlobalContext } from "@/context/GlobalContext";
+import { UserSettingsContext } from "@/context/UserSettingsContext";
 
 function ToogleVibrations() {
   const { updateUserSettings } = React.useContext(UserSettingsContext)
@@ -30,7 +31,7 @@ function ToogleVibrations() {
         fontSize: 20,
         textDecorationLine: "none",
         lineHeight: 23,
-        color: "#5c5855"
+        color: "#5c5855",
       }}
       isChecked={userSettings.vibrationsEnabled}
       onPress={onPress}

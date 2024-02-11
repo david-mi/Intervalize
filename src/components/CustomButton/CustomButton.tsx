@@ -1,7 +1,8 @@
-import { Pressable, Text } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import type { ComponentProps } from "react";
+import { Pressable, Text } from "react-native";
+
 import { styles } from "./customButton.styles";
-import { MaterialIcons } from '@expo/vector-icons';
 
 type Props = ComponentProps<typeof Pressable> & {
   title: string
@@ -15,9 +16,8 @@ type Props = ComponentProps<typeof Pressable> & {
 function CustomButton({ title, icon, ...props }: Props) {
   const customButtonStyles = {
     ...styles.button,
-    ...props.style as Object
+    ...props.style as object,
   }
-
 
   return (
     <Pressable {...props} style={customButtonStyles}>

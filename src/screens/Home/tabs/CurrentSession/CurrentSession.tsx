@@ -1,14 +1,16 @@
-import * as React from 'react';
-import { View } from 'react-native';
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { GlobalContext } from "@/context/GlobalContext";
-import type { TabNavParamList } from "@/types";
+import * as React from "react";
+import { View } from "react-native";
+
+import Active from "./Active/Active";
 import Controls from "./Active/CurrentBlock/CurrentExerciseTimer/Controls/Controls";
+import Finished from "./Finished/Finished";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
-import Active from "./Active/Active";
-import Finished from "./Finished/Finished";
 import { styles } from "./currentSession.styles";
+
+import { GlobalContext } from "@/context/GlobalContext";
+import type { TabNavParamList } from "@/types";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Séance en cours">
 

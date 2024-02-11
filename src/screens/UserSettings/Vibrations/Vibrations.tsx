@@ -1,6 +1,7 @@
 import { View } from "react-native";
-import { styles } from "./vibrations.styles";
+
 import ToogleVibrations from "./ToogleVibrations/ToggleVibrations";
+import { styles } from "./vibrations.styles";
 
 function Vibrations() {
   return (

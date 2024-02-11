@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import type { AsyncStorageType } from "@/types";
+
 import { defaultStorageData } from "@/data/defaultUserSettings";
+import type { AsyncStorageType } from "@/types";
 
 export const storageService = {
   async getData<K extends keyof AsyncStorageType>(key: K): Promise<AsyncStorageType[K] | null> {
@@ -31,5 +32,5 @@ export const storageService = {
     }
 
     return completeData
-  }
+  },
 }

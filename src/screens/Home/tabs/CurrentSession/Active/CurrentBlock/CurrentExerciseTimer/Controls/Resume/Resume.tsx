@@ -1,8 +1,10 @@
-import { Pressable } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useContext } from "react";
-import { GlobalContext } from "@/context/GlobalContext";
-import { MaterialIcons } from '@expo/vector-icons';
+import { Pressable } from "react-native";
+
 import { styles } from "../controls.styles"
+
+import { GlobalContext } from "@/context/GlobalContext";
 
 function Resume() {
   const { setSessionStatus } = useContext(GlobalContext)

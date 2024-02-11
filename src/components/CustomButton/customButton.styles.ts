@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   button: {
     flexDirection: "row",
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+    alignItems: "center",
+    justifyContent: "space-evenly",
     paddingVertical: 25,
     borderRadius: 4,
     shadowColor: "#000000",

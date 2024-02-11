@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { globalStyle } from "@/styles/styles.variables.global";
 
 export const styles = StyleSheet.create({
@@ -13,11 +14,11 @@ export const styles = StyleSheet.create({
   buttonsContainer: {
     flex: 1,
     gap: globalStyle.gap,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   container: {
     flex: 1,
     alignSelf: "stretch",
-    gap: globalStyle.gap
-  }
+    gap: globalStyle.gap,
+  },
 })

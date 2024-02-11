@@ -10,12 +10,12 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: "white"
+    color: "white",
   },
   big: {
-    fontSize: 80
+    fontSize: 80,
   },
   medium: {
     fontSize: 40,
-  }
+  },
 })

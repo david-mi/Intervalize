@@ -1,5 +1,7 @@
 import * as React from "react"
+
 import { styles } from "./otherExerciseName.styles"
+
 import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont"
 
 interface Props {
@@ -11,7 +13,7 @@ function OtherExerciseName({ exerciseName }: Props) {
     <TextWithCustomFont
       style={{
         ...styles.otherExerciseName,
-        transform: [{ scale: 0.6 }]
+        transform: [{ scale: 0.6 }],
       }}
     >
       {exerciseName}

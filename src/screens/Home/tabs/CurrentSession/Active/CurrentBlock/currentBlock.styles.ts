@@ -9,5 +9,5 @@ export const styles = StyleSheet.create({
     borderWidth: 5,
     borderColor: "black",
     backgroundColor: "white",
-  }
+  },
 })

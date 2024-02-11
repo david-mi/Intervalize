@@ -39,3 +39,6 @@ local_builds/
 
 # Reminder
 reminder.md
+
+#.vscode
+.vscode/

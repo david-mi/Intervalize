@@ -1,9 +1,11 @@
-import SessionTimer from "./SessionTimer/SessionTimer";
-import CurrentBlock from "./CurrentBlock/CurrentBlock";
-import { View } from "react-native";
-import { styles } from "./active.styles";
-import { GlobalContext } from "@/context/GlobalContext";
 import { useContext } from "react";
+import { View } from "react-native";
+
+import CurrentBlock from "./CurrentBlock/CurrentBlock";
+import SessionTimer from "./SessionTimer/SessionTimer";
+import { styles } from "./active.styles";
+
+import { GlobalContext } from "@/context/GlobalContext";
 import type { IntensityLevel } from "@/types";
 
 interface Props {
@@ -16,7 +18,7 @@ function Active({ children }: Props) {
   const intensityLevelBackgroundColor: { [key in IntensityLevel]: string } = {
     HARD: "#db222a",
     MEDIUM: "#FF9800",
-    LOW: "#82CD47"
+    LOW: "#82CD47",
   }
 
   const backgroundColor = currentExerciseIntensityLevel
@@ -25,7 +27,7 @@ function Active({ children }: Props) {
 
   const activeStyles = {
     ...styles.container,
-    backgroundColor
+    backgroundColor,
   }
 
   return (

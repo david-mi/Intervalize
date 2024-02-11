@@ -1,10 +1,12 @@
-import { View } from "react-native";
 import * as React from "react"
-import { GlobalContext } from "@/context/GlobalContext";
+import { View } from "react-native";
+
+import { styles } from "./readyToStart.styles";
+
 import CustomButton from "@/components/CustomButton/CustomButton";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
+import { GlobalContext } from "@/context/GlobalContext";
 import type { Session } from "@/types";
-import { styles } from "./readyToStart.styles";
 
 function ReadyToStart() {
   const { currentSession, setSessionStatus } = React.useContext(GlobalContext)
@@ -19,7 +21,7 @@ function ReadyToStart() {
       <CustomButton
         icon={{ name: "play-circle" }}
         style={styles.button}
-        title={"Démarrer"}
+        title="Démarrer"
         onPress={onPress}
       />
     </View>

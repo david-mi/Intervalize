@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import { GlobalContext } from "@/context/GlobalContext"
 
 export function useSessionTimer() {
@@ -22,7 +23,7 @@ export function useSessionTimer() {
 
     return {
       minutes: totalMinutes,
-      seconds: totalSeconds
+      seconds: totalSeconds,
     }
   }, [])
 
@@ -40,13 +41,13 @@ export function useSessionTimer() {
         } else {
           setSessionTimer(({ minutes }) => ({
             minutes: minutes - 1,
-            seconds: 59
+            seconds: 59,
           }))
         }
       } else {
         setSessionTimer(({ minutes, seconds }) => ({
           minutes,
-          seconds: seconds - 1
+          seconds: seconds - 1,
         }))
       }
     }, 1000)
@@ -60,6 +61,6 @@ export function useSessionTimer() {
 
   return {
     remainingMinutes: String(sessionTimer.minutes).padStart(2, "0"),
-    remainingSeconds: String(sessionTimer.seconds).padStart(2, "0")
+    remainingSeconds: String(sessionTimer.seconds).padStart(2, "0"),
   }
 }

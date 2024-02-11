@@ -16,9 +16,9 @@ export const mockSessions: Session[] = [
               seconds: 4,
             },
             intensityLevel: "LOW",
-            name: "Course lente"
+            name: "Course lente",
           },
-        ]
+        ],
       },
       {
         iterations: 2,
@@ -27,30 +27,30 @@ export const mockSessions: Session[] = [
             id: "bd8f22f5-c624-4a47-b09a-67b00b6f10fd",
             duration: {
               minutes: 0,
-              seconds: 3
+              seconds: 3,
             },
             intensityLevel: "MEDIUM",
-            name: "Course Moyenne"
+            name: "Course Moyenne",
           },
           {
             id: "316ce3ec-afec-4b33-b5ac-25e1c855f40f",
             duration: {
               minutes: 0,
-              seconds: 4
+              seconds: 4,
             },
             intensityLevel: "HARD",
-            name: "Course Rapide"
+            name: "Course Rapide",
           },
           {
             id: "a8219f5a-0a18-4a8b-b619-48a0edf7ff34",
             duration: {
               minutes: 0,
-              seconds: 2
+              seconds: 2,
             },
             intensityLevel: "LOW",
-            name: "Marche de récupération"
+            name: "Marche de récupération",
           },
-        ]
+        ],
       },
       {
         iterations: 1,
@@ -62,11 +62,11 @@ export const mockSessions: Session[] = [
               seconds: 7,
             },
             intensityLevel: "LOW",
-            name: "Course lente"
+            name: "Course lente",
           },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   {
     id: "08c71152-c552-42e7-b094-f510ff44e9cb",
@@ -83,9 +83,9 @@ export const mockSessions: Session[] = [
               seconds: 5,
             },
             intensityLevel: "MEDIUM",
-            name: "Course à intensité moyenne"
+            name: "Course à intensité moyenne",
           },
-        ]
+        ],
       },
       {
         iterations: 2,
@@ -94,39 +94,39 @@ export const mockSessions: Session[] = [
             id: "b0e1e4d7-c72a-4783-8be8-cf956f40a903",
             duration: {
               minutes: 0,
-              seconds: 3
+              seconds: 3,
             },
             intensityLevel: "HARD",
-            name: "Sprint à VO2 Max"
+            name: "Sprint à VO2 Max",
           },
           {
             id: "2b33da7a-d497-4493-bb6a-413e203e83b1",
             duration: {
               minutes: 0,
-              seconds: 4
+              seconds: 4,
             },
             intensityLevel: "LOW",
-            name: "Course à intensité faible"
+            name: "Course à intensité faible",
           },
           {
             id: "51b8fe97-93fd-4ebd-8d0b-9300a8cf5b95",
             duration: {
               minutes: 0,
-              seconds: 5
+              seconds: 5,
             },
             intensityLevel: "MEDIUM",
-            name: "Course à intensité moyenne"
+            name: "Course à intensité moyenne",
           },
           {
             id: "34c23580-e07d-4da7-a5b4-738a3c2f0200",
             duration: {
               minutes: 0,
-              seconds: 4
+              seconds: 4,
             },
             intensityLevel: "HARD",
-            name: "Course à intensité élevée"
+            name: "Course à intensité élevée",
           },
-        ]
+        ],
       },
       {
         iterations: 1,
@@ -138,10 +138,10 @@ export const mockSessions: Session[] = [
               seconds: 5,
             },
             intensityLevel: "LOW",
-            name: "Course lente"
+            name: "Course lente",
           },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
 ];

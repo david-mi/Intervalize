@@ -1,6 +1,8 @@
 import * as React from "react"
-import type { UserSettings } from "../types"
 import { useContext } from "react"
+
+import type { UserSettings } from "../types"
+
 import { GlobalContext } from "@/context/GlobalContext"
 import { storageService } from "@/services/Storage/Storage";
 
@@ -18,7 +20,7 @@ export function useUserSettings(): UseUserSettingsReturnType {
     try {
       const newSettings = {
         ...userSettings,
-        [settingName]: settingValue
+        [settingName]: settingValue,
       }
 
       setUserSettings(newSettings)
@@ -32,6 +34,6 @@ export function useUserSettings(): UseUserSettingsReturnType {
   return {
     updateUserSettings,
     updateError,
-    setUpdateError
+    setUpdateError,
   }
 }

@@ -1,11 +1,13 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import type { TabNavParamList, RootStackParamList } from "@/types";
-import CurrentSession from "./tabs/CurrentSession/CurrentSession";
-import OpenUserSettingsButton from "@/components/OpenUserSettingsButton/OpenUserSettingsButton";
-import MySessions from "./tabs/MySessions/MySessions";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as React from "react"
+
+import CurrentSession from "./tabs/CurrentSession/CurrentSession";
+import MySessions from "./tabs/MySessions/MySessions";
+
+import OpenUserSettingsButton from "@/components/OpenUserSettingsButton/OpenUserSettingsButton";
+import type { TabNavParamList, RootStackParamList } from "@/types";
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
 
@@ -15,7 +17,7 @@ function Home({ navigation }: Props) {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name={"Séance en cours"}
+        name="Séance en cours"
         component={CurrentSession}
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
@@ -29,7 +31,7 @@ function Home({ navigation }: Props) {
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Mes séances",
-          tabBarIcon: () => <MaterialIcons name="format-list-bulleted" size={24} color="black" />
+          tabBarIcon: () => <MaterialIcons name="format-list-bulleted" size={24} color="black" />,
         }}
       />
     </Tab.Navigator>

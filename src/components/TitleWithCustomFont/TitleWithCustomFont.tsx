@@ -1,5 +1,6 @@
-import { Text } from "react-native";
 import type { ComponentProps } from "react";
+import { Text } from "react-native";
+
 import { styles } from "./titleWithCustomFont.styles";
 
 type Props = ComponentProps<typeof Text> & {
@@ -9,7 +10,7 @@ type Props = ComponentProps<typeof Text> & {
 function TitleWithCustomFont({ children, ...props }: Props) {
   const titleStyles = {
     ...styles.title,
-    ...props.style as Object
+    ...props.style as object,
   }
 
   return (

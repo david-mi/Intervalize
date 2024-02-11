@@ -1,11 +1,13 @@
+import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
+import { TabActions } from "@react-navigation/native";
 import * as React from "react"
 import { View, FlatList, Alert } from "react-native";
-import { GlobalContext } from "@/context/GlobalContext";
-import { TabActions } from '@react-navigation/native';
-import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import type { Session, TabNavParamList } from "@/types";
-import CustomButton from "@/components/CustomButton/CustomButton";
+
 import { styles } from "./mySessions.styles";
+
+import CustomButton from "@/components/CustomButton/CustomButton";
+import { GlobalContext } from "@/context/GlobalContext";
+import type { Session, TabNavParamList } from "@/types";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Mes séances">
 
@@ -15,7 +17,7 @@ function MySessions({ navigation }: Props) {
     currentSession,
     setCurrentSession,
     sessionStatus,
-    setSessionStatus
+    setSessionStatus,
   } = React.useContext(GlobalContext)
 
   function startNewSession(session: Session) {
@@ -43,8 +45,8 @@ function MySessions({ navigation }: Props) {
         "Une session est en cours",
         "Sélectionner une nouvelle session ?",
         [
-          { text: "Annuler", style: "cancel", },
-          { text: "Démarrer", onPress: () => startNewSession(foundSession) }
+          { text: "Annuler", style: "cancel" },
+          { text: "Démarrer", onPress: () => startNewSession(foundSession) },
         ]
       );
     } else {
@@ -53,7 +55,7 @@ function MySessions({ navigation }: Props) {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <FlatList
         horizontal={false}
         data={sessions}

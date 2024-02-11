@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { globalStyle } from "@/styles/styles.variables.global";
 
 export const styles = StyleSheet.create({
@@ -9,15 +10,15 @@ export const styles = StyleSheet.create({
   },
   button: {
     flexDirection: "row",
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 25,
-    gap: globalStyle.gap
+    gap: globalStyle.gap,
   },
   text: {
     fontSize: 20,
     lineHeight: 23,
     color: globalStyle.navigationColor,
-    marginRight: "auto"
+    marginRight: "auto",
   },
   themeIcon: {
     fontSize: 18,
@@ -26,6 +27,6 @@ export const styles = StyleSheet.create({
   arrowIcon: {
     fontSize: 22,
     color: globalStyle.navigationColor,
-    marginLeft: "auto"
-  }
+    marginLeft: "auto",
+  },
 })

@@ -1,9 +1,11 @@
-import * as React from "react";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { RootStackParamList } from "@/types";
-import Home from "@/screens/Home/Home";
+import * as React from "react";
+
 import UserSettingsRoutes from "./userSettingsRoutes";
+
+import Home from "@/screens/Home/Home";
+import type { RootStackParamList } from "@/types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -15,14 +17,14 @@ export default function Routes() {
           name="Home"
           component={Home}
           options={{
-            headerShown: false
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name="Settings"
           component={UserSettingsRoutes}
           options={{
-            headerShown: false
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

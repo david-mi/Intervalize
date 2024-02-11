@@ -1,8 +1,9 @@
 import { View } from "react-native";
-import { styles } from "./controls.styles";
-import Stop from "./Stop/Stop";
+
 import Pause from "./Pause/Pause";
 import Resume from "./Resume/Resume";
+import Stop from "./Stop/Stop";
+import { styles } from "./controls.styles";
 
 interface Props {
   displayPauseButton?: boolean

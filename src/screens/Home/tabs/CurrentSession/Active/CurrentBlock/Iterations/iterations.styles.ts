@@ -9,16 +9,16 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 100,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   text: {
     position: "absolute",
     fontSize: 25,
     color: "black",
-    lineHeight: 36
+    lineHeight: 36,
   },
   icon: {
     margin: -30,
-    transform: [{ rotateX: "180deg" }]
-  }
+    transform: [{ rotateX: "180deg" }],
+  },
 })

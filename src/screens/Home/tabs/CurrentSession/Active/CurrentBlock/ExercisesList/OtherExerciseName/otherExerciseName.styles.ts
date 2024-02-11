@@ -5,6 +5,6 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     opacity: 0.4,
     alignItems: "center",
-    fontSize: 25
-  }
+    fontSize: 25,
+  },
 })

@@ -1,8 +1,10 @@
-import { Pressable, FlatList, Text } from "react-native";
-import { styles } from "./userSettingsList.styles";
-import type { UserSettingsParamList } from "@/types";
+import { MaterialIcons } from "@expo/vector-icons";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { MaterialIcons } from '@expo/vector-icons';
+import { Pressable, FlatList, Text } from "react-native";
+
+import { styles } from "./userSettingsList.styles";
+
+import type { UserSettingsParamList } from "@/types";
 
 type Props = NativeStackScreenProps<UserSettingsParamList, "List">
 

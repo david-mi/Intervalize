@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
   },
   infos: {
     flexBasis: "50%",
@@ -19,11 +19,11 @@ export const styles = StyleSheet.create({
   instructions: {
     marginTop: "auto",
     fontSize: 20,
-    textAlign: "center"
+    textAlign: "center",
   },
   button: {
     alignSelf: "stretch",
     marginBottom: "auto",
-    marginTop: "auto"
-  }
+    marginTop: "auto",
+  },
 })

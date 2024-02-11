@@ -1,6 +1,7 @@
 import * as React from "react"
-import type { UserSettings } from "@/types";
+
 import { useUserSettings } from "@/hooks/useUserSettings";
+import type { UserSettings } from "@/types";
 
 interface UserSettingsContextType {
   updateError: Error | null,
@@ -26,7 +27,7 @@ const UserSettingsContextProvider = ({ children }: Props) => {
     <UserSettingsContext.Provider value={{
       updateError,
       updateUserSettings,
-      setUpdateError
+      setUpdateError,
     }}>
       {children}
     </UserSettingsContext.Provider>

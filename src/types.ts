@@ -46,7 +46,7 @@ export enum CustomFontsList {
   OSWALD_LIGHT = "oswald-light",
   OSWALD_REGULAR = "oswald-regular",
   OSWALD_MEDIUM = "oswald-medium",
-  OSWALD_BOLD = "oswald-bold",
+  OSWALD_BOLD = "oswald-bold"
 }
 
 export type CustomFont = `${CustomFontsList}`

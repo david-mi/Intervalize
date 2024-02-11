@@ -1,6 +1,8 @@
 import * as React from "react"
-import { GlobalContext } from "@/context/GlobalContext"
+
 import { useExerciseTimer } from "./useExercisesTimer"
+
+import { GlobalContext } from "@/context/GlobalContext"
 import type { Block } from "@/types"
 
 export function useBlocks() {
@@ -14,7 +16,7 @@ export function useBlocks() {
   const currentExercise = currentBlock.exercises[currentExerciseIndex]
   const { formattedRemainingCurrentExerciseTime, setCurrentExerciseTimer } = useExerciseTimer({
     duration: currentExercise.duration,
-    onFinishedExerciseTimer
+    onFinishedExerciseTimer,
   })
 
   React.useEffect(() => {

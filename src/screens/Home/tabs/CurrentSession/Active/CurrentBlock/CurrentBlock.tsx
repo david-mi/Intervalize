@@ -1,17 +1,19 @@
 import * as React from "react"
 import { View } from "react-native"
-import { useBlocks } from "@/hooks/useBlocks";
+
 import CurrentExerciseTimer from "./CurrentExerciseTimer/CurrentExerciseTimer";
+import ExercisesList from "./ExercisesList/ExercisesList";
 import Iterations from "./Iterations/Iterations";
 import { styles } from "./currentBlock.styles";
-import ExercisesList from "./ExercisesList/ExercisesList";
+
+import { useBlocks } from "@/hooks/useBlocks";
 
 function CurrentBlock() {
   const {
     currentBlock,
     blockIterationsCount,
     currentExercise,
-    formattedRemainingCurrentExerciseTime
+    formattedRemainingCurrentExerciseTime,
   } = useBlocks()
 
   return (

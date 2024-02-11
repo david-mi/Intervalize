@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Vibration } from "react-native";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+import Checkbox from "@/components/Checkbox/Checkbox";
 import { GlobalContext } from "@/context/GlobalContext";
 import { UserSettingsContext } from "@/context/UserSettingsContext";
 
@@ -20,19 +20,8 @@ function ToogleVibrations() {
   }
 
   return (
-    <BouncyCheckbox
-      size={25}
-      fillColor="#5c5855"
-      unfillColor="#FFFFFF"
+    <Checkbox
       text="Activer"
-      style={{ width: "100%", paddingVertical: 25 }}
-      innerIconStyle={{ borderWidth: 2 }}
-      textStyle={{
-        fontSize: 20,
-        textDecorationLine: "none",
-        lineHeight: 23,
-        color: "#5c5855",
-      }}
       isChecked={userSettings.vibrationsEnabled}
       onPress={onPress}
     />

@@ -1,9 +1,6 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { useContext } from "react";
-import { Pressable } from "react-native";
 
-import { styles } from "../controls.styles"
-
+import CustomButton from "@/components/CustomButton/CustomButton";
 import { GlobalContext } from "@/context/GlobalContext";
 
 function Resume() {
@@ -14,14 +11,11 @@ function Resume() {
   }
 
   return (
-    <Pressable onPress={handleResume} style={styles.button}>
-      <MaterialIcons
-        style={styles.icon}
-        name="play-arrow"
-        size={80}
-        color="black"
-      />
-    </Pressable>
+    <CustomButton
+      onPress={handleResume}
+      icon={{ name: "play-arrow" }}
+      theme="control"
+    />
   );
 }
 

@@ -8,11 +8,5 @@ export const styles = StyleSheet.create({
     gap: globalStyle.gap,
     justifyContent: "space-evenly",
   },
-  button: {
-    backgroundColor: "white",
-    borderRadius: 50,
-    borderWidth: 5,
-
-  },
   icon: {},
 })

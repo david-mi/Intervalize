@@ -32,11 +32,13 @@ function Finished({ navigation }: Props) {
       <View style={styles.buttonsContainer}>
         <CustomButton
           icon={{ name: "restart-alt" }}
+          theme="rectangle"
           title="Recommencer"
           onPress={handleRestartSession}
         />
         <CustomButton
           icon={{ name: "format-list-bulleted" }}
+          theme="rectangle"
           title="Mes séances"
           onPress={redirectToMySessions}
         />

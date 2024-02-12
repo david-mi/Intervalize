@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
 
+import { globalStyle } from "@/styles/styles.variables.global";
+
 export const styles = StyleSheet.create({
-  button: {
+  rectangle: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
@@ -17,8 +19,27 @@ export const styles = StyleSheet.create({
     elevation: 7,
     backgroundColor: "black",
   },
+  rectangleIcon: {
+    fontSize: 24,
+    color: "white",
+  },
   text: {
     fontSize: 20,
     color: "white",
+  },
+  control: {
+    backgroundColor: "black",
+    borderRadius: 50,
+  },
+  controlIcon: {
+    padding: 15,
+    fontSize: 50,
+    color: "white",
+  },
+  disabledButton: {
+    backgroundColor: globalStyle.disabledButtonColor,
+  },
+  disabledIcon: {
+    color: globalStyle.disabledIconColor,
   },
 })

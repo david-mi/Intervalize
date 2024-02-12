@@ -4,6 +4,8 @@ import { View, Text, Pressable } from "react-native";
 
 import { styles } from "./setCustomVibrationPattern.styles";
 
+import CustomButton from "@/components/CustomButton/CustomButton";
+
 interface Props {
   setIsDefaultPattern: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -14,9 +16,9 @@ function SetCustomVibrationPattern({ setIsDefaultPattern }: Props) {
 
   const [disabledButtons, setDisabledButtons] = React.useState({
     pressZone: false,
-    play: false,
-    stop: false,
-    reset: false,
+    play: true,
+    stop: true,
+    reset: true,
   })
 
   function handlePlayPress() {
@@ -41,41 +43,24 @@ function SetCustomVibrationPattern({ setIsDefaultPattern }: Props) {
         </View>
       </Pressable>
       <View style={styles.buttonsContainer}>
-        <Pressable
+        <CustomButton
+          icon={{ name: "play-arrow" }}
           onPress={handlePlayPress}
-          style={[styles.button, disabledButtons.play ? styles.disabled : null]}
           disabled={disabledButtons.play}
-        >
-          <MaterialIcons
-            style={styles.buttonIcon}
-            name="play-arrow"
-            size={50}
-            color="white"
-          />
-        </Pressable>
-        <Pressable
-          onPress={handleStopPress}
-          style={[styles.button, disabledButtons.stop ? styles.disabled : null]}
+          theme="control"
+        />
+        <CustomButton
+          icon={{ name: "stop" }}
+          onPress={handlePlayPress}
           disabled={disabledButtons.stop}
-        >
-          <MaterialIcons
-            style={styles.buttonIcon}
-            name="stop"
-            size={50}
-            color="white"
-          />
-        </Pressable>
-        <Pressable
-          onPress={handleResetPress}
-          style={[styles.button, disabledButtons.reset ? styles.disabled : null]}
-          disabled={disabledButtons.reset}>
-          <MaterialIcons
-            style={styles.buttonIcon}
-            name="restart-alt"
-            size={50}
-            color="white"
-          />
-        </Pressable>
+          theme="control"
+        />
+        <CustomButton
+          icon={{ name: "restart-alt" }}
+          onPress={handlePlayPress}
+          disabled={disabledButtons.reset}
+          theme="control"
+        />
       </View>
     </View>
   );

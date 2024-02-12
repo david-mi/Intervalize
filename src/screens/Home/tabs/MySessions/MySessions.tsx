@@ -65,6 +65,7 @@ function MySessions({ navigation }: Props) {
           return (
             <CustomButton
               icon={{ name: "touch-app" }}
+              theme="rectangle"
               onPress={() => handlePress(item.id)}
               title={item.name}
             />

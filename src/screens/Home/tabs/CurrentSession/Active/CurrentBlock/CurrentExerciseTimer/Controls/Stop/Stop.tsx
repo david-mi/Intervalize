@@ -1,9 +1,6 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { useContext } from "react";
-import { Pressable } from "react-native";
 
-import { styles } from "../controls.styles"
-
+import CustomButton from "@/components/CustomButton/CustomButton";
 import { GlobalContext } from "@/context/GlobalContext";
 
 function Stop() {
@@ -15,14 +12,11 @@ function Stop() {
   }
 
   return (
-    <Pressable onPress={handleStop} style={styles.button}>
-      <MaterialIcons
-        style={styles.icon}
-        name="stop"
-        size={80}
-        color="black"
-      />
-    </Pressable>
+    <CustomButton
+      onPress={handleStop}
+      icon={{ name: "stop" }}
+      theme="control"
+    />
   );
 }
 

@@ -37,14 +37,4 @@ export const styles = StyleSheet.create({
     gap: globalStyle.gap,
     justifyContent: "center",
   },
-  button: {
-    backgroundColor: "black",
-    borderRadius: 50,
-  },
-  disabled: {
-    backgroundColor: globalStyle.disabledButtonColor,
-  },
-  buttonIcon: {
-    padding: 15,
-  },
 })

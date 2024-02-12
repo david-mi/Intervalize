@@ -1,6 +1,7 @@
 import * as React from "react"
 import { View } from "react-native";
 
+import SetCustomVibrationPattern from "./SetCustomVibrationPattern/SetCustomVibrationPattern";
 import SetDefaultVibrationPattern from "./SetDefaultVibrationPattern/SetDefaultVibrationPattern";
 import { styles } from "./setVibrationsPattern.styles"
 
@@ -27,6 +28,7 @@ function SetVibrationPattern() {
         isDefaultPattern={isDefaultPattern}
         setIsDefaultPattern={setIsDefaultPattern}
       />
+      <SetCustomVibrationPattern setIsDefaultPattern={setIsDefaultPattern} />
     </View>
   );
 }

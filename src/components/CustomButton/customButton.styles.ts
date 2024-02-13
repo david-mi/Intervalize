@@ -36,6 +36,27 @@ export const styles = StyleSheet.create({
     fontSize: 50,
     color: "white",
   },
+  navigation: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 25,
+    gap: globalStyle.gap,
+  },
+  navigationThemeIcon: {
+    fontSize: 18,
+    color: globalStyle.navigationColor,
+  },
+  navigationArrowIcon: {
+    fontSize: 22,
+    color: globalStyle.navigationColor,
+    marginLeft: "auto",
+  },
+  navigationText: {
+    fontSize: 20,
+    lineHeight: 23,
+    color: globalStyle.navigationColor,
+    marginRight: "auto",
+  },
   disabledButton: {
     backgroundColor: globalStyle.disabledButtonColor,
   },

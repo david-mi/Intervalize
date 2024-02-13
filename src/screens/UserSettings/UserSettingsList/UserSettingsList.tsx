@@ -1,28 +1,36 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Pressable, FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 
 import { styles } from "./userSettingsList.styles";
 
+import CustomButton from "@/components/CustomButton/CustomButton";
 import type { UserSettingsParamList } from "@/types";
 
 type Props = NativeStackScreenProps<UserSettingsParamList, "List">
 
 function UserSettingsList({ navigation }: Props) {
+
+  const settingsRoutesList: {
+    routeName: keyof Omit<UserSettingsParamList, "List">,
+    displayName: string,
+    iconName: keyof typeof MaterialIcons.glyphMap
+  }[] = [
+      { routeName: "Vibrations", displayName: "Vibrations", iconName: "vibration" },
+    ]
+
   return (
     <FlatList
-      data={["Vibrations"]}
+      data={settingsRoutesList}
       contentContainerStyle={styles.container}
-      keyExtractor={(item, index) => item + index}
-      renderItem={() => (
-        <Pressable
-          style={styles.button}
-          onPress={() => navigation.navigate("Vibrations")}
-        >
-          <MaterialIcons name="vibration" style={styles.themeIcon} />
-          <Text style={styles.text}>Vibrations</Text>
-          <MaterialIcons name="chevron-right" style={styles.arrowIcon} />
-        </Pressable>
+      keyExtractor={({ routeName }, index) => routeName + index}
+      renderItem={({ item: { displayName, routeName, iconName } }) => (
+        <CustomButton
+          onPress={() => navigation.navigate(routeName)}
+          theme="navigation"
+          title={displayName}
+          icon={{ name: iconName }}
+        />
       )}
     />
   );

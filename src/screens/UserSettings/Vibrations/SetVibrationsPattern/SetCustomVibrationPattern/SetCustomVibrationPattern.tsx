@@ -1,6 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import * as React from "react"
-import { View, Text, Pressable } from "react-native";
+import { View, Text } from "react-native";
 
 import { styles } from "./setCustomVibrationPattern.styles";
 
@@ -21,6 +21,10 @@ function SetCustomVibrationPattern({ setIsDefaultPattern }: Props) {
     reset: true,
   })
 
+  function handlePressZonePress() {
+    console.log("PRESS ZONE")
+  }
+
   function handlePlayPress() {
     console.log("PLAY")
   }
@@ -36,12 +40,16 @@ function SetCustomVibrationPattern({ setIsDefaultPattern }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Pattern Personnalisé</Text>
-      <Pressable style={styles.pressZone}>
+      <CustomButton
+        style={styles.pressZone}
+        onPress={handlePressZonePress}
+        disabled={disabledButtons.pressZone}
+      >
         <Text style={styles.text}>Toucher pour commencer</Text>
         <View style={styles.pressIconWrapper}>
           <MaterialIcons name="touch-app" size={70} color="white" />
         </View>
-      </Pressable>
+      </CustomButton>
       <View style={styles.buttonsContainer}>
         <CustomButton
           icon={{ name: "play-arrow" }}
@@ -51,13 +59,13 @@ function SetCustomVibrationPattern({ setIsDefaultPattern }: Props) {
         />
         <CustomButton
           icon={{ name: "stop" }}
-          onPress={handlePlayPress}
+          onPress={handleStopPress}
           disabled={disabledButtons.stop}
           theme="control"
         />
         <CustomButton
           icon={{ name: "restart-alt" }}
-          onPress={handlePlayPress}
+          onPress={handleResetPress}
           disabled={disabledButtons.reset}
           theme="control"
         />

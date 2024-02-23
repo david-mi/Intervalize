@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  pressZone: {
+  define: {
     backgroundColor: "red",
     alignItems: "center",
     height: 250,

@@ -14,44 +14,44 @@ interface Props {
 }
 
 interface DisabledButtonsState {
-  pressZone: boolean
+  define: boolean
   play: boolean
   stop: boolean
   reset: boolean
 }
 
 type DisabledButtonActions =
-  { type: "pressZone" | "stop" | "play/start" | "reset" }
+  { type: "define" | "stop" | "play/start" | "reset" }
   | { type: "play/end", isDefaultPattern: boolean };
 
 function disabledButtonsReducer(state: DisabledButtonsState, action: DisabledButtonActions): DisabledButtonsState {
   switch (action.type) {
-    case "pressZone": return ({
+    case "define": return ({
       play: true,
-      pressZone: false,
+      define: false,
       stop: false,
       reset: true,
     })
     case "play/start": return ({
       play: true,
-      pressZone: true,
+      define: true,
       stop: true,
       reset: true,
     })
     case "play/end": return ({
       ...state,
-      pressZone: !action.isDefaultPattern,
+      define: !action.isDefaultPattern,
       play: false,
       reset: action.isDefaultPattern,
     })
     case "stop": return ({
-      pressZone: true,
+      define: true,
       play: false,
       stop: true,
       reset: false,
     })
     default: return {
-      pressZone: false,
+      define: false,
       play: false,
       stop: true,
       reset: true,
@@ -64,15 +64,15 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
   customVibrationPatternRef.current = [];
   const { isDefaultPattern, setIsDefaultPattern } = useVibrationsPattern(userSettings)
   const [disabledButtons, dispatchButtonAction] = React.useReducer(disabledButtonsReducer, {
-    pressZone: false,
+    define: false,
     play: false,
     stop: true,
     reset: isDefaultPattern === false,
   })
-  const displayPressZoneInstructions = !disabledButtons.pressZone && disabledButtons.stop
+  const displayDefineInstructions = !disabledButtons.define && disabledButtons.stop
 
-  function handlePressZonePress() {
-    dispatchButtonAction({ type: "pressZone" })
+  function handleDefinePress() {
+    dispatchButtonAction({ type: "define" })
   }
 
   function handlePlayPress() {
@@ -102,11 +102,11 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
     <View style={styles.container}>
       <Text style={styles.title}>Pattern</Text>
       <CustomButton
-        style={styles.pressZone}
-        onPress={handlePressZonePress}
-        disabled={disabledButtons.pressZone}
+        style={styles.define}
+        onPress={handleDefinePress}
+        disabled={disabledButtons.define}
       >
-        {displayPressZoneInstructions && <Text style={styles.text}>Toucher pour commencer</Text>}
+        {displayDefineInstructions && <Text style={styles.text}>Définir votre pattern</Text>}
         <View style={styles.pressIconWrapper}>
           <MaterialIcons name="touch-app" size={70} color="white" />
         </View>

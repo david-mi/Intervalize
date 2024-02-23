@@ -5,6 +5,7 @@ import { View, Text, Vibration } from "react-native";
 import { styles } from "./setVibrationsPattern.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
+import { useVibrationsPattern } from "@/hooks/useVibrationsPattern";
 import type { UserSettings } from "@/types";
 
 interface Props {
@@ -19,9 +20,9 @@ interface DisabledButtonsState {
   reset: boolean
 }
 
-type DisabledButtonActions = {
-  type: "pressZone" | "stop" | "play/start" | "play/end" | "reset"
-}
+type DisabledButtonActions =
+  { type: "pressZone" | "stop" | "play/start" | "reset" }
+  | { type: "play/end", isDefaultPattern: boolean };
 
 function disabledButtonsReducer(state: DisabledButtonsState, action: DisabledButtonActions): DisabledButtonsState {
   switch (action.type) {
@@ -39,8 +40,9 @@ function disabledButtonsReducer(state: DisabledButtonsState, action: DisabledBut
     })
     case "play/end": return ({
       ...state,
+      pressZone: !action.isDefaultPattern,
       play: false,
-      reset: false,
+      reset: action.isDefaultPattern,
     })
     case "stop": return ({
       pressZone: true,
@@ -60,11 +62,12 @@ function disabledButtonsReducer(state: DisabledButtonsState, action: DisabledBut
 function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) {
   const customVibrationPatternRef = React.useRef<number[]>([])
   customVibrationPatternRef.current = [];
+  const { isDefaultPattern, setIsDefaultPattern } = useVibrationsPattern(userSettings)
   const [disabledButtons, dispatchButtonAction] = React.useReducer(disabledButtonsReducer, {
     pressZone: false,
     play: false,
     stop: true,
-    reset: true,
+    reset: isDefaultPattern === false,
   })
   const displayPressZoneInstructions = !disabledButtons.pressZone && disabledButtons.stop
 
@@ -81,16 +84,18 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
     })
     Vibration.vibrate(userSettings.vibrationPattern)
     setTimeout(() => {
-      dispatchButtonAction({ type: "play/end" })
+      dispatchButtonAction({ type: "play/end", isDefaultPattern })
     }, vibrationDuration)
   }
 
   function handleStopPress() {
     dispatchButtonAction({ type: "stop" })
+    setIsDefaultPattern(false)
   }
 
   function handleResetPress() {
     dispatchButtonAction({ type: "reset" })
+    setIsDefaultPattern(true)
   }
 
   return (
@@ -122,7 +127,7 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
         <CustomButton
           icon={{ name: "restart-alt" }}
           onPress={handleResetPress}
-          disabled={disabledButtons.reset}
+          disabled={isDefaultPattern || disabledButtons.reset}
           theme="control"
         />
       </View>

@@ -12,9 +12,9 @@ function SessionTimer() {
   return (
     <View style={styles.container}>
       <Timer
-        size="medium"
         minutes={remainingMinutes}
         seconds={remainingSeconds}
+        size="medium"
       />
     </View>
   );

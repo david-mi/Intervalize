@@ -22,9 +22,9 @@ function StopVibrations(props: Props) {
 
   return (
     <CustomButton
+      disabled={disabledButtons.stop}
       icon={{ name: "stop" }}
       onPress={handleStopPress}
-      disabled={disabledButtons.stop}
       theme="control"
     />
   )

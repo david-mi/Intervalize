@@ -16,9 +16,9 @@ function CurrentExerciseTimer({ formattedRemainingCurrentExerciseTime }: Props) 
   return (
     <View style={styles.container}>
       <Timer
-        size="big"
         minutes={formattedRemainingCurrentExerciseTime.minutes}
         seconds={formattedRemainingCurrentExerciseTime.seconds}
+        size="big"
       />
     </View>
   );

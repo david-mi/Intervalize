@@ -20,9 +20,9 @@ function ToogleVibrations({ updateUserSettings, userSettings }: Props) {
 
   return (
     <Checkbox
-      text="Activer"
       isChecked={userSettings.vibrationsEnabled}
       onPress={onPress}
+      text="Activer"
     />
   );
 }

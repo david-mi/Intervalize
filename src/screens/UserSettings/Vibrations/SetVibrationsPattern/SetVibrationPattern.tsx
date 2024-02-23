@@ -55,9 +55,9 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
           customVibrationPatternRef={customVibrationPatternRef}
           disabledButtons={disabledButtons}
           dispatchButtonAction={dispatchButtonAction}
+          isDefaultPattern={isDefaultPattern}
           timeStampRef={timeStampRef}
           updateUserSettings={updateUserSettings}
-          isDefaultPattern={isDefaultPattern}
         />
       </View>
     </View>

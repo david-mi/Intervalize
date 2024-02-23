@@ -14,15 +14,15 @@ export default function Routes() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
         <Stack.Screen
-          name="Home"
           component={Home}
+          name="Home"
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="Settings"
           component={UserSettingsRoutes}
+          name="Settings"
           options={{
             headerShown: false,
           }}

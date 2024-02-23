@@ -12,8 +12,8 @@ function Pause() {
 
   return (
     <CustomButton
-      onPress={handlePause}
       icon={{ name: "pause" }}
+      onPress={handlePause}
       theme="control"
     />
   );

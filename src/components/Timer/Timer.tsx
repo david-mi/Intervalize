@@ -22,11 +22,11 @@ function Timer({ minutes, seconds, size }: Props) {
 
   return (
     <View style={timerContainerStyles}>
-      <TextWithCustomFont style={textStyles} fontFamily="clockicons">
+      <TextWithCustomFont fontFamily="clockicons" style={textStyles}>
         {minutes}
       </TextWithCustomFont>
       <Text style={textStyles}>:</Text>
-      <TextWithCustomFont style={textStyles} fontFamily="clockicons">
+      <TextWithCustomFont fontFamily="clockicons" style={textStyles}>
         {seconds}
       </TextWithCustomFont>
     </View>

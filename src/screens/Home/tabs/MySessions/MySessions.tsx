@@ -57,20 +57,20 @@ function MySessions({ navigation }: Props) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <FlatList
-        horizontal={false}
-        data={sessions}
         contentContainerStyle={styles.list}
-        style={styles.wrapper}
+        data={sessions}
+        horizontal={false}
         renderItem={({ item }) => {
           return (
             <CustomButton
               icon={{ name: "touch-app" }}
-              theme="rectangle"
               onPress={() => handlePress(item.id)}
+              theme="rectangle"
               title={item.name}
             />
           )
         }}
+        style={styles.wrapper}
       />
     </View>
   );

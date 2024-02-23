@@ -26,10 +26,10 @@ function NotSelected({ navigation }: Props) {
       </View>
       <CustomButton
         icon={{ name: "format-list-bulleted" }}
+        onPress={redirectToMySessions}
+        style={styles.button}
         theme="rectangle"
         title="Mes séances"
-        style={styles.button}
-        onPress={redirectToMySessions}
       />
     </View>
   );

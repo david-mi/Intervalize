@@ -20,10 +20,10 @@ function ReadyToStart() {
       <TitleWithCustomFont style={styles.title}>{(currentSession as Session).name}</TitleWithCustomFont>
       <CustomButton
         icon={{ name: "play-circle" }}
-        theme="rectangle"
-        style={styles.button}
-        title="Démarrer"
         onPress={onPress}
+        style={styles.button}
+        theme="rectangle"
+        title="Démarrer"
       />
     </View>
   );

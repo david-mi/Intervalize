@@ -31,9 +31,9 @@ function PlayVibrations(props: Props) {
 
   return (
     <CustomButton
+      disabled={disabledButtons.play}
       icon={{ name: "play-arrow" }}
       onPress={handlePlayPress}
-      disabled={disabledButtons.play}
       theme="control"
     />
   );

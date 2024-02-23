@@ -41,15 +41,15 @@ function DefineVibrations(props: Props) {
 
   return (
     <CustomButton
-      style={styles.define}
+      disabled={disabledButtons.define}
       onPress={handleDefinePress}
       onPressIn={handleDefinePressIn}
       onPressOut={handleDefinePressOut}
-      disabled={disabledButtons.define}
+      style={styles.define}
     >
       {displayDefineInstructions && <Text style={styles.instructions}>Définir votre pattern</Text>}
       <View style={styles.pressIconWrapper}>
-        <MaterialIcons name="touch-app" size={70} color="white" />
+        <MaterialIcons color="white" name="touch-app" size={70} />
       </View>
     </CustomButton>
   );

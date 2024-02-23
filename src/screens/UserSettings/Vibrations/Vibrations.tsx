@@ -15,13 +15,13 @@ function Vibrations() {
   return (
     <View style={styles.container}>
       <ToogleVibrations
-        userSettings={userSettings}
         updateUserSettings={updateUserSettings}
+        userSettings={userSettings}
       />
       {userSettings.vibrationsEnabled && (
         <SetVibrationPattern
-          userSettings={userSettings}
           updateUserSettings={updateUserSettings}
+          userSettings={userSettings}
         />
       )}
     </View>

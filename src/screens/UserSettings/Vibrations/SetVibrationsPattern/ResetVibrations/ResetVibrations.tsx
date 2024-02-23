@@ -24,9 +24,9 @@ function ResetVibrations(props: Props) {
 
   return (
     <CustomButton
+      disabled={disabledButtons.reset}
       icon={{ name: "restart-alt" }}
       onPress={handleResetPress}
-      disabled={disabledButtons.reset}
       theme="control"
     />
   );

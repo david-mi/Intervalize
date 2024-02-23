@@ -18,7 +18,7 @@ function CurrentBlock() {
 
   return (
     <View style={styles.container}>
-      <Iterations currentBlockIterations={currentBlock.iterations} blockIterationsCount={blockIterationsCount} />
+      <Iterations blockIterationsCount={blockIterationsCount} currentBlockIterations={currentBlock.iterations} />
       <ExercisesList currentExercise={currentExercise} exercises={currentBlock.exercises} />
       <CurrentExerciseTimer formattedRemainingCurrentExerciseTime={formattedRemainingCurrentExerciseTime} />
     </View>

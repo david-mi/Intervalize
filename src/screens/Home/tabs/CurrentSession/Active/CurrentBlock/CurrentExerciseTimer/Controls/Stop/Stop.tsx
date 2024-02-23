@@ -13,8 +13,8 @@ function Stop() {
 
   return (
     <CustomButton
-      onPress={handleStop}
       icon={{ name: "stop" }}
+      onPress={handleStop}
       theme="control"
     />
   );

@@ -21,15 +21,15 @@ function UserSettingsList({ navigation }: Props) {
 
   return (
     <FlatList
-      data={settingsRoutesList}
       contentContainerStyle={styles.container}
+      data={settingsRoutesList}
       keyExtractor={({ routeName }, index) => routeName + index}
       renderItem={({ item: { displayName, routeName, iconName } }) => (
         <CustomButton
+          icon={{ name: iconName }}
           onPress={() => navigation.navigate(routeName)}
           theme="navigation"
           title={displayName}
-          icon={{ name: iconName }}
         />
       )}
     />

@@ -12,8 +12,8 @@ function Resume() {
 
   return (
     <CustomButton
-      onPress={handleResume}
       icon={{ name: "play-arrow" }}
+      onPress={handleResume}
       theme="control"
     />
   );

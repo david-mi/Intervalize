@@ -14,6 +14,7 @@ const config = {
     // "import/order": "off",
     // "react/jsx-curly-brace-presence": ["off"],
     // "import/order": ["error", { "newlines-between": "never" }],
+    "react/jsx-sort-props": "error",
     "prettier/prettier": "off",
     "no-duplicate-imports": "error",
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],

@@ -17,21 +17,21 @@ function Home({ navigation }: Props) {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Séance en cours"
         component={CurrentSession}
+        name="Séance en cours"
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Séance en cours",
-          tabBarIcon: () => <MaterialIcons name="directions-run" size={24} color="black" />,
+          tabBarIcon: () => <MaterialIcons color="black" name="directions-run" size={24} />,
         }}
       />
       <Tab.Screen
-        name="Mes séances"
         component={MySessions}
+        name="Mes séances"
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Mes séances",
-          tabBarIcon: () => <MaterialIcons name="format-list-bulleted" size={24} color="black" />,
+          tabBarIcon: () => <MaterialIcons color="black" name="format-list-bulleted" size={24} />,
         }}
       />
     </Tab.Navigator>

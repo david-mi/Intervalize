@@ -18,8 +18,8 @@ function ExercisesList({ currentExercise, exercises }: Props) {
   return (
     <View pointerEvents="none" style={styles.exercisesListContainer}>
       <FlatList
-        data={exercises}
         contentContainerStyle={styles.exercisesList}
+        data={exercises}
         ref={flatListRef}
         renderItem={({ item, index }) => item.id === currentExercise.id
           ? (

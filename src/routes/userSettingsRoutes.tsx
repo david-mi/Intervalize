@@ -11,8 +11,8 @@ function UserSettingsRoutes() {
   return (
     <UserSettingsContextProvider>
       <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
-        <Stack.Screen name="List" component={UserSettingsList} />
-        <Stack.Screen name="Vibrations" component={Vibrations} />
+        <Stack.Screen component={UserSettingsList} name="List" />
+        <Stack.Screen component={Vibrations} name="Vibrations" />
       </Stack.Navigator>
     </UserSettingsContextProvider>
   );

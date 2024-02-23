@@ -14,11 +14,6 @@ export const styles = StyleSheet.create({
     color: globalStyle.navigationColor,
     borderBottomWidth: 1,
   },
-  pressIconWrapper: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   define: {
     backgroundColor: "red",
     alignItems: "center",
@@ -26,13 +21,7 @@ export const styles = StyleSheet.create({
     width: 250,
     borderRadius: 50,
   },
-  text: {
-    color: "white",
-    fontStyle: "italic",
-    fontWeight: "500",
-    marginTop: 20,
-  },
-  buttonsContainer: {
+  controlButtons: {
     flexDirection: "row",
     gap: globalStyle.gap,
     justifyContent: "center",

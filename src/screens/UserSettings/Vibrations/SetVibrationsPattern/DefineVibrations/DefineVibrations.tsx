@@ -39,6 +39,12 @@ function DefineVibrations(props: Props) {
     dispatchButtonAction({ type: "define" })
   }
 
+  React.useEffect(() => {
+    return () => {
+      Vibration.cancel()
+    }
+  }, [])
+
   return (
     <CustomButton
       disabled={disabledButtons.define}

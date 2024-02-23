@@ -13,7 +13,6 @@ export const UserSettingsContext = React.createContext<UserSettingsContextType>(
   updateError: null,
   setUpdateError: () => { },
   updateUserSettings: () => Promise.resolve(),
-
 })
 
 interface Props {

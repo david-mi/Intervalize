@@ -1,10 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import * as React from "react"
-import { View, Text, Vibration } from "react-native";
+import { View, Text, Vibration, type GestureResponderEvent } from "react-native";
 
 import { styles } from "./setVibrationsPattern.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
+import { defaultUserSettings } from "@/data/defaultUserSettings";
 import { useVibrationsPattern } from "@/hooks/useVibrationsPattern";
 import type { UserSettings } from "@/types";
 
@@ -60,9 +61,7 @@ function disabledButtonsReducer(state: DisabledButtonsState, action: DisabledBut
 }
 
 function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) {
-  const customVibrationPatternRef = React.useRef<number[]>([])
-  customVibrationPatternRef.current = [];
-  const { isDefaultPattern, setIsDefaultPattern } = useVibrationsPattern(userSettings)
+  const { isDefaultPattern } = useVibrationsPattern(userSettings)
   const [disabledButtons, dispatchButtonAction] = React.useReducer(disabledButtonsReducer, {
     define: false,
     play: false,
@@ -70,6 +69,25 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
     reset: isDefaultPattern === false,
   })
   const displayDefineInstructions = !disabledButtons.define && disabledButtons.stop
+  const customVibrationPatternRef = React.useRef<number[]>([])
+  const timeStampRef = React.useRef(0)
+
+  function handleDefinePressIn(event: GestureResponderEvent) {
+    customVibrationPatternRef.current.push(timeStampRef.current !== 0
+      ? event.timeStamp - timeStampRef.current
+      : 0
+    )
+    timeStampRef.current = event.timeStamp
+    Vibration.vibrate([0, 1000], true)
+  }
+
+  function handleDefinePressOut(event: GestureResponderEvent) {
+    Vibration.cancel()
+    const pressDuration = event.timeStamp - timeStampRef.current!
+    customVibrationPatternRef.current.push(pressDuration)
+
+    timeStampRef.current = event.timeStamp
+  }
 
   function handleDefinePress() {
     dispatchButtonAction({ type: "define" })
@@ -82,6 +100,7 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
       vibrationDuration += time
       return vibrationDuration
     })
+
     Vibration.vibrate(userSettings.vibrationPattern)
     setTimeout(() => {
       dispatchButtonAction({ type: "play/end", isDefaultPattern })
@@ -90,20 +109,24 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
 
   function handleStopPress() {
     dispatchButtonAction({ type: "stop" })
-    setIsDefaultPattern(false)
+    updateUserSettings("vibrationPattern", customVibrationPatternRef.current)
+    timeStampRef.current = 0
   }
 
   function handleResetPress() {
     dispatchButtonAction({ type: "reset" })
-    setIsDefaultPattern(true)
+    customVibrationPatternRef.current = []
+    updateUserSettings("vibrationPattern", defaultUserSettings.vibrationPattern)
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Pattern</Text>
+      <Text style={styles.title}>Pattern ({isDefaultPattern ? "Défaut" : "Custom"})</Text>
       <CustomButton
         style={styles.define}
         onPress={handleDefinePress}
+        onPressIn={handleDefinePressIn}
+        onPressOut={handleDefinePressOut}
         disabled={disabledButtons.define}
       >
         {displayDefineInstructions && <Text style={styles.text}>Définir votre pattern</Text>}

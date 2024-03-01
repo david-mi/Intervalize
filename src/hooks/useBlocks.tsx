@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Vibration } from "react-native"
 
 import { useExerciseTimer } from "./useExercisesTimer"
 
@@ -6,11 +7,12 @@ import { GlobalContext } from "@/context/GlobalContext"
 import type { Block } from "@/types"
 
 export function useBlocks() {
-  const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel } = React.useContext(GlobalContext)
+  const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings } = React.useContext(GlobalContext)
   const currentSessionBlocks = currentSession!.blocks
 
   const currentBlockIndexRef = React.useRef(0)
   const [currentBlock, setCurrentBlock] = React.useState(currentSessionBlocks[currentBlockIndexRef.current])
+
   const [blockIterationsCount, setBlockIterationsCount] = React.useState(1)
   const [currentExerciseIndex, setCurrentExerciseIndex] = React.useState(0)
   const currentExercise = currentBlock.exercises[currentExerciseIndex]
@@ -21,6 +23,14 @@ export function useBlocks() {
 
   React.useEffect(() => {
     setCurrentExerciseIntensityLevel(currentExercise.intensityLevel)
+
+    if (userSettings.vibrationsEnabled) {
+      Vibration.vibrate(userSettings.vibrationPattern)
+
+      return () => {
+        Vibration.cancel()
+      }
+    }
   }, [currentExerciseIndex, currentBlock])
 
   function onFinishedBlockExercises() {

@@ -63,18 +63,20 @@ const GlobalContextProvider = ({ children }: Props) => {
   }, [])
 
   return (
-    <GlobalContext.Provider value={{
-      sessionStatus,
-      setSessionStatus,
-      sessions,
-      setSessions,
-      currentSession,
-      setCurrentSession,
-      currentExerciseIntensityLevel,
-      setCurrentExerciseIntensityLevel,
-      userSettings,
-      setUserSettings,
-    }}>
+    <GlobalContext.Provider
+      value={{
+        sessionStatus,
+        setSessionStatus,
+        sessions,
+        setSessions,
+        currentSession,
+        setCurrentSession,
+        currentExerciseIntensityLevel,
+        setCurrentExerciseIntensityLevel,
+        userSettings,
+        setUserSettings,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   )

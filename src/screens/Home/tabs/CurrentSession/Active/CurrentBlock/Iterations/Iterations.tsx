@@ -18,7 +18,12 @@ function Iterations({ blockIterationsCount, currentBlockIterations }: Props) {
 
   return (
     <View style={styles.container}>
-      <MaterialIcons color="black" name="loop" size={120} style={styles.icon} />
+      <MaterialIcons
+        color="black"
+        name="loop"
+        size={120}
+        style={styles.icon}
+      />
       <TextWithCustomFont style={styles.text}>
         {blockIterationsCount}/{currentBlockIterations}
       </TextWithCustomFont>

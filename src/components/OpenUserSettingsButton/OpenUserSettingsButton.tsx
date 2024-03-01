@@ -18,7 +18,11 @@ function OpenUserSettingsButton({ navigation }: Props) {
 
   return (
     <Pressable onPress={onPress} style={styles.button}>
-      <MaterialIcons color="black" name="settings" size={40} />
+      <MaterialIcons
+        color="black"
+        name="settings"
+        size={40}
+      />
     </Pressable>
   );
 }

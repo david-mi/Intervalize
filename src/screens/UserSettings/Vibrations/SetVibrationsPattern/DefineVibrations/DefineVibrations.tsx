@@ -55,7 +55,11 @@ function DefineVibrations(props: Props) {
     >
       {displayDefineInstructions && <Text style={styles.instructions}>Définir votre pattern</Text>}
       <View style={styles.pressIconWrapper}>
-        <MaterialIcons color="white" name="touch-app" size={70} />
+        <MaterialIcons
+          color="white"
+          name="touch-app"
+          size={70}
+        />
       </View>
     </CustomButton>
   );

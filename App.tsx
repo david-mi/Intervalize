@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <GlobalContextProvider>
-      <View style={styles.app} onLayout={onLayoutRootView}>
+      <View onLayout={onLayoutRootView} style={styles.app}>
         <Routes />
       </View>
     </GlobalContextProvider>

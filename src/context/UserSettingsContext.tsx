@@ -23,11 +23,13 @@ const UserSettingsContextProvider = ({ children }: Props) => {
   const { setUpdateError, updateError, updateUserSettings } = useUserSettings()
 
   return (
-    <UserSettingsContext.Provider value={{
-      updateError,
-      updateUserSettings,
-      setUpdateError,
-    }}>
+    <UserSettingsContext.Provider
+      value={{
+        updateError,
+        updateUserSettings,
+        setUpdateError,
+      }}
+    >
       {children}
     </UserSettingsContext.Provider>
   )

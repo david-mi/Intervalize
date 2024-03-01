@@ -17,6 +17,7 @@ function UserSettingsList({ navigation }: Props) {
     iconName: keyof typeof MaterialIcons.glyphMap
   }[] = [
       { routeName: "Vibrations", displayName: "Vibrations", iconName: "vibration" },
+      { routeName: "Display", displayName: "Affichage", iconName: "display-settings" },
     ]
 
   return (

@@ -39,6 +39,7 @@ export type RootStackParamList = {
 export type UserSettingsParamList = {
   List: undefined
   Vibrations: undefined
+  Display: undefined
 };
 
 export enum CustomFontsList {

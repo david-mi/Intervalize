@@ -54,7 +54,9 @@ export type CustomFont = `${CustomFontsList}`
 
 export interface UserSettings {
   vibrationsEnabled: boolean,
-  vibrationPattern: number[]
+  vibrationPattern: number[],
+  intensityColorsEnabled: boolean,
+  intensityColors: { [key in IntensityLevel]: string }
 }
 
 export interface AsyncStorageType {

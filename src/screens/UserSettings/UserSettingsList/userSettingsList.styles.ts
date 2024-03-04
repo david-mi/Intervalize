@@ -17,16 +17,16 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     lineHeight: 23,
-    color: globalStyle.navigationColor,
+    color: globalStyle.headerColor,
     marginRight: "auto",
   },
   themeIcon: {
     fontSize: 18,
-    color: globalStyle.navigationColor,
+    color: globalStyle.headerColor,
   },
   arrowIcon: {
     fontSize: 22,
-    color: globalStyle.navigationColor,
+    color: globalStyle.headerColor,
     marginLeft: "auto",
   },
 })

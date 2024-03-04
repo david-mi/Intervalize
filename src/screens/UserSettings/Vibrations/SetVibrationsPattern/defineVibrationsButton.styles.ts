@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     lineHeight: 23,
-    color: globalStyle.navigationColor,
     borderBottomWidth: 1,
   },
   define: {

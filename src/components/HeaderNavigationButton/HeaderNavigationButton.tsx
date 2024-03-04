@@ -3,6 +3,7 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import * as React from "react"
 import { Pressable } from "react-native";
 
+import { globalStyle } from "@/styles/styles.variables.global";
 import type { RootStackParamList } from "@/types";
 
 interface Props {
@@ -21,7 +22,7 @@ function HeaderNavigationButton({ navigation, iconProps, screenDestination, butt
     <Pressable {...buttonProps} onPress={onPress}>
       <MaterialIcons
         {...iconProps}
-        color="black"
+        color={globalStyle.headerColor}
         size={24}
       />
     </Pressable>

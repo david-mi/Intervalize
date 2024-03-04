@@ -12,7 +12,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
+      <Stack.Navigator
+        screenOptions={{
+          animation: "slide_from_right",
+          contentStyle: { backgroundColor: "white" },
+        }}
+      >
         <Stack.Screen
           component={Home}
           name="Home"

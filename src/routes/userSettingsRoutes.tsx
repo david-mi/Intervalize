@@ -6,6 +6,7 @@ import UserSettingsContextProvider from "@/context/UserSettingsContext";
 import Display from "@/screens/UserSettings/Display/Display";
 import UserSettingsList from "@/screens/UserSettings/UserSettingsList/UserSettingsList";
 import Vibrations from "@/screens/UserSettings/Vibrations/Vibrations";
+import { globalStyle } from "@/styles/styles.variables.global";
 import type { UserSettingsParamList } from "@/types";
 
 const Stack = createNativeStackNavigator<UserSettingsParamList>();
@@ -23,6 +24,8 @@ function UserSettingsRoutes() {
             />
           ),
           animation: "slide_from_right",
+          contentStyle: { backgroundColor: "white" },
+          headerTintColor: globalStyle.headerColor,
         })}
       >
         <Stack.Screen

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 import SelectIntensityColor from "./SelectIntensityColor/SelectIntensityColor";
 import { styles } from "./display.styles"
@@ -13,21 +13,25 @@ function Display() {
 
   return (
     <View style={styles.container}>
-      <SelectIntensityColor
-        intensityLevel="LOW"
-        updateUserSettings={updateUserSettings}
-        userSettings={userSettings}
-      />
-      <SelectIntensityColor
-        intensityLevel="MEDIUM"
-        updateUserSettings={updateUserSettings}
-        userSettings={userSettings}
-      />
-      <SelectIntensityColor
-        intensityLevel="HARD"
-        updateUserSettings={updateUserSettings}
-        userSettings={userSettings}
-      />
+      <Text style={styles.title}>Couleurs d'intensité</Text>
+      <View style={styles.intensityColors}>
+        <SelectIntensityColor
+          intensityLevel="LOW"
+          updateUserSettings={updateUserSettings}
+          userSettings={userSettings}
+        />
+        <SelectIntensityColor
+          intensityLevel="MEDIUM"
+          updateUserSettings={updateUserSettings}
+          userSettings={userSettings}
+        />
+        <SelectIntensityColor
+          intensityLevel="HARD"
+          updateUserSettings={updateUserSettings}
+          userSettings={userSettings}
+        />
+      </View>
+      <View style={styles.separator} />
     </View>
   );
 }

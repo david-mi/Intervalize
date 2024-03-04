@@ -1,26 +1,34 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as React from "react"
 
 import CurrentSession from "./tabs/CurrentSession/CurrentSession";
 import MySessions from "./tabs/MySessions/MySessions";
 
-import OpenUserSettingsButton from "@/components/OpenUserSettingsButton/OpenUserSettingsButton";
-import type { TabNavParamList, RootStackParamList } from "@/types";
+import HeaderNavigationButton from "@/components/HeaderNavigationButton/HeaderNavigationButton";
+import type { TabNavParamList } from "@/types";
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
 
-type Props = NativeStackScreenProps<RootStackParamList, "Home">
-
-function Home({ navigation }: Props) {
+function Home() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={({ navigation }) => ({
+        headerRight: () => (
+          <HeaderNavigationButton
+            buttonProps={{ style: { marginRight: 15 } }}
+            iconProps={{ name: "settings" }}
+            navigation={navigation}
+            screenDestination="Settings"
+          />
+        ),
+        animation: "slide_from_right",
+      })}
+    >
       <Tab.Screen
         component={CurrentSession}
         name="Séance en cours"
         options={{
-          headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Séance en cours",
           tabBarIcon: () => (
             <MaterialIcons
@@ -35,7 +43,6 @@ function Home({ navigation }: Props) {
         component={MySessions}
         name="Mes séances"
         options={{
-          headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Mes séances",
           tabBarIcon: () => (
             <MaterialIcons

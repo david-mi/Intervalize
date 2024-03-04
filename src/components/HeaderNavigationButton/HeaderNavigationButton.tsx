@@ -3,28 +3,29 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import * as React from "react"
 import { Pressable } from "react-native";
 
-import { styles } from "./goBackToHomeButton.styles"
-
 import type { RootStackParamList } from "@/types";
 
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamList, "Home">
+  iconProps: React.ComponentProps<typeof MaterialIcons>
+  screenDestination: keyof RootStackParamList
+  buttonProps?: Omit<React.ComponentProps<typeof Pressable>, "onPress">
 }
 
-function GoBackToHomeButton({ navigation }: Props) {
+function HeaderNavigationButton({ navigation, iconProps, screenDestination, buttonProps }: Props) {
   function onPress() {
-    navigation.navigate("Home")
+    navigation.navigate(screenDestination)
   }
 
   return (
-    <Pressable onPress={onPress} style={styles.button}>
+    <Pressable {...buttonProps} onPress={onPress}>
       <MaterialIcons
+        {...iconProps}
         color="black"
-        name="home"
-        size={40}
+        size={24}
       />
     </Pressable>
   );
 }
 
-export default GoBackToHomeButton;
+export default HeaderNavigationButton;

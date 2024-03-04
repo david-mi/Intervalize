@@ -22,11 +22,13 @@ function Home({ navigation }: Props) {
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Séance en cours",
-          tabBarIcon: () => <MaterialIcons
-            color="black"
-            name="directions-run"
-            size={24}
-          />,
+          tabBarIcon: () => (
+            <MaterialIcons
+              color="black"
+              name="directions-run"
+              size={24}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -35,11 +37,13 @@ function Home({ navigation }: Props) {
         options={{
           headerRight: () => <OpenUserSettingsButton navigation={navigation} />,
           tabBarLabel: "Mes séances",
-          tabBarIcon: () => <MaterialIcons
-            color="black"
-            name="format-list-bulleted"
-            size={24}
-          />,
+          tabBarIcon: () => (
+            <MaterialIcons
+              color="black"
+              name="format-list-bulleted"
+              size={24}
+            />
+          ),
         }}
       />
     </Tab.Navigator>

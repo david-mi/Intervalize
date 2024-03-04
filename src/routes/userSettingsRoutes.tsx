@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import GoBackToHomeButton from "@/components/GoBackToHomeButton/OpenUserSettingsButton/GoBackToHomeButtom";
 import UserSettingsContextProvider from "@/context/UserSettingsContext";
 import Display from "@/screens/UserSettings/Display/Display";
 import UserSettingsList from "@/screens/UserSettings/UserSettingsList/UserSettingsList";
@@ -11,7 +12,12 @@ const Stack = createNativeStackNavigator<UserSettingsParamList>();
 function UserSettingsRoutes() {
   return (
     <UserSettingsContextProvider>
-      <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
+      <Stack.Navigator
+        screenOptions={({ navigation }) => ({
+          headerRight: () => <GoBackToHomeButton navigation={navigation} />,
+          animation: "slide_from_right",
+        })}
+      >
         <Stack.Screen
           component={UserSettingsList}
           name="List"

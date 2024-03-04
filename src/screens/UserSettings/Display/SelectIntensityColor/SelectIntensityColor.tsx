@@ -44,13 +44,14 @@ function SelectIntensityColor({ userSettings, updateUserSettings, intensityLevel
 
   const intensityTitles: { [intensityLevel in IntensityLevel]: string } = {
     LOW: "Faible",
-    MEDIUM: "Moyenne",
-    HARD: "Elevée",
+    MEDIUM: "Moyen",
+    HARD: "Elevé",
   }
 
   return (
     <>
       <CustomButton
+        icon={{ name: "color-lens" }}
         onPress={toggleModal}
         style={{ backgroundColor: userSettings.intensityColors[intensityLevel] }}
         theme="rectangle"

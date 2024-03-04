@@ -18,7 +18,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   title: {
-    fontSize: 25,
+    fontSize: 23,
+    fontWeight: "600",
   },
   intensityColors: {
     gap: globalStyle.gap / 2,

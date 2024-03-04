@@ -2,7 +2,7 @@ import * as React from "react";
 import { View } from "react-native";
 
 import SetVibrationPattern from "./SetVibrationsPattern/SetVibrationPattern";
-import ToogleVibrations from "./ToogleVibrations/ToggleVibrations";
+import ToggleVibrations from "./ToggleVibrations/ToggleVibrations";
 import { styles } from "./vibrations.styles";
 
 import { GlobalContext } from "@/context/GlobalContext";
@@ -14,7 +14,7 @@ function Vibrations() {
 
   return (
     <View style={styles.container}>
-      <ToogleVibrations
+      <ToggleVibrations
         updateUserSettings={updateUserSettings}
         userSettings={userSettings}
       />

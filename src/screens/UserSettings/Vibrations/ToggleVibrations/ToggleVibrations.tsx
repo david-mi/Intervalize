@@ -9,7 +9,7 @@ interface Props {
   userSettings: UserSettings
 }
 
-function ToogleVibrations({ updateUserSettings, userSettings }: Props) {
+function ToggleVibrations({ updateUserSettings, userSettings }: Props) {
   function onPress(checked: boolean) {
     if (checked) {
       Vibration.vibrate(userSettings.vibrationPattern)
@@ -27,4 +27,4 @@ function ToogleVibrations({ updateUserSettings, userSettings }: Props) {
   );
 }
 
-export default ToogleVibrations;
+export default ToggleVibrations;

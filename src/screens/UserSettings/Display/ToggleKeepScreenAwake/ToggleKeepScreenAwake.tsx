@@ -11,7 +11,6 @@ interface Props {
 function ToggleKeepScreenAwake({ updateUserSettings, userSettings }: Props) {
 
   async function onPress(checked: boolean) {
-    console.log("updateUserSettings")
     updateUserSettings("toggleKeepScreenAwake", checked)
   }
 

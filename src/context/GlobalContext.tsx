@@ -1,3 +1,4 @@
+import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 import * as React from "react"
 
 import { defaultUserSettings } from "../data/defaultUserSettings";
@@ -61,6 +62,18 @@ const GlobalContextProvider = ({ children }: Props) => {
 
     loadUserSettings()
   }, [])
+
+  React.useEffect(() => {
+    try {
+      if (userSettings.toggleKeepScreenAwake) {
+        activateKeepAwakeAsync("INTERVALIZE_SCREEN_AWAKE")
+      } else {
+        deactivateKeepAwake("INTERVALIZE_SCREEN_AWAKE")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }, [userSettings.toggleKeepScreenAwake])
 
   return (
     <GlobalContext.Provider

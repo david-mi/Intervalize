@@ -2,6 +2,7 @@ import * as React from "react";
 import { View, Text } from "react-native";
 
 import SelectIntensityColor from "./SelectIntensityColor/SelectIntensityColor";
+import ToggleKeepScreenAwake from "./ToggleKeepScreenAwake/ToggleKeepScreenAwake";
 import { styles } from "./display.styles"
 
 import { GlobalContext } from "@/context/GlobalContext";
@@ -32,6 +33,10 @@ function Display() {
         />
       </View>
       <View style={styles.separator} />
+      <ToggleKeepScreenAwake
+        updateUserSettings={updateUserSettings}
+        userSettings={userSettings}
+      />
     </View>
   );
 }

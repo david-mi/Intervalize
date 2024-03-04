@@ -57,6 +57,7 @@ export interface UserSettings {
   vibrationPattern: number[],
   intensityColorsEnabled: boolean,
   intensityColors: { [key in IntensityLevel]: string }
+  toggleKeepScreenAwake: boolean
 }
 
 export interface AsyncStorageType {

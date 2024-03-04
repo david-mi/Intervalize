@@ -11,6 +11,7 @@ export const defaultUserSettings: UserSettings = {
     LOW: "#82CD47",
   },
   intensityColorsEnabled: true,
+  toggleKeepScreenAwake: false,
 }
 
 export const defaultStorageData: AsyncStorageType = {

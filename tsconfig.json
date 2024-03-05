@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
+    "strictNullChecks": true,
     "target": "ESNext",
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,

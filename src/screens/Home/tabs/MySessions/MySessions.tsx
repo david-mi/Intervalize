@@ -3,6 +3,7 @@ import { TabActions } from "@react-navigation/native";
 import * as React from "react"
 import { View, FlatList, Alert } from "react-native";
 
+import CreateSession from "./CreateSession/CreateSession";
 import { styles } from "./mySessions.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
@@ -55,7 +56,7 @@ function MySessions({ navigation }: Props) {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={styles.container}>
       <FlatList
         contentContainerStyle={styles.list}
         data={sessions}
@@ -70,8 +71,9 @@ function MySessions({ navigation }: Props) {
             />
           )
         }}
-        style={styles.wrapper}
+        style={styles.listWrapper}
       />
+      <CreateSession />
     </View>
   );
 }

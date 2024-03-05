@@ -42,6 +42,10 @@ export type UserSettingsParamList = {
   Display: undefined
 };
 
+export type SessionsParamList = {
+  MySessions: undefined
+};
+
 export enum CustomFontsList {
   CLOCKICONS = "clockicons",
   OSWALD_LIGHT = "oswald-light",

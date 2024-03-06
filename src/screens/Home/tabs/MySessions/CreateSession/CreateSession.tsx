@@ -1,11 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react"
-import { Modal, Pressable, Text, TextInput, View } from "react-native";
+import { Modal, Pressable, View } from "react-native";
 
+import CreateSessionForm from "./CreateSessionForm/CreateSessionForm";
 import { styles } from "./createSession.styles"
 
 import CustomButton from "@/components/CustomButton/CustomButton";
-import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 
 function CreateSession() {
   const [displayModal, setDisplayModal] = React.useState(false)
@@ -28,25 +28,7 @@ function CreateSession() {
           <Pressable onPress={toggleModal} style={styles.closeModalButton}>
             <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
           </Pressable>
-          <View style={styles.form}>
-            <TitleWithCustomFont style={styles.title}>Création d'une séance</TitleWithCustomFont>
-            <View style={styles.labelInputContainer}>
-              <Text style={styles.label}>Nom de la séance</Text>
-              <TextInput placeholder="Exemple : Cardio 5km" style={styles.input} />
-            </View>
-            <View style={styles.blocks}>
-              <TitleWithCustomFont style={styles.blocksTitle}>Blocks</TitleWithCustomFont>
-              <Pressable style={styles.addBlockButton}>
-                <MaterialIcons name="add" size={40} />
-              </Pressable>
-            </View>
-            <CustomButton
-              icon={{ name: "create-new-folder" }}
-              style={styles.saveSessionButton}
-              theme="rectangle"
-              title="Créer la séance"
-            />
-          </View>
+          <CreateSessionForm />
         </Modal>
       )}
     </View>

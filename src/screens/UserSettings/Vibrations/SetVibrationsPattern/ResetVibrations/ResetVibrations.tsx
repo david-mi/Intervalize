@@ -2,19 +2,19 @@ import type { DisabledButtonsState, DisabledButtonActions } from "../disabledBut
 
 import CustomButton from "@/components/CustomButton/CustomButton";
 import { defaultUserSettings } from "@/data/defaultUserSettings";
-import type { UserSettings } from "@/types";
+import useBoundedStore from "@/store/store";
 
 interface Props {
   disabledButtons: DisabledButtonsState
   dispatchButtonAction: React.Dispatch<DisabledButtonActions>
   customVibrationPatternRef: React.MutableRefObject<number[]>
   timeStampRef: React.MutableRefObject<number>
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
   isDefaultPattern: boolean
 }
 
 function ResetVibrations(props: Props) {
-  const { disabledButtons, dispatchButtonAction, customVibrationPatternRef, updateUserSettings } = props
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
+  const { disabledButtons, dispatchButtonAction, customVibrationPatternRef } = props
 
   function handleResetPress() {
     dispatchButtonAction({ type: "reset" })

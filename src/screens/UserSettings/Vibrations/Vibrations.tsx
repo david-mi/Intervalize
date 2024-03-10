@@ -8,21 +8,12 @@ import { styles } from "./vibrations.styles";
 import useBoundedStore from "@/store/store";
 
 function Vibrations() {
-  const userSettings = useBoundedStore((state) => state.userSettings)
-  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
+  const vibrationsEnabled = useBoundedStore(({ userSettings }) => userSettings.vibrationsEnabled)
 
   return (
     <View style={styles.container}>
-      <ToggleVibrations
-        updateUserSettings={updateUserSettings}
-        userSettings={userSettings}
-      />
-      {userSettings.vibrationsEnabled && (
-        <SetVibrationPattern
-          updateUserSettings={updateUserSettings}
-          userSettings={userSettings}
-        />
-      )}
+      <ToggleVibrations />
+      {vibrationsEnabled && <SetVibrationPattern />}
     </View>
   );
 };

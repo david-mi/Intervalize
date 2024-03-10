@@ -1,10 +1,11 @@
 import * as React from "react"
 
 import { defaultVibrationsPattern } from "@/data/defaultUserSettings"
-import type { UserSettings } from "@/types"
+import useBoundedStore from "@/store/store"
 
-export function useVibrationsPattern(userSettings: UserSettings) {
-  const [isDefaultPattern, setIsDefaultPattern] = React.useState(checkIfDefaultPattern(userSettings.vibrationPattern))
+export function useVibrationsPattern() {
+  const vibrationPattern = useBoundedStore(({ userSettings }) => userSettings.vibrationPattern)
+  const [isDefaultPattern, setIsDefaultPattern] = React.useState(checkIfDefaultPattern(vibrationPattern))
 
   function checkIfDefaultPattern(patternToCompare: number[]) {
     for (let i = 0; i < defaultVibrationsPattern.length; i++) {
@@ -17,8 +18,8 @@ export function useVibrationsPattern(userSettings: UserSettings) {
   }
 
   React.useEffect(() => {
-    setIsDefaultPattern(checkIfDefaultPattern(userSettings.vibrationPattern))
-  }, [userSettings])
+    setIsDefaultPattern(checkIfDefaultPattern(vibrationPattern))
+  }, [vibrationPattern])
 
   return {
     isDefaultPattern,

@@ -5,37 +5,17 @@ import SelectIntensityColor from "./SelectIntensityColor/SelectIntensityColor";
 import ToggleKeepScreenAwake from "./ToggleKeepScreenAwake/ToggleKeepScreenAwake";
 import { styles } from "./display.styles"
 
-import useBoundedStore from "@/store/store";
-
 function Display() {
-  const userSettings = useBoundedStore((state) => state.userSettings)
-  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Couleurs d'intensité</Text>
       <View style={styles.intensityColors}>
-        <SelectIntensityColor
-          intensityLevel="LOW"
-          updateUserSettings={updateUserSettings}
-          userSettings={userSettings}
-        />
-        <SelectIntensityColor
-          intensityLevel="MEDIUM"
-          updateUserSettings={updateUserSettings}
-          userSettings={userSettings}
-        />
-        <SelectIntensityColor
-          intensityLevel="HARD"
-          updateUserSettings={updateUserSettings}
-          userSettings={userSettings}
-        />
+        <SelectIntensityColor intensityLevel="LOW" />
+        <SelectIntensityColor intensityLevel="MEDIUM" />
+        <SelectIntensityColor intensityLevel="HARD" />
       </View>
       <View style={styles.separator} />
-      <ToggleKeepScreenAwake
-        updateUserSettings={updateUserSettings}
-        userSettings={userSettings}
-      />
+      <ToggleKeepScreenAwake />
     </View>
   );
 }

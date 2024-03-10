@@ -3,17 +3,17 @@ import { Vibration } from "react-native";
 import type { DisabledButtonsState, DisabledButtonActions } from "../disabledButtonsReducer";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
-import type { UserSettings } from "@/types";
+import useBoundedStore from "@/store/store";
 
 interface Props {
-  userSettings: UserSettings
   disabledButtons: DisabledButtonsState
   dispatchButtonAction: React.Dispatch<DisabledButtonActions>
   isDefaultPattern: boolean
 }
 
 function PlayVibrations(props: Props) {
-  const { disabledButtons, dispatchButtonAction, userSettings, isDefaultPattern } = props
+  const { disabledButtons, dispatchButtonAction, isDefaultPattern } = props
+  const userSettings = useBoundedStore((state) => state.userSettings)
 
   function handlePlayPress() {
     dispatchButtonAction({ type: "play/start" })

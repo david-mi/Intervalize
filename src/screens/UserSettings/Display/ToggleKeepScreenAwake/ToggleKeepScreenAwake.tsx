@@ -1,14 +1,11 @@
 import * as React from "react"
 
 import Checkbox from "@/components/Checkbox/Checkbox";
-import type { UserSettings } from "@/types";
+import useBoundedStore from "@/store/store";
 
-interface Props {
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
-  userSettings: UserSettings
-}
-
-function ToggleKeepScreenAwake({ updateUserSettings, userSettings }: Props) {
+function ToggleKeepScreenAwake() {
+  const userSettings = useBoundedStore((state) => state.userSettings)
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
 
   async function onPress(checked: boolean) {
     updateUserSettings("toggleKeepScreenAwake", checked)

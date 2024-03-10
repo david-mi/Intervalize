@@ -1,18 +1,18 @@
 import type { DisabledButtonsState, DisabledButtonActions } from "../disabledButtonsReducer";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
-import type { UserSettings } from "@/types";
+import useBoundedStore from "@/store/store";
 
 interface Props {
   disabledButtons: DisabledButtonsState
   dispatchButtonAction: React.Dispatch<DisabledButtonActions>
   customVibrationPatternRef: React.MutableRefObject<number[]>
   timeStampRef: React.MutableRefObject<number>
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
 }
 
 function StopVibrations(props: Props) {
-  const { disabledButtons, dispatchButtonAction, customVibrationPatternRef, timeStampRef, updateUserSettings } = props
+  const { disabledButtons, dispatchButtonAction, customVibrationPatternRef, timeStampRef } = props
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
 
   function handleStopPress() {
     dispatchButtonAction({ type: "stop" })

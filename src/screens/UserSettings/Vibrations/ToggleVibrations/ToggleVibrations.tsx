@@ -2,14 +2,12 @@ import * as React from "react"
 import { Vibration } from "react-native";
 
 import Checkbox from "@/components/Checkbox/Checkbox";
-import type { UserSettings } from "@/types";
+import useBoundedStore from "@/store/store";
 
-interface Props {
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
-  userSettings: UserSettings
-}
+function ToggleVibrations() {
+  const userSettings = useBoundedStore((state) => state.userSettings)
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
 
-function ToggleVibrations({ updateUserSettings, userSettings }: Props) {
   function onPress(checked: boolean) {
     if (checked) {
       Vibration.vibrate(userSettings.vibrationPattern)

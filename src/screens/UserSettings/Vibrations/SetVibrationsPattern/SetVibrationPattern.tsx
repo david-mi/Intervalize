@@ -9,22 +9,15 @@ import { styles } from "./defineVibrationsButton.styles";
 import { disabledButtonsReducer } from "./disabledButtonsReducer";
 
 import { useVibrationsPattern } from "@/hooks/useVibrationsPattern";
-import type { UserSettings } from "@/types";
 
-interface Props {
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
-  userSettings: UserSettings
-}
-
-function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) {
-  const { isDefaultPattern } = useVibrationsPattern(userSettings)
+function SetCustomVibrationPattern() {
+  const { isDefaultPattern } = useVibrationsPattern()
   const [disabledButtons, dispatchButtonAction] = React.useReducer(disabledButtonsReducer, {
     define: false,
     play: false,
     stop: true,
     reset: isDefaultPattern,
   })
-
   const customVibrationPatternRef = React.useRef<number[]>([])
   const timeStampRef = React.useRef(0)
 
@@ -42,14 +35,12 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
           disabledButtons={disabledButtons}
           dispatchButtonAction={dispatchButtonAction}
           isDefaultPattern={isDefaultPattern}
-          userSettings={userSettings}
         />
         <StopVibrations
           customVibrationPatternRef={customVibrationPatternRef}
           disabledButtons={disabledButtons}
           dispatchButtonAction={dispatchButtonAction}
           timeStampRef={timeStampRef}
-          updateUserSettings={updateUserSettings}
         />
         <ResetVibrations
           customVibrationPatternRef={customVibrationPatternRef}
@@ -57,7 +48,6 @@ function SetCustomVibrationPattern({ updateUserSettings, userSettings }: Props) 
           dispatchButtonAction={dispatchButtonAction}
           isDefaultPattern={isDefaultPattern}
           timeStampRef={timeStampRef}
-          updateUserSettings={updateUserSettings}
         />
       </View>
     </View>

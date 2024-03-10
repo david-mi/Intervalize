@@ -5,15 +5,16 @@ import ColorPicker, { Preview, Panel1, HueSlider, OpacitySlider, type returnedRe
 import { styles } from "./selectIntensityColor.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
-import type { IntensityLevel, UserSettings } from "@/types";
+import useBoundedStore from "@/store/store";
+import type { IntensityLevel } from "@/types";
 
 interface Props {
-  userSettings: UserSettings,
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
   intensityLevel: IntensityLevel
 }
 
-function SelectIntensityColor({ userSettings, updateUserSettings, intensityLevel }: Props) {
+function SelectIntensityColor({ intensityLevel }: Props) {
+  const userSettings = useBoundedStore((state) => state.userSettings)
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
   const [showModal, setShowModal] = React.useState(false);
   const colorPickerValueRef = React.useRef<string>("")
   const [colorPickerValue, setColorPickerValue] = React.useState(userSettings.intensityColors[intensityLevel])

@@ -5,11 +5,11 @@ import { styles } from "./readyToStart.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
-import { GlobalContext } from "@/context/GlobalContext";
+import useBoundedStore from "@/store/store";
 import type { Session } from "@/types";
 
 function ReadyToStart() {
-  const { currentSession, setSessionStatus } = React.useContext(GlobalContext)
+  const { currentSession, setSessionStatus } = useBoundedStore()
 
   function onPress() {
     setSessionStatus("ACTIVE")

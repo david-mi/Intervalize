@@ -1,7 +1,6 @@
 import * as React from "react"
 
-import { GlobalContext } from "../context/GlobalContext"
-
+import useBoundedStore from "@/store/store"
 import type { Time } from "@/types"
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 
 export function useExerciseTimer({ duration, onFinishedExerciseTimer }: Props) {
   const [currentExerciseTimer, setCurrentExerciseTimer] = React.useState(duration)
-  const { sessionStatus } = React.useContext(GlobalContext)
+  const { sessionStatus } = useBoundedStore()
   const timeoutIdRef = React.useRef<NodeJS.Timeout | null>(null)
 
   React.useEffect(() => {

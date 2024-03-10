@@ -3,11 +3,11 @@ import { Vibration } from "react-native"
 
 import { useExerciseTimer } from "./useExercisesTimer"
 
-import { GlobalContext } from "@/context/GlobalContext"
+import useBoundedStore from "@/store/store"
 import type { Block } from "@/types"
 
 export function useBlocks() {
-  const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings } = React.useContext(GlobalContext)
+  const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings } = useBoundedStore()
   const currentSessionBlocks = currentSession!.blocks
 
   const currentBlockIndexRef = React.useRef(0)

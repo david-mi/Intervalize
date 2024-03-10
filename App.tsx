@@ -4,7 +4,6 @@ import { useCallback } from "react";
 import { View } from "react-native";
 
 import { styles } from "./app.styles";
-import GlobalContextProvider from "./src/context/GlobalContext";
 import Routes from "./src/routes/routes";
 
 import "expo-dev-client";
@@ -35,10 +34,8 @@ export default function App() {
   }
 
   return (
-    <GlobalContextProvider>
-      <View onLayout={onLayoutRootView} style={styles.app}>
-        <Routes />
-      </View>
-    </GlobalContextProvider>
+    <View onLayout={onLayoutRootView} style={styles.app}>
+      <Routes />
+    </View>
   );
 }

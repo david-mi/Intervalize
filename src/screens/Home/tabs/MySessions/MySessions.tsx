@@ -7,7 +7,7 @@ import CreateSession from "./CreateSession/CreateSession";
 import { styles } from "./mySessions.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
-import { GlobalContext } from "@/context/GlobalContext";
+import useBoundedStore from "@/store/store";
 import type { Session, TabNavParamList } from "@/types";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Mes séances">
@@ -19,7 +19,7 @@ function MySessions({ navigation }: Props) {
     setCurrentSession,
     sessionStatus,
     setSessionStatus,
-  } = React.useContext(GlobalContext)
+  } = useBoundedStore()
 
   function startNewSession(session: Session) {
     setCurrentSession(session)

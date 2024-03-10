@@ -1,18 +1,17 @@
-import { useContext } from "react";
 import { View } from "react-native";
 
 import CurrentBlock from "./CurrentBlock/CurrentBlock";
 import SessionTimer from "./SessionTimer/SessionTimer";
 import { styles } from "./active.styles";
 
-import { GlobalContext } from "@/context/GlobalContext";
+import useBoundedStore from "@/store/store";
 
 interface Props {
   children: JSX.Element
 }
 
 function Active({ children }: Props) {
-  const { currentExerciseIntensityLevel, userSettings } = useContext(GlobalContext)
+  const { currentExerciseIntensityLevel, userSettings } = useBoundedStore()
 
   const backgroundColor = currentExerciseIntensityLevel
     ? userSettings.intensityColors[currentExerciseIntensityLevel]

@@ -5,12 +5,12 @@ import SetVibrationPattern from "./SetVibrationsPattern/SetVibrationPattern";
 import ToggleVibrations from "./ToggleVibrations/ToggleVibrations";
 import { styles } from "./vibrations.styles";
 
-import { GlobalContext } from "@/context/GlobalContext";
 import { UserSettingsContext } from "@/context/UserSettingsContext";
+import useBoundedStore from "@/store/store";
 
 function Vibrations() {
   const { updateUserSettings } = React.useContext(UserSettingsContext)
-  const { userSettings } = React.useContext(GlobalContext)
+  const { userSettings } = useBoundedStore()
 
   return (
     <View style={styles.container}>

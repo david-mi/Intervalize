@@ -7,13 +7,13 @@ import { styles } from "./finished.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
-import { GlobalContext } from "@/context/GlobalContext";
+import useBoundedStore from "@/store/store";
 import type { TabNavParamList } from "@/types";
 
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
 
 function Finished({ navigation }: Props) {
-  const { setSessionStatus } = React.useContext(GlobalContext)
+  const { setSessionStatus } = useBoundedStore()
 
   function handleRestartSession() {
     setSessionStatus("ACTIVE")

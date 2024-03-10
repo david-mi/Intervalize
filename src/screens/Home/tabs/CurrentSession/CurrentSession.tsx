@@ -9,13 +9,13 @@ import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { styles } from "./currentSession.styles";
 
-import { GlobalContext } from "@/context/GlobalContext";
+import useBoundedStore from "@/store/store";
 import type { TabNavParamList } from "@/types";
 
 type Props = BottomTabScreenProps<TabNavParamList, "Séance en cours">
 
 function CurrentSession({ navigation }: Props) {
-  const { sessionStatus, currentSession } = React.useContext(GlobalContext)
+  const { sessionStatus, currentSession } = useBoundedStore()
 
   React.useEffect(() => {
     if (currentSession) {

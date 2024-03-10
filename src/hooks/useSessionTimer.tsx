@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import { GlobalContext } from "@/context/GlobalContext"
+import useBoundedStore from "@/store/store"
 
 export function useSessionTimer() {
-  const { currentSession, sessionStatus } = React.useContext(GlobalContext)
+  const { currentSession, sessionStatus } = useBoundedStore()
   const currentSessionBlocks = currentSession!.blocks
   const timeoutIdRef = React.useRef<NodeJS.Timeout | null>(null)
 

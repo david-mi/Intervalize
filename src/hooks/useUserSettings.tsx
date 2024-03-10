@@ -1,10 +1,9 @@
 import * as React from "react"
-import { useContext } from "react"
 
 import type { UserSettings } from "../types"
 
-import { GlobalContext } from "@/context/GlobalContext"
 import { storageService } from "@/services/Storage/Storage";
+import useBoundedStore from "@/store/store"
 
 export type UseUserSettingsReturnType = {
   updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
@@ -13,7 +12,7 @@ export type UseUserSettingsReturnType = {
 }
 
 export function useUserSettings(): UseUserSettingsReturnType {
-  const { userSettings, setUserSettings } = useContext(GlobalContext)
+  const { userSettings, setUserSettings } = useBoundedStore()
   const [updateError, setUpdateError] = React.useState<Error | null>(null)
 
   const updateUserSettings = React.useCallback(async <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => {

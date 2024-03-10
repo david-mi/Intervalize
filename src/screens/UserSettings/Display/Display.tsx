@@ -5,11 +5,11 @@ import SelectIntensityColor from "./SelectIntensityColor/SelectIntensityColor";
 import ToggleKeepScreenAwake from "./ToggleKeepScreenAwake/ToggleKeepScreenAwake";
 import { styles } from "./display.styles"
 
-import { GlobalContext } from "@/context/GlobalContext";
 import { UserSettingsContext } from "@/context/UserSettingsContext";
+import useBoundedStore from "@/store/store";
 
 function Display() {
-  const { userSettings } = React.useContext(GlobalContext)
+  const { userSettings } = useBoundedStore()
   const { updateUserSettings } = React.useContext(UserSettingsContext)
 
   return (

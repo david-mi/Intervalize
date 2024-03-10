@@ -1,10 +1,8 @@
-import { useContext } from "react";
-
 import CustomButton from "@/components/CustomButton/CustomButton";
-import { GlobalContext } from "@/context/GlobalContext";
+import useBoundedStore from "@/store/store";
 
 function Stop() {
-  const { setSessionStatus, setCurrentSession } = useContext(GlobalContext)
+  const { setSessionStatus, setCurrentSession } = useBoundedStore()
 
   function handleStop() {
     setCurrentSession(null)

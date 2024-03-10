@@ -14,8 +14,6 @@ interface SessionsSliceType {
   setCurrentSession: (session: Session | null) => void
   currentExerciseIntensityLevel: null | IntensityLevel
   setCurrentExerciseIntensityLevel: (currentExerciceIntensityLevel: null | IntensityLevel) => void
-  userSettings: UserSettings
-  setUserSettings: (userSettings: UserSettings) => void
 }
 
 type ImmerStateCreator<T> = StateCreator<
@@ -50,6 +48,14 @@ const createSessionsSlice: ImmerStateCreator<SessionsSliceType> = (set) => ({
       state.currentExerciseIntensityLevel = currentExerciseIntensityLevel
     })
   },
+})
+
+interface UserSettingsSliceType {
+  userSettings: UserSettings
+  setUserSettings: (userSettings: UserSettings) => void
+}
+
+const createUserSettingsSlice: ImmerStateCreator<UserSettingsSliceType> = (set) => ({
   userSettings: defaultUserSettings,
   setUserSettings: (userSettings) => {
     set(state => {
@@ -58,9 +64,10 @@ const createSessionsSlice: ImmerStateCreator<SessionsSliceType> = (set) => ({
   },
 })
 
-const useBoundedStore = create<SessionsSliceType>()(
+const useBoundedStore = create<SessionsSliceType & UserSettingsSliceType>()(
   immer((...a) => ({
     ...createSessionsSlice(...a),
+    ...createUserSettingsSlice(...a),
   })))
 
 export default useBoundedStore

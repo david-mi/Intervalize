@@ -5,12 +5,12 @@ import SelectIntensityColor from "./SelectIntensityColor/SelectIntensityColor";
 import ToggleKeepScreenAwake from "./ToggleKeepScreenAwake/ToggleKeepScreenAwake";
 import { styles } from "./display.styles"
 
-import { UserSettingsContext } from "@/context/UserSettingsContext";
+import { useUserSettings } from "@/hooks/useUserSettings";
 import useBoundedStore from "@/store/store";
 
 function Display() {
   const { userSettings } = useBoundedStore()
-  const { updateUserSettings } = React.useContext(UserSettingsContext)
+  const { updateUserSettings } = useUserSettings()
 
   return (
     <View style={styles.container}>

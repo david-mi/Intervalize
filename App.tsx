@@ -1,10 +1,13 @@
 import { useFonts } from "expo-font";
+import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { View } from "react-native";
 
 import { styles } from "./app.styles";
 import Routes from "./src/routes/routes";
+
+import useBoundedStore from "@/store/store";
 
 import "expo-dev-client";
 
@@ -23,11 +26,25 @@ export default function App() {
     "oswald-bold": require("./assets/fonts/Oswald-Bold.ttf"),
   });
 
+  const toggleKeepScreenAwake = useBoundedStore(({ userSettings }) => userSettings.toggleKeepScreenAwake)
+
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded || fontError) {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded, fontError]);
+
+  useEffect(() => {
+    try {
+      if (toggleKeepScreenAwake) {
+        activateKeepAwakeAsync("INTERVALIZE_SCREEN_AWAKE")
+      } else {
+        deactivateKeepAwake("INTERVALIZE_SCREEN_AWAKE")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }, [toggleKeepScreenAwake])
 
   if (!fontsLoaded && !fontError) {
     return null;

@@ -5,12 +5,10 @@ import SelectIntensityColor from "./SelectIntensityColor/SelectIntensityColor";
 import ToggleKeepScreenAwake from "./ToggleKeepScreenAwake/ToggleKeepScreenAwake";
 import { styles } from "./display.styles"
 
-import { useUserSettings } from "@/hooks/useUserSettings";
 import useBoundedStore from "@/store/store";
 
 function Display() {
-  const { userSettings } = useBoundedStore()
-  const { updateUserSettings } = useUserSettings()
+  const { userSettings, updateUserSettings } = useBoundedStore()
 
   return (
     <View style={styles.container}>

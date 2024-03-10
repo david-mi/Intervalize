@@ -3,6 +3,7 @@ import { immer } from "zustand/middleware/immer"
 
 import { defaultUserSettings } from "@/data/defaultUserSettings";
 import { mockSessions } from "@/mocks";
+import { storageService } from "@/services/Storage/Storage";
 import type { IntensityLevel, Session, SessionStatus, UserSettings } from "@/types";
 
 interface SessionsSliceType {
@@ -52,14 +53,23 @@ const createSessionsSlice: ImmerStateCreator<SessionsSliceType> = (set) => ({
 
 interface UserSettingsSliceType {
   userSettings: UserSettings
-  setUserSettings: (userSettings: UserSettings) => void
+  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
+  updateError: Error | null,
+  setUpdateError: (updateError: Error | null) => void
 }
 
-const createUserSettingsSlice: ImmerStateCreator<UserSettingsSliceType> = (set) => ({
+const createUserSettingsSlice: ImmerStateCreator<UserSettingsSliceType> = (set, get) => ({
   userSettings: defaultUserSettings,
-  setUserSettings: (userSettings) => {
+  updateUserSettings: async (userSettingKey, userSetting) => {
+    set((state) => {
+      state.userSettings[userSettingKey] = userSetting
+    })
+    await storageService.setData("userSettings", get().userSettings)
+  },
+  updateError: null,
+  setUpdateError: (updateError) => {
     set(state => {
-      state.userSettings = userSettings
+      state.updateError = updateError
     })
   },
 })

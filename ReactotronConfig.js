@@ -1,10 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Constants from "expo-constants";
 import { ArgType } from "reactotron-core-client";
 import Reactotron from "reactotron-react-native";
 
 Reactotron
   .setAsyncStorageHandler(AsyncStorage)
-  .configure({ name: "Intervalize" })
+  .configure({
+    name: "Intervalize",
+    getClientId: async () => Constants.installationId,
+  })
   .useReactNative()
   .connect();
 

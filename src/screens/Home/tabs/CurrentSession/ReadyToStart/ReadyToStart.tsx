@@ -9,7 +9,8 @@ import useBoundedStore from "@/store/store";
 import type { Session } from "@/types";
 
 function ReadyToStart() {
-  const { currentSession, setSessionStatus } = useBoundedStore()
+  const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
+  const currentSession = useBoundedStore((state) => state.currentSession)
 
   function onPress() {
     setSessionStatus("ACTIVE")

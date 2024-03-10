@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Vibration } from "react-native"
+import { useShallow } from "zustand/react/shallow"
 
 import { useExerciseTimer } from "./useExercisesTimer"
 
@@ -7,7 +8,14 @@ import useBoundedStore from "@/store/store"
 import type { Block } from "@/types"
 
 export function useBlocks() {
-  const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings } = useBoundedStore()
+  const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings } = useBoundedStore(
+    useShallow(({ setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings }) => ({
+      setSessionStatus,
+      currentSession,
+      setCurrentExerciseIntensityLevel,
+      userSettings,
+    })))
+
   const currentSessionBlocks = currentSession!.blocks
 
   const currentBlockIndexRef = React.useRef(0)

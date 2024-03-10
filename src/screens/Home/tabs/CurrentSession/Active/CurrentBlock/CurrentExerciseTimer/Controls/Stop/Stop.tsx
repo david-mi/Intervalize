@@ -2,7 +2,8 @@ import CustomButton from "@/components/CustomButton/CustomButton";
 import useBoundedStore from "@/store/store";
 
 function Stop() {
-  const { setSessionStatus, setCurrentSession } = useBoundedStore()
+  const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
+  const setCurrentSession = useBoundedStore((state) => state.setCurrentSession)
 
   function handleStop() {
     setCurrentSession(null)

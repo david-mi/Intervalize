@@ -8,7 +8,8 @@ import { styles } from "./display.styles"
 import useBoundedStore from "@/store/store";
 
 function Display() {
-  const { userSettings, updateUserSettings } = useBoundedStore()
+  const userSettings = useBoundedStore((state) => state.userSettings)
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
 
   return (
     <View style={styles.container}>

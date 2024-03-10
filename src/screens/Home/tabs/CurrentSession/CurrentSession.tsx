@@ -15,7 +15,8 @@ import type { TabNavParamList } from "@/types";
 type Props = BottomTabScreenProps<TabNavParamList, "Séance en cours">
 
 function CurrentSession({ navigation }: Props) {
-  const { sessionStatus, currentSession } = useBoundedStore()
+  const sessionStatus = useBoundedStore((state) => state.sessionStatus)
+  const currentSession = useBoundedStore((state) => state.currentSession)
 
   React.useEffect(() => {
     if (currentSession) {

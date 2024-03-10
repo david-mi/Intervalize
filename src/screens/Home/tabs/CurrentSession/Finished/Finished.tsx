@@ -13,7 +13,7 @@ import type { TabNavParamList } from "@/types";
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
 
 function Finished({ navigation }: Props) {
-  const { setSessionStatus } = useBoundedStore()
+  const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
 
   function handleRestartSession() {
     setSessionStatus("ACTIVE")

@@ -3,7 +3,9 @@ import * as React from "react"
 import useBoundedStore from "@/store/store"
 
 export function useSessionTimer() {
-  const { currentSession, sessionStatus } = useBoundedStore()
+  const currentSession = useBoundedStore((state) => state.currentSession)
+  const sessionStatus = useBoundedStore((state) => state.sessionStatus)
+
   const currentSessionBlocks = currentSession!.blocks
   const timeoutIdRef = React.useRef<NodeJS.Timeout | null>(null)
 

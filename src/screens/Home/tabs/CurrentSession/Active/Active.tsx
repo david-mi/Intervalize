@@ -11,7 +11,8 @@ interface Props {
 }
 
 function Active({ children }: Props) {
-  const { currentExerciseIntensityLevel, userSettings } = useBoundedStore()
+  const currentExerciseIntensityLevel = useBoundedStore((state) => state.currentExerciseIntensityLevel)
+  const userSettings = useBoundedStore((state) => state.userSettings)
 
   const backgroundColor = currentExerciseIntensityLevel
     ? userSettings.intensityColors[currentExerciseIntensityLevel]

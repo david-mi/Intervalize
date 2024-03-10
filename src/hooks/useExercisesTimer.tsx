@@ -10,7 +10,7 @@ interface Props {
 
 export function useExerciseTimer({ duration, onFinishedExerciseTimer }: Props) {
   const [currentExerciseTimer, setCurrentExerciseTimer] = React.useState(duration)
-  const { sessionStatus } = useBoundedStore()
+  const sessionStatus = useBoundedStore((state) => state.sessionStatus)
   const timeoutIdRef = React.useRef<NodeJS.Timeout | null>(null)
 
   React.useEffect(() => {

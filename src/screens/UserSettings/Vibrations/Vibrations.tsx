@@ -8,7 +8,8 @@ import { styles } from "./vibrations.styles";
 import useBoundedStore from "@/store/store";
 
 function Vibrations() {
-  const { userSettings, updateUserSettings } = useBoundedStore()
+  const userSettings = useBoundedStore((state) => state.userSettings)
+  const updateUserSettings = useBoundedStore((state) => state.updateUserSettings)
 
   return (
     <View style={styles.container}>

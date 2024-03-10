@@ -1,9 +1,10 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { type StateCreator, create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware"
 import { immer } from "zustand/middleware/immer"
 
 import { defaultUserSettings } from "@/data/defaultUserSettings";
 import { mockSessions } from "@/mocks";
-import { storageService } from "@/services/Storage/Storage";
 import type { IntensityLevel, Session, SessionStatus, UserSettings } from "@/types";
 
 interface SessionsSliceType {
@@ -53,18 +54,17 @@ const createSessionsSlice: ImmerStateCreator<SessionsSliceType> = (set) => ({
 
 interface UserSettingsSliceType {
   userSettings: UserSettings
-  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => Promise<void>
+  updateUserSettings: <K extends keyof UserSettings>(settingName: K, settingValue: UserSettings[K]) => void
   updateError: Error | null,
   setUpdateError: (updateError: Error | null) => void
 }
 
 const createUserSettingsSlice: ImmerStateCreator<UserSettingsSliceType> = (set, get) => ({
   userSettings: defaultUserSettings,
-  updateUserSettings: async (userSettingKey, userSetting) => {
+  updateUserSettings: (userSettingKey, userSetting) => {
     set((state) => {
       state.userSettings[userSettingKey] = userSetting
     })
-    await storageService.setData("userSettings", get().userSettings)
   },
   updateError: null,
   setUpdateError: (updateError) => {
@@ -75,9 +75,18 @@ const createUserSettingsSlice: ImmerStateCreator<UserSettingsSliceType> = (set, 
 })
 
 const useBoundedStore = create<SessionsSliceType & UserSettingsSliceType>()(
-  immer((...a) => ({
-    ...createSessionsSlice(...a),
-    ...createUserSettingsSlice(...a),
-  })))
+  persist(
+    immer((...a) => ({
+      ...createSessionsSlice(...a),
+      ...createUserSettingsSlice(...a),
+    })),
+    {
+      name: "user-settings",
+      storage: createJSONStorage(() => AsyncStorage),
+      partialize: (state) => ({
+        userSettings: state.userSettings,
+      }),
+    }
+  ))
 
 export default useBoundedStore

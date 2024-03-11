@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useTranslation } from "react-i18next";
 import { Modal, View } from "react-native";
 import ColorPicker, { Preview, Panel1, HueSlider, OpacitySlider, type returnedResults } from "reanimated-color-picker";
 
@@ -19,6 +20,7 @@ function SelectIntensityColor({ intensityLevel }: Props) {
   const colorPickerValueRef = React.useRef<string>("")
   const [colorPickerValue, setColorPickerValue] = React.useState(userSettings.intensityColors[intensityLevel])
   const throttleTimeoutRef = React.useRef<NodeJS.Timeout | null>(null)
+  const { t } = useTranslation()
 
   function toggleModal() {
     setShowModal((showModal) => !showModal)
@@ -44,9 +46,9 @@ function SelectIntensityColor({ intensityLevel }: Props) {
   }
 
   const intensityTitles: { [intensityLevel in IntensityLevel]: string } = {
-    LOW: "Faible",
-    MEDIUM: "Moyen",
-    HARD: "Elevé",
+    LOW: t("SelectIntensityColor.low"),
+    MEDIUM: t("SelectIntensityColor.medium"),
+    HARD: t("SelectIntensityColor.hard"),
   }
 
   return (

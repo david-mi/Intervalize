@@ -1,5 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react"
+import { useTranslation } from "react-i18next";
 import { Modal, Pressable, View } from "react-native";
 
 import CreateSessionForm from "./CreateSessionForm/CreateSessionForm";
@@ -9,6 +10,7 @@ import CustomButton from "@/components/CustomButton/CustomButton";
 
 function CreateSession() {
   const [displayModal, setDisplayModal] = React.useState(false)
+  const { t } = useTranslation()
 
   function toggleModal() {
     setDisplayModal((displayModal) => !displayModal)
@@ -21,7 +23,7 @@ function CreateSession() {
         onPress={toggleModal}
         style={styles.createSessionButton}
         theme="rectangle"
-        title="Créer une séance"
+        title={t("CreateSession.createSession")}
       />
       {displayModal && (
         <Modal animationType="slide">

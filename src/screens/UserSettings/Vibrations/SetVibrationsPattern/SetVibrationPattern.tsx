@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useTranslation } from "react-i18next";
 import { View, Text } from "react-native";
 
 import DefineVibrations from "./DefineVibrations/DefineVibrations";
@@ -10,8 +11,8 @@ import { disabledButtonsReducer } from "./disabledButtonsReducer";
 
 import { useVibrationsPattern } from "@/hooks/useVibrationsPattern";
 
-function SetCustomVibrationPattern() {
-  const { isDefaultPattern } = useVibrationsPattern()
+function SetVibrationPattern() {
+  const { isDefaultPattern, currentVibrationPatternType } = useVibrationsPattern()
   const [disabledButtons, dispatchButtonAction] = React.useReducer(disabledButtonsReducer, {
     define: false,
     play: false,
@@ -20,10 +21,11 @@ function SetCustomVibrationPattern() {
   })
   const customVibrationPatternRef = React.useRef<number[]>([])
   const timeStampRef = React.useRef(0)
+  const { t } = useTranslation()
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Pattern ({isDefaultPattern ? "Défaut" : "Custom"})</Text>
+      <Text style={styles.title}>{t("SetVibrationPattern.pattern", { context: currentVibrationPatternType })}</Text>
       <DefineVibrations
         customVibrationPatternRef={customVibrationPatternRef}
         disabledButtons={disabledButtons}
@@ -54,4 +56,4 @@ function SetCustomVibrationPattern() {
   );
 }
 
-export default SetCustomVibrationPattern;
+export default SetVibrationPattern;

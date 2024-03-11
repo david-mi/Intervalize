@@ -1,6 +1,7 @@
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { TabActions } from "@react-navigation/native";
 import * as React from "react"
+import { useTranslation } from "react-i18next";
 import { View, FlatList, Alert } from "react-native";
 
 import CreateSession from "./CreateSession/CreateSession";
@@ -20,6 +21,7 @@ function MySessions({ navigation }: Props) {
     sessionStatus,
     setSessionStatus,
   } = useBoundedStore()
+  const { t } = useTranslation()
 
   function startNewSession(session: Session) {
     setCurrentSession(session)
@@ -32,7 +34,7 @@ function MySessions({ navigation }: Props) {
     const foundSession = sessions.find(session => session.id === sessionId)!
 
     if (foundSession.id === undefined) {
-      return Alert.alert("Séance non trouvée")
+      return Alert.alert(t("MySessions.sessionNotFound"))
     }
 
     const haveAnActiveSession = (
@@ -43,11 +45,11 @@ function MySessions({ navigation }: Props) {
 
     if (haveAnActiveSession) {
       Alert.alert(
-        "Une session est en cours",
-        "Sélectionner une nouvelle session ?",
+        t("MySessions.sessionIsRunning"),
+        t("MySessions.startANewSession"),
         [
-          { text: "Annuler", style: "cancel" },
-          { text: "Démarrer", onPress: () => startNewSession(foundSession) },
+          { text: t("MySessions.abort"), style: "cancel" },
+          { text: t("MySessions.start"), onPress: () => startNewSession(foundSession) },
         ]
       );
     } else {

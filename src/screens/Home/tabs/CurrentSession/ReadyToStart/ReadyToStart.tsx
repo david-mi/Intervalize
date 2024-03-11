@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 import { styles } from "./readyToStart.styles";
@@ -11,6 +12,7 @@ import type { Session } from "@/types";
 function ReadyToStart() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
   const currentSession = useBoundedStore((state) => state.currentSession)
+  const { t } = useTranslation()
 
   function onPress() {
     setSessionStatus("ACTIVE")
@@ -24,7 +26,7 @@ function ReadyToStart() {
         onPress={onPress}
         style={styles.button}
         theme="rectangle"
-        title="Démarrer"
+        title={t("ReadyToStart.start")}
       />
     </View>
   );

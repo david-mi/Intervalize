@@ -1,5 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import * as React from "react"
+import { useTranslation } from "react-i18next";
 import { View, type GestureResponderEvent, Vibration, Text } from "react-native";
 
 import { styles } from "./defineVibrations.styles";
@@ -17,6 +18,7 @@ interface Props {
 function DefineVibrations(props: Props) {
   const { disabledButtons, dispatchButtonAction, customVibrationPatternRef, timeStampRef } = props
   const displayDefineInstructions = !disabledButtons.define && disabledButtons.stop
+  const { t } = useTranslation()
 
   function handleDefinePressIn(event: GestureResponderEvent) {
     customVibrationPatternRef.current.push(timeStampRef.current !== 0
@@ -53,7 +55,7 @@ function DefineVibrations(props: Props) {
       onPressOut={handleDefinePressOut}
       style={styles.define}
     >
-      {displayDefineInstructions && <Text style={styles.instructions}>Définir votre pattern</Text>}
+      {displayDefineInstructions && <Text style={styles.instructions}>{t("DefineVibrations.definePattern")}</Text>}
       <View style={styles.pressIconWrapper}>
         <MaterialIcons
           color="white"

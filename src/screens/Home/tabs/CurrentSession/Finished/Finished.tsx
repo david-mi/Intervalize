@@ -1,6 +1,7 @@
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { TabActions } from "@react-navigation/native";
 import * as React from "react"
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 import { styles } from "./finished.styles";
@@ -14,6 +15,7 @@ type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "na
 
 function Finished({ navigation }: Props) {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
+  const { t } = useTranslation()
 
   function handleRestartSession() {
     setSessionStatus("ACTIVE")
@@ -27,20 +29,20 @@ function Finished({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <TitleWithCustomFont style={styles.title}>
-        Session Terminée
+        {t("Finished.finishedSession")}
       </TitleWithCustomFont>
       <View style={styles.buttonsContainer}>
         <CustomButton
           icon={{ name: "restart-alt" }}
           onPress={handleRestartSession}
           theme="rectangle"
-          title="Recommencer"
+          title={t("Finished.restart")}
         />
         <CustomButton
           icon={{ name: "format-list-bulleted" }}
           onPress={redirectToMySessions}
           theme="rectangle"
-          title="Mes séances"
+          title={t("Finished.mySessions")}
         />
       </View>
     </View>

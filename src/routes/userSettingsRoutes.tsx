@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import HeaderNavigationButton from "@/components/HeaderNavigationButton/HeaderNavigationButton";
 import Display from "@/screens/UserSettings/Display/Display";
@@ -11,6 +12,8 @@ import type { UserSettingsParamList } from "@/types";
 const Stack = createNativeStackNavigator<UserSettingsParamList>();
 
 function UserSettingsRoutes() {
+  const { t } = useTranslation()
+
   return (
     <Stack.Navigator
       screenOptions={({ navigation }) => ({
@@ -29,17 +32,17 @@ function UserSettingsRoutes() {
       <Stack.Screen
         component={UserSettingsList}
         name="List"
-        options={{ headerTitle: "Liste" }}
+        options={{ headerTitle: t("UserSettingsRoutes.list") }}
       />
       <Stack.Screen
         component={Vibrations}
         name="Vibrations"
-        options={{ headerTitle: "Vibrations" }}
+        options={{ headerTitle: t("UserSettingsRoutes.vibrations") }}
       />
       <Stack.Screen
         component={Display}
         name="Display"
-        options={{ headerTitle: "Affichage" }}
+        options={{ headerTitle: t("UserSettingsRoutes.display") }}
       />
     </Stack.Navigator>
   );

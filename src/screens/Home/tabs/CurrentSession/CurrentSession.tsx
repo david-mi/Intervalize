@@ -16,13 +16,6 @@ type Props = BottomTabScreenProps<TabNavParamList, "Séance en cours">
 
 function CurrentSession({ navigation }: Props) {
   const sessionStatus = useBoundedStore((state) => state.sessionStatus)
-  const currentSession = useBoundedStore((state) => state.currentSession)
-
-  React.useEffect(() => {
-    if (currentSession) {
-      navigation.setOptions({ title: currentSession.name })
-    }
-  }, [currentSession])
 
   function getCurrentComponent() {
     switch (sessionStatus) {

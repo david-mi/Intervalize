@@ -1,5 +1,6 @@
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { TabActions } from "@react-navigation/native";
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 import { styles } from "./notSelected.styles";
@@ -12,6 +13,7 @@ import type { TabNavParamList } from "@/types";
 type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
 
 function NotSelected({ navigation }: Props) {
+  const { t } = useTranslation()
 
   function redirectToMySessions() {
     const jumpToAction = TabActions.jumpTo("Mes séances");
@@ -21,15 +23,15 @@ function NotSelected({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.infos}>
-        <TitleWithCustomFont style={styles.title}>Pas de séance sélectionnée</TitleWithCustomFont>
-        <TextWithCustomFont style={styles.instructions}>Veuillez choisir une séance à lancer</TextWithCustomFont>
+        <TitleWithCustomFont style={styles.title}>{t("NotSelected.noSessionSelected")}</TitleWithCustomFont>
+        <TextWithCustomFont style={styles.instructions}>{t("NotSelected.chooseASession")}</TextWithCustomFont>
       </View>
       <CustomButton
         icon={{ name: "format-list-bulleted" }}
         onPress={redirectToMySessions}
         style={styles.button}
         theme="rectangle"
-        title="Mes séances"
+        title={t("NotSelected.mySessionsButton")}
       />
     </View>
   );

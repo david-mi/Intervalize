@@ -8,7 +8,7 @@ import { styles } from "./app.styles";
 import Routes from "./src/routes/routes";
 
 import useBoundedStore from "@/store/store";
-
+import "./src/langs/config"
 import "expo-dev-client";
 
 if (__DEV__) {

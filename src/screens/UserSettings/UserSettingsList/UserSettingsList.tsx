@@ -1,5 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useTranslation } from "react-i18next";
 import { FlatList } from "react-native";
 
 import { styles } from "./userSettingsList.styles";
@@ -10,14 +11,15 @@ import type { UserSettingsParamList } from "@/types";
 type Props = NativeStackScreenProps<UserSettingsParamList, "List">
 
 function UserSettingsList({ navigation }: Props) {
+  const { t } = useTranslation()
 
   const settingsRoutesList: {
     routeName: keyof Omit<UserSettingsParamList, "List">,
     displayName: string,
     iconName: keyof typeof MaterialIcons.glyphMap
   }[] = [
-      { routeName: "Vibrations", displayName: "Vibrations", iconName: "vibration" },
-      { routeName: "Display", displayName: "Affichage", iconName: "display-settings" },
+      { routeName: "Vibrations", displayName: t("UserSettingsList.vibrations"), iconName: "vibration" },
+      { routeName: "Display", displayName: t("UserSettingsList.display"), iconName: "display-settings" },
     ]
 
   return (

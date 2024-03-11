@@ -1,9 +1,11 @@
 import Constants from "expo-constants";
 import { ArgType } from "reactotron-core-client";
+import reactotronZustand from "reactotron-plugin-zustand";
 import Reactotron, { type ReactotronReactNative } from "reactotron-react-native";
 import mmkvPlugin from "reactotron-react-native-mmkv";
 
 import { storage } from "@/storage";
+import useBoundedStore from "@/store/store";
 
 Reactotron
   .configure({
@@ -11,6 +13,7 @@ Reactotron
     getClientId: async () => Constants.installationId,
   })
   .use(mmkvPlugin<ReactotronReactNative>({ storage }))
+  .use(reactotronZustand({ stores: [{ name: "zustand-store", store: useBoundedStore }] }))
   .useReactNative()
   .connect();
 

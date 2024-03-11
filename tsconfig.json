@@ -23,6 +23,5 @@
     "**/*.ts",
     "**/*.tsx",
     "ReactotronConfig.ts",
-    "ReactotronConfig.js"
   ]
 }

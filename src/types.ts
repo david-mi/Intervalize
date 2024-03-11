@@ -64,6 +64,6 @@ export interface UserSettings {
   toggleKeepScreenAwake: boolean
 }
 
-export interface AsyncStorageType {
+export interface StorageType {
   userSettings: UserSettings
 }

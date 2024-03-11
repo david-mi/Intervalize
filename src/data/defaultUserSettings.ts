@@ -1,4 +1,4 @@
-import type { UserSettings, AsyncStorageType } from "../types"
+import type { UserSettings, StorageType } from "../types"
 
 export const defaultVibrationsPattern = [0, 400, 80, 400]
 
@@ -14,6 +14,6 @@ export const defaultUserSettings: UserSettings = {
   toggleKeepScreenAwake: false,
 }
 
-export const defaultStorageData: AsyncStorageType = {
+export const defaultStorageData: StorageType = {
   userSettings: { ...defaultUserSettings },
 }

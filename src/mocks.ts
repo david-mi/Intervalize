@@ -38,7 +38,7 @@ export const mockSessions: Session[] = [
               minutes: 0,
               seconds: 4,
             },
-            intensityLevel: "HARD",
+            intensityLevel: "HIGH",
             name: "Course Rapide",
           },
           {
@@ -96,7 +96,7 @@ export const mockSessions: Session[] = [
               minutes: 0,
               seconds: 3,
             },
-            intensityLevel: "HARD",
+            intensityLevel: "HIGH",
             name: "Sprint à VO2 Max",
           },
           {
@@ -123,7 +123,7 @@ export const mockSessions: Session[] = [
               minutes: 0,
               seconds: 4,
             },
-            intensityLevel: "HARD",
+            intensityLevel: "HIGH",
             name: "Course à intensité élevée",
           },
         ],

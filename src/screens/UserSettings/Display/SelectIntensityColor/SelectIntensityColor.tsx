@@ -48,7 +48,7 @@ function SelectIntensityColor({ intensityLevel }: Props) {
   const intensityTitles: { [intensityLevel in IntensityLevel]: string } = {
     LOW: t("SelectIntensityColor.low"),
     MEDIUM: t("SelectIntensityColor.medium"),
-    HARD: t("SelectIntensityColor.hard"),
+    HIGH: t("SelectIntensityColor.high"),
   }
 
   return (

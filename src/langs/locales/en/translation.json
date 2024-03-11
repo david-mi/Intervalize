@@ -58,7 +58,7 @@
   "SelectIntensityColor": {
     "low": "Low",
     "medium": "Medium",
-    "hard": "High"
+    "high": "High"
   },
   "ToggleKeepScreenAwake": {
     "keepScreenAwake": "Keep screen awake"

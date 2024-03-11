@@ -15,7 +15,7 @@ function Display() {
       <View style={styles.intensityColors}>
         <SelectIntensityColor intensityLevel="LOW" />
         <SelectIntensityColor intensityLevel="MEDIUM" />
-        <SelectIntensityColor intensityLevel="HARD" />
+        <SelectIntensityColor intensityLevel="HIGH" />
       </View>
       <View style={styles.separator} />
       <ToggleKeepScreenAwake />

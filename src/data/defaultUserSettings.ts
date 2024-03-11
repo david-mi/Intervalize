@@ -6,9 +6,9 @@ export const defaultUserSettings: UserSettings = {
   vibrationsEnabled: true,
   vibrationPattern: defaultVibrationsPattern,
   intensityColors: {
-    HARD: "#db222a",
-    MEDIUM: "#FF9800",
     LOW: "#82CD47",
+    MEDIUM: "#FF9800",
+    HIGH: "#db222a",
   },
   intensityColorsEnabled: true,
   toggleKeepScreenAwake: false,

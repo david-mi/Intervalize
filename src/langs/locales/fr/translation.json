@@ -58,7 +58,7 @@
   "SelectIntensityColor": {
     "low": "Faible",
     "medium": "Moyenne",
-    "hard": "Élevée"
+    "high": "Élevée"
   },
   "ToggleKeepScreenAwake": {
     "keepScreenAwake": "Maintenir l'écran allumé"

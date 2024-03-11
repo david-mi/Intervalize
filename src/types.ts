@@ -1,4 +1,4 @@
-export type IntensityLevel = "LOW" | "MEDIUM" | "HARD"
+export type IntensityLevel = "LOW" | "MEDIUM" | "HIGH"
 
 export type SessionStatus = "NOT_SELECTED" | "READY_TO_START" | "ACTIVE" | "PAUSED" | "FINISHED"
 

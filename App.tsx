@@ -1,7 +1,8 @@
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
-import { View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import React, { useCallback } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { styles } from "./app.styles";
 import Routes from "./src/routes/routes";
@@ -40,8 +41,13 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView} style={styles.app}>
+    <SafeAreaView onLayout={onLayoutRootView} style={styles.app}>
       <Routes />
-    </View>
+      <StatusBar
+        hidden={false}
+        style="dark"
+        translucent
+      />
+    </SafeAreaView>
   );
 }

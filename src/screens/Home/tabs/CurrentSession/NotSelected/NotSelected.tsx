@@ -23,15 +23,15 @@ function NotSelected({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.infos}>
-        <TitleWithCustomFont style={styles.title}>{t("NotSelected.noSessionSelected")}</TitleWithCustomFont>
-        <TextWithCustomFont style={styles.instructions}>{t("NotSelected.chooseASession")}</TextWithCustomFont>
+        <TitleWithCustomFont style={styles.title}>{t("noSessionSelected")}</TitleWithCustomFont>
+        <TextWithCustomFont style={styles.instructions}>{t("chooseASession")}</TextWithCustomFont>
       </View>
       <CustomButton
         icon={{ name: "format-list-bulleted" }}
         onPress={redirectToMySessions}
         style={styles.button}
         theme="rectangle"
-        title={t("NotSelected.mySessionsButton")}
+        title={t("mySessions")}
       />
     </View>
   );

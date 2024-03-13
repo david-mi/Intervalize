@@ -32,17 +32,17 @@ function UserSettingsRoutes() {
       <Stack.Screen
         component={UserSettingsList}
         name="List"
-        options={{ headerTitle: t("UserSettingsRoutes.list") }}
+        options={{ headerTitle: t("optionsList") }}
       />
       <Stack.Screen
         component={Vibrations}
         name="Vibrations"
-        options={{ headerTitle: t("UserSettingsRoutes.vibrations") }}
+        options={{ headerTitle: t("vibrations") }}
       />
       <Stack.Screen
         component={Display}
         name="Display"
-        options={{ headerTitle: t("UserSettingsRoutes.display") }}
+        options={{ headerTitle: t("display") }}
       />
     </Stack.Navigator>
   );

@@ -34,7 +34,7 @@ function MySessions({ navigation }: Props) {
     const foundSession = sessions.find(session => session.id === sessionId)!
 
     if (foundSession.id === undefined) {
-      return Alert.alert(t("MySessions.sessionNotFound"))
+      return Alert.alert(t("sessionNotFound"))
     }
 
     const haveAnActiveSession = (
@@ -45,11 +45,11 @@ function MySessions({ navigation }: Props) {
 
     if (haveAnActiveSession) {
       Alert.alert(
-        t("MySessions.sessionIsRunning"),
-        t("MySessions.startANewSession"),
+        t("sessionIsRunning"),
+        t("startANewSession"),
         [
-          { text: t("MySessions.abort"), style: "cancel" },
-          { text: t("MySessions.start"), onPress: () => startNewSession(foundSession) },
+          { text: t("abort"), style: "cancel" },
+          { text: t("start"), onPress: () => startNewSession(foundSession) },
         ]
       );
     } else {

@@ -37,8 +37,8 @@ function Home() {
         component={CurrentSession}
         name="Séance en cours"
         options={{
-          title: currentSessionName || t("Home.currentSession"),
-          tabBarLabel: t("Home.currentSession"),
+          title: currentSessionName || t("currentSession"),
+          tabBarLabel: t("currentSession"),
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
               color={focused ? "red" : globalStyle.headerColor}
@@ -52,8 +52,8 @@ function Home() {
         component={MySessions}
         name="Mes séances"
         options={{
-          title: t("Home.mySessions"),
-          tabBarLabel: t("Home.mySessions"),
+          title: t("mySessions"),
+          tabBarLabel: t("mySessions"),
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
               color={focused ? "red" : globalStyle.headerColor}

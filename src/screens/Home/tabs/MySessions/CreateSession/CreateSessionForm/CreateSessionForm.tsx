@@ -13,13 +13,13 @@ function CreateSessionForm() {
 
   return (
     <View style={styles.form}>
-      <TitleWithCustomFont style={styles.title}>{t("CreateSessionForm.sessionCreation")}</TitleWithCustomFont>
+      <TitleWithCustomFont style={styles.title}>{t("creatingASession")}</TitleWithCustomFont>
       <View style={styles.labelInputContainer}>
-        <Text style={styles.label}>{t("CreateSessionForm.sessionName")}</Text>
-        <TextInput placeholder={t("CreateSessionForm.sessionNamePlaceholder")} style={styles.input} />
+        <Text style={styles.label}>{t("sessionName")}</Text>
+        <TextInput placeholder={t("sessionNamePlaceholder")} style={styles.input} />
       </View>
       <View style={styles.blocks}>
-        <TitleWithCustomFont style={styles.blocksTitle}>{t("CreateSessionForm.blocks")}</TitleWithCustomFont>
+        <TitleWithCustomFont style={styles.blocksTitle}>{t("blocks")}</TitleWithCustomFont>
         <Pressable style={styles.addBlockButton}>
           <MaterialIcons name="add" size={40} />
         </Pressable>
@@ -28,7 +28,7 @@ function CreateSessionForm() {
         icon={{ name: "create-new-folder" }}
         style={styles.saveSessionButton}
         theme="rectangle"
-        title={t("CreateSessionForm.createSession")}
+        title={t("createTheSession")}
       />
     </View>
   );

@@ -17,7 +17,7 @@ function ToggleKeepScreenAwake() {
     <Checkbox
       isChecked={userSettings.toggleKeepScreenAwake}
       onPress={onPress}
-      text={t("ToggleKeepScreenAwake.keepScreenAwake")}
+      text={t("keepTheScreenAwake")}
     />
   );
 }

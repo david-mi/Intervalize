@@ -11,7 +11,7 @@ function Display() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{t("Display.intensityColors")}</Text>
+      <Text style={styles.title}>{t("intensityColors")}</Text>
       <View style={styles.intensityColors}>
         <SelectIntensityColor intensityLevel="LOW" />
         <SelectIntensityColor intensityLevel="MEDIUM" />

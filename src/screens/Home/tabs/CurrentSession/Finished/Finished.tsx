@@ -29,20 +29,20 @@ function Finished({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <TitleWithCustomFont style={styles.title}>
-        {t("Finished.finishedSession")}
+        {t("sessionFinished")}
       </TitleWithCustomFont>
       <View style={styles.buttonsContainer}>
         <CustomButton
           icon={{ name: "restart-alt" }}
           onPress={handleRestartSession}
           theme="rectangle"
-          title={t("Finished.restart")}
+          title={t("restart")}
         />
         <CustomButton
           icon={{ name: "format-list-bulleted" }}
           onPress={redirectToMySessions}
           theme="rectangle"
-          title={t("Finished.mySessions")}
+          title={t("mySessions")}
         />
       </View>
     </View>

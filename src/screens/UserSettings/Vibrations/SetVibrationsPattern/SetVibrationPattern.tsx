@@ -25,7 +25,7 @@ function SetVibrationPattern() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{t("SetVibrationPattern.pattern", { context: currentVibrationPatternType })}</Text>
+      <Text style={styles.title}>{t("pattern", { context: currentVibrationPatternType })}</Text>
       <DefineVibrations
         customVibrationPatternRef={customVibrationPatternRef}
         disabledButtons={disabledButtons}

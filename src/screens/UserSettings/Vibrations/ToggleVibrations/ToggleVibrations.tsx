@@ -22,7 +22,7 @@ function ToggleVibrations() {
     <Checkbox
       isChecked={userSettings.vibrationsEnabled}
       onPress={onPress}
-      text={t("ToggleVibrations.toggle")}
+      text={t("toggle")}
     />
   );
 }

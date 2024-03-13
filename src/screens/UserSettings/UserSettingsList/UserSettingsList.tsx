@@ -18,8 +18,8 @@ function UserSettingsList({ navigation }: Props) {
     displayName: string,
     iconName: keyof typeof MaterialIcons.glyphMap
   }[] = [
-      { routeName: "Vibrations", displayName: t("UserSettingsList.vibrations"), iconName: "vibration" },
-      { routeName: "Display", displayName: t("UserSettingsList.display"), iconName: "display-settings" },
+      { routeName: "Vibrations", displayName: t("vibrations"), iconName: "vibration" },
+      { routeName: "Display", displayName: t("display"), iconName: "display-settings" },
     ]
 
   return (

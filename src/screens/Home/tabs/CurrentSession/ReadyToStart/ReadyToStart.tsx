@@ -26,7 +26,7 @@ function ReadyToStart() {
         onPress={onPress}
         style={styles.button}
         theme="rectangle"
-        title={t("ReadyToStart.start")}
+        title={t("start")}
       />
     </View>
   );

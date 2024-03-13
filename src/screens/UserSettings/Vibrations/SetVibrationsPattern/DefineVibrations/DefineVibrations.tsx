@@ -55,7 +55,7 @@ function DefineVibrations(props: Props) {
       onPressOut={handleDefinePressOut}
       style={styles.define}
     >
-      {displayDefineInstructions && <Text style={styles.instructions}>{t("DefineVibrations.definePattern")}</Text>}
+      {displayDefineInstructions && <Text style={styles.instructions}>{t("defineVibrationPattern")}</Text>}
       <View style={styles.pressIconWrapper}>
         <MaterialIcons
           color="white"

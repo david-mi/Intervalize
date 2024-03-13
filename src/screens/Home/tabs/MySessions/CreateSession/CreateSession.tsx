@@ -23,7 +23,7 @@ function CreateSession() {
         onPress={toggleModal}
         style={styles.createSessionButton}
         theme="rectangle"
-        title={t("CreateSession.createSession")}
+        title={t("createASession")}
       />
       {displayModal && (
         <Modal animationType="slide">

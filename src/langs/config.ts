@@ -2,8 +2,8 @@ import { getLocales } from "expo-localization";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import translationEn from "./locales/en/translation.json";
-import translationFr from "./locales/fr/translation.json";
+import { enTranslations } from "./locales/en";
+import { frTranslation } from "./locales/fr";
 
 i18n
   .use(initReactI18next)
@@ -11,10 +11,10 @@ i18n
     compatibilityJSON: "v3",
     resources: {
       en: {
-        translation: translationEn,
+        translation: enTranslations,
       },
       fr: {
-        translation: translationFr,
+        translation: frTranslation,
       },
     },
     lng: getLocales()[0].languageCode || "fr",

@@ -1,3 +1,5 @@
+import CustomButton from "@shared/CustomButton/CustomButton";
+import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
 import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
@@ -5,8 +7,6 @@ import { View } from "react-native";
 
 import { styles } from "./finished.styles";
 
-import CustomButton from "@/components/CustomButton/CustomButton";
-import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 import useBoundedStore from "@/store/store";
 
 function Finished() {

@@ -1,12 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import CustomButton from "@shared/CustomButton/CustomButton";
 import React from "react"
 import { useTranslation } from "react-i18next";
 import { Modal, Pressable, View } from "react-native";
 
 import CreateSessionForm from "./CreateSessionForm/CreateSessionForm";
 import { styles } from "./createSession.styles"
-
-import CustomButton from "@/components/CustomButton/CustomButton";
 
 function CreateSession() {
   const [displayModal, setDisplayModal] = React.useState(false)

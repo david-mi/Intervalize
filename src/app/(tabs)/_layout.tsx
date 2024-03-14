@@ -1,9 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import HeaderNavigationButton from "@shared/HeaderNavigationButton/HeaderNavigationButton";
 import { Tabs } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import HeaderNavigationButton from "@/components/HeaderNavigationButton/HeaderNavigationButton";
 import useBoundedStore from "@/store/store";
 import { globalStyle } from "@/styles/styles.variables.global";
 

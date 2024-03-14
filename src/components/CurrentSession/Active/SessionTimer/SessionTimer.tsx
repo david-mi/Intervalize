@@ -1,9 +1,9 @@
+import Timer from "@shared/Timer/Timer"
 import * as React from "react"
 import { View } from "react-native"
 
 import { styles } from "./sessionTimer.styles"
 
-import Timer from "@/components/Timer/Timer"
 import { useSessionTimer } from "@/hooks/useSessionTimer"
 
 function SessionTimer() {

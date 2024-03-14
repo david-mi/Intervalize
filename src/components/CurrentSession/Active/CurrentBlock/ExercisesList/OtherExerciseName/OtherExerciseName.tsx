@@ -1,8 +1,7 @@
+import TextWithCustomFont from "@shared/TextWithCustomFont/TextWithCustomFont"
 import * as React from "react"
 
 import { styles } from "./otherExerciseName.styles"
-
-import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont"
 
 interface Props {
   exerciseName: string

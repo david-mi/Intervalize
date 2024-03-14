@@ -1,11 +1,10 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import CustomButton from "@shared/CustomButton/CustomButton";
 import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { FlatList } from "react-native";
 
 import { styles } from "./userSettings.styles";
-
-import CustomButton from "@/components/CustomButton/CustomButton";
 
 function UserSettingsList() {
   const { t } = useTranslation()

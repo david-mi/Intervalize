@@ -1,3 +1,4 @@
+import CustomButton from "@shared/CustomButton/CustomButton";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { Modal, View } from "react-native";
@@ -5,7 +6,6 @@ import ColorPicker, { Preview, Panel1, HueSlider, OpacitySlider, type returnedRe
 
 import { styles } from "./selectIntensityColor.styles";
 
-import CustomButton from "@/components/CustomButton/CustomButton";
 import useBoundedStore from "@/store/store";
 import type { IntensityLevel } from "@/types";
 

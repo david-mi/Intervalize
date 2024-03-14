@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { CustomFontsList } from "../../types";
+import { CustomFontsList } from "../../../types";
 
 export const styles = StyleSheet.create({
   title: {

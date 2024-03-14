@@ -13,9 +13,12 @@
     "moduleDetection": "force",
     "module": "ESNext",
     "paths": {
+      "@shared/*": [
+        "./src/components/shared/*"
+      ],
       "@/*": [
-        "src/*"
-      ]
+        "./src/*"
+      ],
     }
   },
   "extends": "expo/tsconfig.base",

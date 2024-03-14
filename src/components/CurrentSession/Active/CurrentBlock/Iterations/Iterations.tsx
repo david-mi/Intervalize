@@ -1,10 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons"
+import TextWithCustomFont from "@shared/TextWithCustomFont/TextWithCustomFont";
 import * as React from "react"
 import { View } from "react-native";
 
 import { styles } from "./iterations.styles";
-
-import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
 
 interface Props {
   blockIterationsCount: number

@@ -1,12 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import CustomButton from "@shared/CustomButton/CustomButton";
+import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, TextInput, View, Text } from "react-native";
 
 import { styles } from "./createSessionForm.styles"
-
-import CustomButton from "@/components/CustomButton/CustomButton";
-import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 
 function CreateSessionForm() {
   const { t } = useTranslation()

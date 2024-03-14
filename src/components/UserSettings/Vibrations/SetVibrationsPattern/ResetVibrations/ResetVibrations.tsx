@@ -1,6 +1,7 @@
+import CustomButton from "@shared/CustomButton/CustomButton";
+
 import type { DisabledButtonsState, DisabledButtonActions } from "../disabledButtonsReducer";
 
-import CustomButton from "@/components/CustomButton/CustomButton";
 import { defaultUserSettings } from "@/data/defaultUserSettings";
 import useBoundedStore from "@/store/store";
 

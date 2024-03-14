@@ -1,12 +1,11 @@
+import CustomButton from "@shared/CustomButton/CustomButton";
+import TextWithCustomFont from "@shared/TextWithCustomFont/TextWithCustomFont";
+import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 import { styles } from "./notSelected.styles";
-
-import CustomButton from "@/components/CustomButton/CustomButton";
-import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
-import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 
 function NotSelected() {
   const { t } = useTranslation()

@@ -1,12 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import CustomButton from "@shared/CustomButton/CustomButton";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View, type GestureResponderEvent, Vibration, Text } from "react-native";
 
 import { styles } from "./defineVibrations.styles";
 import type { DisabledButtonActions, DisabledButtonsState } from "../disabledButtonsReducer";
-
-import CustomButton from "@/components/CustomButton/CustomButton";
 
 interface Props {
   disabledButtons: DisabledButtonsState

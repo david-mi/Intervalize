@@ -1,8 +1,8 @@
+import Checkbox from "@shared/Checkbox/Checkbox";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { Vibration } from "react-native";
 
-import Checkbox from "@/components/Checkbox/Checkbox";
 import useBoundedStore from "@/store/store";
 
 function ToggleVibrations() {

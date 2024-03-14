@@ -1,8 +1,8 @@
+import HeaderNavigationButton from "@shared/HeaderNavigationButton/HeaderNavigationButton";
 import { Stack } from "expo-router";
 import { t } from "i18next";
 import React from "react";
 
-import HeaderNavigationButton from "@/components/HeaderNavigationButton/HeaderNavigationButton";
 import { globalStyle } from "@/styles/styles.variables.global";
 
 export default function TabLayout() {

@@ -1,7 +1,7 @@
-import UserSettingsList from "@/screens/UserSettings/UserSettingsList/UserSettingsList";
+import UserSettings from "@/screens/UserSettings/UserSettings";
 
-function UserSettingsListScreen() {
-  return <UserSettingsList />
+function UserSettingsScreen() {
+  return <UserSettings />
 }
 
-export default UserSettingsListScreen
+export default UserSettingsScreen

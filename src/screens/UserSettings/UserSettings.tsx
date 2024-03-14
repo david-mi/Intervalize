@@ -3,7 +3,7 @@ import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { FlatList } from "react-native";
 
-import { styles } from "./userSettingsList.styles";
+import { styles } from "./userSettings.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
 

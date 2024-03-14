@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import HeaderNavigationButton from "@/components/HeaderNavigationButton/HeaderNavigationButton";
 import Display from "@/screens/UserSettings/Display/Display";
-import UserSettingsList from "@/screens/UserSettings/UserSettingsList/UserSettingsList";
+import UserSettingsList from "@/screens/UserSettings/UserSettings";
 import Vibrations from "@/screens/UserSettings/Vibrations/Vibrations";
 import { globalStyle } from "@/styles/styles.variables.global";
 import type { UserSettingsParamList } from "@/types";
@@ -31,7 +31,7 @@ function UserSettingsRoutes() {
       <Stack.Screen
         component={UserSettingsList}
         name="List"
-        options={{ headerTitle: t("optionsList") }}
+        options={{ headerTitle: t("settings") }}
       />
       <Stack.Screen
         component={Vibrations}

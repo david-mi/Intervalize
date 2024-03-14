@@ -22,7 +22,7 @@ export default function TabLayout() {
     >
       <Stack.Screen
         name="index"
-        options={{ headerTitle: t("optionsList") }}
+        options={{ headerTitle: t("settings") }}
       />
       <Stack.Screen
         name="vibrations"

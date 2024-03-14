@@ -18,11 +18,11 @@ SplashScreen.preventAutoHideAsync();
 
 function Layout() {
   const [fontsLoaded, fontError] = useFonts({
-    "clockicons": require("../assets/fonts/clockicons.ttf"),
-    "oswald-light": require("../assets/fonts/Oswald-Light.ttf"),
-    "oswald-regular": require("../assets/fonts/Oswald-Regular.ttf"),
-    "oswald-medium": require("../assets/fonts/Oswald-Medium.ttf"),
-    "oswald-bold": require("../assets/fonts/Oswald-Bold.ttf"),
+    "clockicons": require("../../assets/fonts/clockicons.ttf"),
+    "oswald-light": require("../../assets/fonts/Oswald-Light.ttf"),
+    "oswald-regular": require("../../assets/fonts/Oswald-Regular.ttf"),
+    "oswald-medium": require("../../assets/fonts/Oswald-Medium.ttf"),
+    "oswald-bold": require("../../assets/fonts/Oswald-Bold.ttf"),
   });
   useLanguageChanges()
   useKeepScreenAwake()

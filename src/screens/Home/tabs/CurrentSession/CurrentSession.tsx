@@ -1,4 +1,3 @@
-import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import * as React from "react";
 import { View } from "react-native";
 
@@ -10,16 +9,13 @@ import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { styles } from "./currentSession.styles";
 
 import useBoundedStore from "@/store/store";
-import type { TabNavParamList } from "@/types";
 
-type Props = BottomTabScreenProps<TabNavParamList, "Séance en cours">
-
-function CurrentSession({ navigation }: Props) {
+function CurrentSession() {
   const sessionStatus = useBoundedStore((state) => state.sessionStatus)
 
   function getCurrentComponent() {
     switch (sessionStatus) {
-      case "NOT_SELECTED": return <NotSelected navigation={navigation} />
+      case "NOT_SELECTED": return <NotSelected />
       case "READY_TO_START": return <ReadyToStart />
       case "ACTIVE": return (
         <Active>
@@ -31,7 +27,7 @@ function CurrentSession({ navigation }: Props) {
           <Controls displayResumeButton />
         </Active>
       )
-      case "FINISHED": return <Finished navigation={navigation} />
+      case "FINISHED": return <Finished />
     }
   }
 

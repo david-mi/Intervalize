@@ -1,5 +1,4 @@
-import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { TabActions } from "@react-navigation/native";
+import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -9,11 +8,8 @@ import { styles } from "./finished.styles";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
 import useBoundedStore from "@/store/store";
-import type { TabNavParamList } from "@/types";
 
-type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
-
-function Finished({ navigation }: Props) {
+function Finished() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
   const { t } = useTranslation()
 
@@ -22,8 +18,7 @@ function Finished({ navigation }: Props) {
   }
 
   function redirectToMySessions() {
-    const jumpToAction = TabActions.jumpTo("Mes séances");
-    navigation.dispatch(jumpToAction);
+    router.navigate("/")
   }
 
   return (

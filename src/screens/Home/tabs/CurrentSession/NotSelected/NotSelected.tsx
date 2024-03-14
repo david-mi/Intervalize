@@ -1,5 +1,4 @@
-import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { TabActions } from "@react-navigation/native";
+import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
@@ -8,16 +7,12 @@ import { styles } from "./notSelected.styles";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import TextWithCustomFont from "@/components/TextWithCustomFont/TextWithCustomFont";
 import TitleWithCustomFont from "@/components/TitleWithCustomFont/TitleWithCustomFont";
-import type { TabNavParamList } from "@/types";
 
-type Props = Pick<BottomTabScreenProps<TabNavParamList, "Séance en cours">, "navigation">
-
-function NotSelected({ navigation }: Props) {
+function NotSelected() {
   const { t } = useTranslation()
 
   function redirectToMySessions() {
-    const jumpToAction = TabActions.jumpTo("Mes séances");
-    navigation.dispatch(jumpToAction);
+    router.navigate("/")
   }
 
   return (

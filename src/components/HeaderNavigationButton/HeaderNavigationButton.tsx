@@ -1,31 +1,27 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Link } from "expo-router";
 import * as React from "react"
 import { Pressable } from "react-native";
 
 import { globalStyle } from "@/styles/styles.variables.global";
-import type { RootStackParamList } from "@/types";
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamList, "Home">
   iconProps: React.ComponentProps<typeof MaterialIcons>
-  screenDestination: keyof RootStackParamList
+  screenDestination: string
   buttonProps?: Omit<React.ComponentProps<typeof Pressable>, "onPress">
 }
 
-function HeaderNavigationButton({ navigation, iconProps, screenDestination, buttonProps }: Props) {
-  function onPress() {
-    navigation.navigate(screenDestination)
-  }
-
+function HeaderNavigationButton({ iconProps, screenDestination, buttonProps }: Props) {
   return (
-    <Pressable {...buttonProps} onPress={onPress}>
-      <MaterialIcons
-        {...iconProps}
-        color={globalStyle.headerColor}
-        size={24}
-      />
-    </Pressable>
+    <Link asChild href={screenDestination}>
+      <Pressable {...buttonProps}>
+        <MaterialIcons
+          {...iconProps}
+          color={globalStyle.headerColor}
+          size={24}
+        />
+      </Pressable>
+    </Link>
   );
 }
 

@@ -1,5 +1,4 @@
-import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { TabActions } from "@react-navigation/native";
+import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View, FlatList, Alert } from "react-native";
@@ -9,11 +8,9 @@ import { styles } from "./mySessions.styles";
 
 import CustomButton from "@/components/CustomButton/CustomButton";
 import useBoundedStore from "@/store/store";
-import type { Session, TabNavParamList } from "@/types";
+import type { Session } from "@/types";
 
-type Props = BottomTabScreenProps<TabNavParamList, "Mes séances">
-
-function MySessions({ navigation }: Props) {
+function MySessions() {
   const {
     sessions,
     currentSession,
@@ -26,8 +23,7 @@ function MySessions({ navigation }: Props) {
   function startNewSession(session: Session) {
     setCurrentSession(session)
     setSessionStatus("READY_TO_START")
-    const jumpToAction = TabActions.jumpTo("Séance en cours");
-    navigation.dispatch(jumpToAction);
+    router.navigate("/")
   }
 
   function handlePress(sessionId: string) {

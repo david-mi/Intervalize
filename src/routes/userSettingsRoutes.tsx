@@ -20,8 +20,7 @@ function UserSettingsRoutes() {
         headerRight: () => (
           <HeaderNavigationButton
             iconProps={{ name: "home" }}
-            navigation={navigation}
-            screenDestination="Home"
+            screenDestination="/"
           />
         ),
         animation: "slide_from_right",

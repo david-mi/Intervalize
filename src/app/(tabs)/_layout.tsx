@@ -1,29 +1,24 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import * as React from "react"
+import { Tabs } from "expo-router";
+import React from "react";
 import { useTranslation } from "react-i18next";
-
-import CurrentSession from "./tabs/CurrentSession/CurrentSession";
-import MySessions from "./tabs/MySessions/MySessions";
 
 import HeaderNavigationButton from "@/components/HeaderNavigationButton/HeaderNavigationButton";
 import useBoundedStore from "@/store/store";
 import { globalStyle } from "@/styles/styles.variables.global";
-import type { TabNavParamList } from "@/types";
 
-const Tab = createBottomTabNavigator<TabNavParamList>();
-
-function Home() {
+export default function TabLayout() {
   const { t } = useTranslation()
   const currentSessionName = useBoundedStore(({ currentSession }) => currentSession?.name)
+
   return (
-    <Tab.Navigator
+    <Tabs
       screenOptions={() => ({
         headerRight: () => (
           <HeaderNavigationButton
             buttonProps={{ style: { marginRight: 15 } }}
             iconProps={{ name: "settings" }}
-            screenDestination="Settings"
+            screenDestination="/settings"
           />
         ),
         animation: "slide_from_right",
@@ -32,9 +27,8 @@ function Home() {
         tabBarInactiveTintColor: globalStyle.headerColor,
       })}
     >
-      <Tab.Screen
-        component={CurrentSession}
-        name="Séance en cours"
+      <Tabs.Screen
+        name="index"
         options={{
           title: currentSessionName || t("currentSession"),
           tabBarLabel: t("currentSession"),
@@ -47,9 +41,8 @@ function Home() {
           ),
         }}
       />
-      <Tab.Screen
-        component={MySessions}
-        name="Mes séances"
+      <Tabs.Screen
+        name="mySessions"
         options={{
           title: t("mySessions"),
           tabBarLabel: t("mySessions"),
@@ -62,8 +55,6 @@ function Home() {
           ),
         }}
       />
-    </Tab.Navigator>
-  )
+    </Tabs>
+  );
 }
-
-export default Home

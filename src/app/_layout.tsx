@@ -55,7 +55,7 @@ function Layout() {
           contentStyle: { backgroundColor: "white" },
         }}
       >
-        <Stack.Screen name="index" />
+        <Stack.Screen name="(tabs)" />
         <Stack.Screen name="settings" />
       </Stack>
     </>

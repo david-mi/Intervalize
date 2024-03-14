@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import type { ComponentProps } from "react";
+import { type ComponentProps, forwardRef } from "react";
 import { Pressable, Text, type StyleProp, type ViewStyle } from "react-native";
 
 import { styles } from "./customButton.styles";
@@ -23,7 +23,7 @@ type NavigationButtonProps = ComponentProps<typeof Pressable> & {
 
 type Props = RectangleButtonProps | ControlButtonProps | NavigationButtonProps | ComponentProps<typeof Pressable>;
 
-function CustomButton({ style, disabled, ...props }: Props) {
+const CustomButton = forwardRef(({ style, disabled, ...props }: Props, _) => {
   const defaultButtonStyles = [style as StyleProp<ViewStyle>, disabled && styles.disabledButton]
 
   if ("theme" in props === false) {
@@ -103,6 +103,6 @@ function CustomButton({ style, disabled, ...props }: Props) {
       )
     }
   }
-}
+})
 
 export default CustomButton;

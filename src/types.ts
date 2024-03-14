@@ -26,26 +26,6 @@ export interface Session {
   blocks: Block[]
 }
 
-export type TabNavParamList = {
-  "Mes séances": undefined
-  "Séance en cours": undefined
-};
-
-export type RootStackParamList = {
-  Home: undefined
-  Settings: undefined
-};
-
-export type UserSettingsParamList = {
-  List: undefined
-  Vibrations: undefined
-  Display: undefined
-};
-
-export type SessionsParamList = {
-  MySessions: undefined
-};
-
 export enum CustomFontsList {
   CLOCKICONS = "clockicons",
   OSWALD_LIGHT = "oswald-light",

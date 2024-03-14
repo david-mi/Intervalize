@@ -18,7 +18,7 @@ export default function TabLayout() {
           <HeaderNavigationButton
             buttonProps={{ style: { marginRight: 15 } }}
             iconProps={{ name: "settings" }}
-            screenDestination="/settings"
+            screenDestination="settings"
           />
         ),
         animation: "slide_from_right",

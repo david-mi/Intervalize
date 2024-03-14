@@ -12,7 +12,7 @@ function NotSelected() {
   const { t } = useTranslation()
 
   function redirectToMySessions() {
-    router.navigate("/")
+    router.navigate("/mySessions")
   }
 
   return (

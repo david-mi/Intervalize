@@ -1,4 +1,4 @@
-import MySessions from "@/screens/Home/tabs/MySessions/MySessions"
+import MySessions from "@/components/MySessions/MySessions"
 
 function MySessionsScreen() {
   return <MySessions />

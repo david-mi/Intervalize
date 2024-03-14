@@ -18,7 +18,7 @@ function Finished() {
   }
 
   function redirectToMySessions() {
-    router.navigate("/")
+    router.navigate("/mySessions")
   }
 
   return (

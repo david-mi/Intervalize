@@ -1,4 +1,4 @@
-import Display from "@/screens/UserSettings/Display/Display"
+import Display from "@/components/UserSettings/Display/Display"
 
 function DisplayScreen() {
   return <Display />

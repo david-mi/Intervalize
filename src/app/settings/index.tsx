@@ -1,4 +1,4 @@
-import UserSettings from "@/screens/UserSettings/UserSettings";
+import UserSettings from "@/components/UserSettings/UserSettings";
 
 function UserSettingsScreen() {
   return <UserSettings />

@@ -1,4 +1,4 @@
-import Vibrations from "@/screens/UserSettings/Vibrations/Vibrations"
+import Vibrations from "@/components/UserSettings/Vibrations/Vibrations"
 
 function VibrationsScreen() {
   return <Vibrations />

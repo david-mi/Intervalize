@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
 
+import { THEME } from "@/constants/theme";
+
 export const styles = StyleSheet.create({
   container: {
     zIndex: 10,
     position: "absolute",
     top: -40,
-    backgroundColor: "#ffffff",
+    backgroundColor: THEME.COLORS.PRIMARY,
     alignSelf: "center",
     borderRadius: 100,
     alignItems: "center",
@@ -14,7 +16,7 @@ export const styles = StyleSheet.create({
   text: {
     position: "absolute",
     fontSize: 25,
-    color: "black",
+    color: THEME.COLORS.SECONDARY,
     lineHeight: 36,
   },
   icon: {

@@ -7,6 +7,8 @@ import { View, type GestureResponderEvent, Vibration, Text } from "react-native"
 import { styles } from "./defineVibrations.styles";
 import type { DisabledButtonActions, DisabledButtonsState } from "../disabledButtonsReducer";
 
+import { THEME } from "@/constants/theme";
+
 interface Props {
   disabledButtons: DisabledButtonsState
   dispatchButtonAction: React.Dispatch<DisabledButtonActions>
@@ -57,7 +59,7 @@ function DefineVibrations(props: Props) {
       {displayDefineInstructions && <Text style={styles.instructions}>{t("defineVibrationPattern")}</Text>}
       <View style={styles.pressIconWrapper}>
         <MaterialIcons
-          color="white"
+          color={THEME.COLORS.TEXT_LIGHT}
           name="touch-app"
           size={70}
         />

@@ -5,6 +5,8 @@ import { View } from "react-native";
 
 import { styles } from "./iterations.styles";
 
+import { THEME } from "@/constants/theme";
+
 interface Props {
   blockIterationsCount: number
   currentBlockIterations: number
@@ -18,7 +20,7 @@ function Iterations({ blockIterationsCount, currentBlockIterations }: Props) {
   return (
     <View style={styles.container}>
       <MaterialIcons
-        color="black"
+        color={THEME.COLORS.SECONDARY}
         name="loop"
         size={120}
         style={styles.icon}

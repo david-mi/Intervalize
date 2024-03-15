@@ -1,32 +1,32 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "white",
-    paddingHorizontal: globalStyle.padding,
+    backgroundColor: THEME.COLORS.PRIMARY,
+    paddingHorizontal: THEME.SPACINGS.PADDING,
   },
   button: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 25,
-    gap: globalStyle.gap,
+    gap: THEME.SPACINGS.GAP,
   },
   text: {
     fontSize: 20,
     lineHeight: 23,
-    color: globalStyle.headerColor,
+    color: THEME.COLORS.HEADER,
     marginRight: "auto",
   },
   themeIcon: {
     fontSize: 18,
-    color: globalStyle.headerColor,
+    color: THEME.COLORS.HEADER,
   },
   arrowIcon: {
     fontSize: 22,
-    color: globalStyle.headerColor,
+    color: THEME.COLORS.HEADER,
     marginLeft: "auto",
   },
 })

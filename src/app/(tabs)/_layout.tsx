@@ -1,11 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import HeaderNavigationButton from "@shared/HeaderNavigationButton/HeaderNavigationButton";
+import useBoundedStore from "@store/store";
 import { Tabs } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import useBoundedStore from "@store/store";
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export default function TabLayout() {
   const { t } = useTranslation()
@@ -22,9 +22,9 @@ export default function TabLayout() {
           />
         ),
         animation: "slide_from_right",
-        headerTintColor: globalStyle.headerColor,
-        tabBarActiveTintColor: "red",
-        tabBarInactiveTintColor: globalStyle.headerColor,
+        headerTintColor: THEME.COLORS.HEADER,
+        tabBarActiveTintColor: THEME.COLORS.TERTIARY,
+        tabBarInactiveTintColor: THEME.COLORS.HEADER,
       })}
     >
       <Tabs.Screen
@@ -34,7 +34,7 @@ export default function TabLayout() {
           tabBarLabel: t("currentSession"),
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
-              color={focused ? "red" : globalStyle.headerColor}
+              color={focused ? THEME.COLORS.TERTIARY : THEME.COLORS.HEADER}
               name="directions-run"
               size={24}
             />
@@ -48,7 +48,7 @@ export default function TabLayout() {
           tabBarLabel: t("mySessions"),
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
-              color={focused ? "red" : globalStyle.headerColor}
+              color={focused ? THEME.COLORS.TERTIARY : THEME.COLORS.HEADER}
               name="format-list-bulleted"
               size={24}
             />

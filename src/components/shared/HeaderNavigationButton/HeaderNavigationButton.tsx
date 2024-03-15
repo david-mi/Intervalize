@@ -3,7 +3,7 @@ import { Link } from "expo-router";
 import * as React from "react"
 import { Pressable } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 interface Props {
   iconProps: React.ComponentProps<typeof MaterialIcons>
@@ -17,7 +17,7 @@ function HeaderNavigationButton({ iconProps, screenDestination, buttonProps }: P
       <Pressable {...buttonProps}>
         <MaterialIcons
           {...iconProps}
-          color={globalStyle.headerColor}
+          color={THEME.COLORS.HEADER}
           size={24}
         />
       </Pressable>

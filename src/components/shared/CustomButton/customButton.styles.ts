@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   rectangle: {
@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     paddingVertical: 25,
     borderRadius: 4,
-    shadowColor: "#000000",
+    shadowColor: THEME.COLORS.SECONDARY,
     shadowOffset: {
       width: 0,
       height: 5,
@@ -17,50 +17,50 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.20,
     shadowRadius: 5.62,
     elevation: 7,
-    backgroundColor: "black",
+    backgroundColor: THEME.COLORS.SECONDARY,
   },
   rectangleIcon: {
     fontSize: 24,
-    color: "white",
+    color: THEME.COLORS.TEXT_LIGHT,
   },
   text: {
     fontSize: 20,
-    color: "white",
+    color: THEME.COLORS.TEXT_LIGHT,
   },
   control: {
-    backgroundColor: "black",
+    backgroundColor: THEME.COLORS.SECONDARY,
     borderRadius: 50,
   },
   controlIcon: {
     padding: 15,
     fontSize: 50,
-    color: "white",
+    color: THEME.COLORS.TEXT_LIGHT,
   },
   navigation: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 25,
-    gap: globalStyle.gap,
+    gap: THEME.SPACINGS.GAP,
   },
   navigationThemeIcon: {
     fontSize: 18,
-    color: "black",
+    color: THEME.COLORS.SECONDARY,
   },
   navigationArrowIcon: {
     fontSize: 22,
-    color: "black",
+    color: THEME.COLORS.SECONDARY,
     marginLeft: "auto",
   },
   navigationText: {
     fontSize: 20,
     lineHeight: 23,
-    color: "black",
+    color: THEME.COLORS.SECONDARY,
     marginRight: "auto",
   },
   disabledButton: {
-    backgroundColor: globalStyle.disabledButtonColor,
+    backgroundColor: THEME.COLORS.DISABLED_BUTTON,
   },
   disabledIcon: {
-    color: globalStyle.disabledIconColor,
+    color: THEME.COLORS.DISABLED_ICON,
   },
 })

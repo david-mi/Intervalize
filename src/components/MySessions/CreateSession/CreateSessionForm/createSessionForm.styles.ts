@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   form: {
     flex: 1,
-    gap: globalStyle.gap,
-    padding: globalStyle.padding,
+    gap: THEME.SPACINGS.GAP,
+    padding: THEME.SPACINGS.PADDING,
   },
   title: {
     fontSize: 25,
@@ -21,14 +21,14 @@ export const styles = StyleSheet.create({
   input: {
     height: 60,
     fontSize: 15,
-    padding: globalStyle.padding / 2,
+    padding: THEME.SPACINGS.PADDING / 2,
     borderWidth: 2,
-    borderColor: "black",
+    borderColor: THEME.COLORS.SECONDARY,
     borderRadius: 5,
   },
   blocks: {
     flex: 1,
-    borderColor: "black",
+    borderColor: THEME.COLORS.SECONDARY,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderTopWidth: StyleSheet.hairlineWidth,
   },
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   saveSessionButton: {
-    backgroundColor: "red",
+    backgroundColor: THEME.COLORS.TERTIARY,
     marginTop: "auto",
     alignSelf: "stretch",
   },

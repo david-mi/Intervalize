@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    gap: globalStyle.gap * 2,
+    gap: THEME.SPACINGS.GAP * 2,
     alignItems: "center",
     paddingVertical: 25,
   },
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   define: {
-    backgroundColor: "red",
+    backgroundColor: THEME.COLORS.TERTIARY,
     alignItems: "center",
     height: 250,
     width: 250,
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   controlButtons: {
     flexDirection: "row",
-    gap: globalStyle.gap,
+    gap: THEME.SPACINGS.GAP,
     justifyContent: "center",
   },
 })

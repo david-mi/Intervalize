@@ -52,7 +52,6 @@ function Layout() {
         screenOptions={{
           headerShown: false,
           animation: "slide_from_right",
-          contentStyle: { backgroundColor: "white" },
         }}
       >
         <Stack.Screen name="(tabs)" />

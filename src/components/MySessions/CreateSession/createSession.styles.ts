@@ -1,18 +1,18 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
 
   closeModalButton: {
     position: "absolute",
     top: 0,
-    right: globalStyle.gap / 4,
+    right: THEME.SPACINGS.GAP / 4,
   },
   closeModalButtonIcon: {
     fontSize: 40,
   },
   createSessionButton: {
-    backgroundColor: "red",
+    backgroundColor: THEME.COLORS.TERTIARY,
   },
 })

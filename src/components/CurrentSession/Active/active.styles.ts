@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: "stretch",
-    margin: -globalStyle.padding,
-    padding: globalStyle.padding,
+    margin: -THEME.SPACINGS.PADDING,
+    padding: THEME.SPACINGS.PADDING,
   },
 })

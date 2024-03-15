@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { THEME } from "@/constants/theme";
+
 export const styles = StyleSheet.create({
   container: {
     position: "relative",
@@ -7,7 +9,7 @@ export const styles = StyleSheet.create({
     top: 25,
     marginBottom: "auto",
     borderWidth: 5,
-    borderColor: "black",
-    backgroundColor: "white",
+    borderColor: THEME.COLORS.SECONDARY,
+    backgroundColor: THEME.COLORS.PRIMARY,
   },
 })

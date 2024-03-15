@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import { t } from "i18next";
 import React from "react";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export default function TabLayout() {
   return (
@@ -16,8 +16,7 @@ export default function TabLayout() {
           />
         ),
         animation: "slide_from_right",
-        contentStyle: { backgroundColor: "white" },
-        headerTintColor: globalStyle.headerColor,
+        headerTintColor: THEME.COLORS.HEADER,
       }}
     >
       <Stack.Screen
@@ -35,3 +34,4 @@ export default function TabLayout() {
     </Stack>
   );
 }
+

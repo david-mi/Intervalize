@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: globalStyle.padding,
+    paddingHorizontal: THEME.SPACINGS.PADDING,
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: THEME.COLORS.PRIMARY,
   },
   button: {
     paddingVertical: 25,

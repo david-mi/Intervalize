@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create(({
   container: {
     flex: 1,
-    padding: globalStyle.padding,
+    padding: THEME.SPACINGS.PADDING,
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",

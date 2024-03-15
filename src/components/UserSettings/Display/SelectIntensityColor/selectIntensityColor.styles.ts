@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { globalStyle } from "@/styles/styles.variables.global";
+import { THEME } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   colorPickerContainer: {
@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
   colorPicker: {
     marginTop: "auto",
     flex: 1,
-    gap: globalStyle.gap,
-    paddingHorizontal: globalStyle.padding,
+    gap: THEME.SPACINGS.GAP,
+    paddingHorizontal: THEME.SPACINGS.PADDING,
     backgroundColor: "transparent",
   },
   preview: {

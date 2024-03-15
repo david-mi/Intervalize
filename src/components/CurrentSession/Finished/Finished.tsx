@@ -7,7 +7,7 @@ import { View } from "react-native";
 
 import { styles } from "./finished.styles";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 
 function Finished() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)

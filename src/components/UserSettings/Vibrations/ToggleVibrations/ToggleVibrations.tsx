@@ -1,9 +1,8 @@
 import Checkbox from "@shared/Checkbox/Checkbox";
+import useBoundedStore from "@store/store";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { Vibration } from "react-native";
-
-import useBoundedStore from "@/store/store";
 
 function ToggleVibrations() {
   const userSettings = useBoundedStore((state) => state.userSettings)

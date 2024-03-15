@@ -4,7 +4,7 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 import { globalStyle } from "@/styles/styles.variables.global";
 
 export default function TabLayout() {

@@ -1,9 +1,8 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
+import useBoundedStore from "@store/store";
 import { Vibration } from "react-native";
 
 import type { DisabledButtonsState, DisabledButtonActions } from "../disabledButtonsReducer";
-
-import useBoundedStore from "@/store/store";
 
 interface Props {
   disabledButtons: DisabledButtonsState

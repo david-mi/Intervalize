@@ -6,7 +6,7 @@ import ColorPicker, { Preview, Panel1, HueSlider, OpacitySlider, type returnedRe
 
 import { styles } from "./selectIntensityColor.styles";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 import type { IntensityLevel } from "@/types";
 
 interface Props {

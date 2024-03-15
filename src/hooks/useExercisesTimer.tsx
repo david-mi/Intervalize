@@ -1,6 +1,6 @@
+import useBoundedStore from "@store/store"
 import * as React from "react"
 
-import useBoundedStore from "@/store/store"
 import type { Time } from "@/types"
 
 interface Props {

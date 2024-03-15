@@ -1,10 +1,10 @@
+import useBoundedStore from "@store/store"
 import * as React from "react"
 import { Vibration } from "react-native"
 import { useShallow } from "zustand/react/shallow"
 
 import { useExerciseTimer } from "./useExercisesTimer"
 
-import useBoundedStore from "@/store/store"
 import type { Block } from "@/types"
 
 export function useBlocks() {

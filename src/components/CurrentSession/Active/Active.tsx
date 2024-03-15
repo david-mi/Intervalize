@@ -4,7 +4,7 @@ import CurrentBlock from "./CurrentBlock/CurrentBlock";
 import SessionTimer from "./SessionTimer/SessionTimer";
 import { styles } from "./active.styles";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 
 interface Props {
   children: JSX.Element

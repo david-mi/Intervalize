@@ -1,9 +1,9 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
+import useBoundedStore from "@store/store";
 
 import type { DisabledButtonsState, DisabledButtonActions } from "../disabledButtonsReducer";
 
 import { defaultUserSettings } from "@/data/defaultUserSettings";
-import useBoundedStore from "@/store/store";
 
 interface Props {
   disabledButtons: DisabledButtonsState

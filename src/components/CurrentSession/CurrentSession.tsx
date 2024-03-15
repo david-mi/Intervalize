@@ -8,7 +8,7 @@ import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { styles } from "./currentSession.styles";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 
 function CurrentSession() {
   const sessionStatus = useBoundedStore((state) => state.sessionStatus)

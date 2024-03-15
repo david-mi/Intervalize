@@ -1,6 +1,5 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
-
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 
 function Pause() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)

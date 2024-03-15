@@ -1,6 +1,5 @@
+import useBoundedStore from "@store/store"
 import * as React from "react"
-
-import useBoundedStore from "@/store/store"
 
 export function useSessionTimer() {
   const currentSession = useBoundedStore((state) => state.currentSession)

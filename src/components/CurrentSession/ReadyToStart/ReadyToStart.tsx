@@ -6,7 +6,7 @@ import { View } from "react-native";
 
 import { styles } from "./readyToStart.styles";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 import type { Session } from "@/types";
 
 function ReadyToStart() {

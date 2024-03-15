@@ -1,7 +1,7 @@
+import useBoundedStore from "@store/store"
 import * as React from "react"
 
 import { defaultVibrationsPattern } from "@/data/defaultUserSettings"
-import useBoundedStore from "@/store/store"
 
 type VibrationPatternType = "default" | "custom"
 

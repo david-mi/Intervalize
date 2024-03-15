@@ -7,7 +7,7 @@ import { View, FlatList, Alert } from "react-native";
 import CreateSession from "./CreateSession/CreateSession";
 import { styles } from "./mySessions.styles";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 import type { Session } from "@/types";
 
 function MySessions() {

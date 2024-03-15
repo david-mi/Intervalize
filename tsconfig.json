@@ -16,6 +16,12 @@
       "@shared/*": [
         "./src/components/shared/*"
       ],
+      "@store/*": [
+        "./src/services/store/*"
+      ],
+      "@storage/*": [
+        "./src/services/storage/*"
+      ],
       "@/*": [
         "./src/*"
       ],

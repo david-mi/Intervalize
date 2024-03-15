@@ -2,7 +2,7 @@ import Checkbox from "@shared/Checkbox/Checkbox";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 
-import useBoundedStore from "@/store/store";
+import useBoundedStore from "@store/store";
 
 function ToggleKeepScreenAwake() {
   const userSettings = useBoundedStore((state) => state.userSettings)

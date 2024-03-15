@@ -1,7 +1,6 @@
+import useBoundedStore from "@store/store"
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake"
 import { useEffect } from "react"
-
-import useBoundedStore from "@/store/store"
 
 export function useKeepScreenAwake() {
   const toggleKeepScreenAwake = useBoundedStore(({ userSettings }) => userSettings.toggleKeepScreenAwake)

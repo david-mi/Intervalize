@@ -16,6 +16,7 @@ const config = {
     // "import/order": ["error", { "newlines-between": "never" }],
     "prettier/prettier": "off",
     "no-duplicate-imports": "error",
+    "@typescript-eslint/no-unused-vars": ["error"],
     "@stylistic/no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
     "@stylistic/jsx-sort-props": "error",
     "@stylistic/jsx-max-props-per-line": ["warn", { "maximum": { "single": 2, "multi": 1 } }],

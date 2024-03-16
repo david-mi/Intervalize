@@ -4,6 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React from "react"
 
+import { THEME } from "@/constants/theme";
 import { useKeepScreenAwake } from "@/hooks/useKeepScreenAwake";
 import { useLanguageChanges } from "@/hooks/useLanguageChange";
 
@@ -44,14 +45,15 @@ function Layout() {
   return (
     <>
       <StatusBar
+        backgroundColor={THEME.COLORS.STATUS_BAR}
         hidden={false}
-        style="dark"
-        translucent
+        style={THEME.COLORS.STATUS_BAR === "white" ? "dark" : "light"}
       />
       <Stack
         screenOptions={{
           headerShown: false,
           animation: "slide_from_right",
+          navigationBarColor: THEME.COLORS.NAVIGATION_BAR,
         }}
       >
         <Stack.Screen name="(tabs)" />

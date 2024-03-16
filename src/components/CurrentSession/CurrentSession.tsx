@@ -1,3 +1,4 @@
+import useBoundedStore from "@store/store";
 import * as React from "react";
 import { View } from "react-native";
 
@@ -7,8 +8,6 @@ import Finished from "./Finished/Finished";
 import NotSelected from "./NotSelected/NotSelected";
 import ReadyToStart from "./ReadyToStart/ReadyToStart";
 import { styles } from "./currentSession.styles";
-
-import useBoundedStore from "@store/store";
 
 function CurrentSession() {
   const sessionStatus = useBoundedStore((state) => state.sessionStatus)

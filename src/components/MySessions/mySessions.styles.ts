@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: THEME.SPACINGS.PADDING,
+    backgroundColor: THEME.COLORS.PRIMARY,
   },
   listWrapper: {
     width: "100%",

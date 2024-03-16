@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 23,
     borderBottomWidth: 1,
+    color: THEME.COLORS.TEXT,
   },
   define: {
     backgroundColor: THEME.COLORS.TERTIARY,

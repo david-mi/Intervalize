@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     marginTop: "auto",
     fontSize: 20,
     textAlign: "center",
+    color: THEME.COLORS.TEXT,
   },
   button: {
     alignSelf: "stretch",

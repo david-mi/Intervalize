@@ -7,6 +7,8 @@ import { Pressable, TextInput, View, Text } from "react-native";
 
 import { styles } from "./createSessionForm.styles"
 
+import { THEME } from "@/constants/theme";
+
 function CreateSessionForm() {
   const { t } = useTranslation()
 
@@ -15,12 +17,20 @@ function CreateSessionForm() {
       <TitleWithCustomFont style={styles.title}>{t("creatingASession")}</TitleWithCustomFont>
       <View style={styles.labelInputContainer}>
         <Text style={styles.label}>{t("sessionName")}</Text>
-        <TextInput placeholder={t("sessionNamePlaceholder")} style={styles.input} />
+        <TextInput
+          placeholder={t("sessionNamePlaceholder")}
+          placeholderTextColor={THEME.COLORS.LABEL}
+          style={styles.input}
+        />
       </View>
       <View style={styles.blocks}>
         <TitleWithCustomFont style={styles.blocksTitle}>{t("blocks")}</TitleWithCustomFont>
         <Pressable style={styles.addBlockButton}>
-          <MaterialIcons name="add" size={40} />
+          <MaterialIcons
+            name="add"
+            size={40}
+            style={styles.addBlockButtonIcon}
+          />
         </Pressable>
       </View>
       <CustomButton

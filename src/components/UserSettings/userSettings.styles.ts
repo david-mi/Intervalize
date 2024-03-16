@@ -5,7 +5,6 @@ import { THEME } from "@/constants/theme";
 export const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: THEME.COLORS.PRIMARY,
     paddingHorizontal: THEME.SPACINGS.PADDING,
   },
   button: {
@@ -17,16 +16,16 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     lineHeight: 23,
-    color: THEME.COLORS.HEADER,
+    color: THEME.COLORS.TEXT,
     marginRight: "auto",
   },
   themeIcon: {
     fontSize: 18,
-    color: THEME.COLORS.HEADER,
+    color: THEME.COLORS.TEXT,
   },
   arrowIcon: {
     fontSize: 22,
-    color: THEME.COLORS.HEADER,
+    color: THEME.COLORS.TEXT,
     marginLeft: "auto",
   },
 })

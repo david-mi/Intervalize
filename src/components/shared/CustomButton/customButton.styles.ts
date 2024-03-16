@@ -44,17 +44,17 @@ export const styles = StyleSheet.create({
   },
   navigationThemeIcon: {
     fontSize: 18,
-    color: THEME.COLORS.SECONDARY,
+    color: THEME.COLORS.TEXT,
   },
   navigationArrowIcon: {
     fontSize: 22,
-    color: THEME.COLORS.SECONDARY,
+    color: THEME.COLORS.TEXT,
     marginLeft: "auto",
   },
   navigationText: {
     fontSize: 20,
     lineHeight: 23,
-    color: THEME.COLORS.SECONDARY,
+    color: THEME.COLORS.TEXT,
     marginRight: "auto",
   },
   disabledButton: {

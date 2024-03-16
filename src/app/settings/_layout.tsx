@@ -13,10 +13,17 @@ export default function TabLayout() {
           <HeaderNavigationButton
             iconProps={{ name: "home" }}
             screenDestination="/"
+            style={{ marginRight: 5 }}
           />
         ),
         animation: "slide_from_right",
-        headerTintColor: THEME.COLORS.HEADER,
+        headerTintColor: THEME.COLORS.HEADER_TEXT,
+        headerStyle: {
+          backgroundColor: THEME.COLORS.HEADER,
+        },
+        contentStyle: {
+          backgroundColor: THEME.COLORS.PRIMARY,
+        },
       }}
     >
       <Stack.Screen
@@ -34,4 +41,3 @@ export default function TabLayout() {
     </Stack>
   );
 }
-

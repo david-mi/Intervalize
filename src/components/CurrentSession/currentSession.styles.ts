@@ -9,5 +9,6 @@ export const styles = StyleSheet.create(({
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: THEME.COLORS.PRIMARY,
   },
 }))

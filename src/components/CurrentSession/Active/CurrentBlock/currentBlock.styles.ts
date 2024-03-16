@@ -10,6 +10,6 @@ export const styles = StyleSheet.create({
     marginBottom: "auto",
     borderWidth: 5,
     borderColor: THEME.COLORS.SECONDARY,
-    backgroundColor: THEME.COLORS.PRIMARY,
+    backgroundColor: THEME.COLORS.CURRENT_ITERATION_BLOCK,
   },
 })

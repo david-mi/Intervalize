@@ -1,4 +1,5 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
+import useBoundedStore from "@store/store";
 import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
@@ -7,7 +8,6 @@ import { View, FlatList, Alert } from "react-native";
 import CreateSession from "./CreateSession/CreateSession";
 import { styles } from "./mySessions.styles";
 
-import useBoundedStore from "@store/store";
 import type { Session } from "@/types";
 
 function MySessions() {

@@ -24,6 +24,7 @@ type NavigationButtonProps = ComponentProps<typeof Pressable> & {
 type Props = RectangleButtonProps | ControlButtonProps | NavigationButtonProps | ComponentProps<typeof Pressable>;
 
 const CustomButton = forwardRef(({ style, disabled, ...props }: Props, _) => {
+
   const defaultButtonStyles = [style as StyleProp<ViewStyle>, disabled && styles.disabledButton]
 
   if ("theme" in props === false) {

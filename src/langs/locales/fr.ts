@@ -5,7 +5,7 @@ export const frTranslation = {
   createASession: "Create a session",
   createTheSession: "Create the session",
   creatingASession: "Création d'une séance",
-  currentSession: "SéanceEnCours",
+  currentSession: "Séance en cours",
   defineVibrationPattern: "Définir votre pattern de vibration",
   display: "Affichage",
   high: "Élevée",

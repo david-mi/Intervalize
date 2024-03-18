@@ -1,12 +1,13 @@
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View, Text } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
 import DefineVibrations from "./DefineVibrations/DefineVibrations";
 import PlayVibrations from "./PlayVibrations/PlayVibrations";
 import ResetVibrations from "./ResetVibrations/ResetVibrations";
 import StopVibrations from "./StopVibrations/StopVibrations";
-import { styles } from "./defineVibrationsButton.styles";
+import { styles as styleSheet } from "./defineVibrationsButton.styles";
 import { disabledButtonsReducer } from "./disabledButtonsReducer";
 
 import { useVibrationsPattern } from "@/hooks/useVibrationsPattern";
@@ -22,6 +23,7 @@ function SetVibrationPattern() {
   const customVibrationPatternRef = React.useRef<number[]>([])
   const timeStampRef = React.useRef(0)
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   return (
     <View style={styles.container}>

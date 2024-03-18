@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   define: {
-    backgroundColor: THEME.COLORS.TERTIARY,
+    backgroundColor: theme.COLORS.TERTIARY,
     alignItems: "center",
     height: 250,
     width: 250,
@@ -16,9 +15,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   instructions: {
-    color: THEME.COLORS.TEXT_LIGHT,
+    color: theme.COLORS.TEXT_LIGHT,
     fontStyle: "italic",
     fontWeight: "500",
     marginTop: 20,
   },
-})
+}))

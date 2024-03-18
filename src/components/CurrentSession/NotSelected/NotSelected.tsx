@@ -4,11 +4,13 @@ import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./notSelected.styles";
+import { styles as styleSheet } from "./notSelected.styles";
 
 function NotSelected() {
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   function redirectToMySessions() {
     router.navigate("/mySessions")

@@ -1,9 +1,10 @@
 import * as React from "react"
 import { FlatList, View } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
 import CurrentExerciseName from "./CurrentExerciseName/CurrentExerciseName";
 import OtherExerciseName from "./OtherExerciseName/OtherExerciseName";
-import { styles } from "./exercisesList.styles";
+import { styles as styleSheet } from "./exercisesList.styles";
 
 import type { Exercise } from "@/types";
 
@@ -13,6 +14,7 @@ interface Props {
 }
 
 function ExercisesList({ currentExercise, exercises }: Props) {
+  const { styles } = useStyles(styleSheet)
   const flatListRef = React.useRef<FlatList>(null!)
 
   return (

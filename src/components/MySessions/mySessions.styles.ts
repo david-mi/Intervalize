@@ -1,20 +1,18 @@
-import { StyleSheet } from "react-native"
+import { createStyleSheet } from "react-native-unistyles"
 
-import { THEME } from "@/constants/theme"
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
     flex: 1,
     justifyContent: "center",
-    padding: THEME.SPACINGS.PADDING,
-    backgroundColor: THEME.COLORS.PRIMARY,
+    padding: theme.SPACINGS.PADDING,
+    backgroundColor: theme.COLORS.PRIMARY,
   },
   listWrapper: {
     width: "100%",
   },
   list: {
     flex: 1,
-    gap: THEME.SPACINGS.GAP,
+    gap: theme.SPACINGS.GAP,
     alignItems: "stretch",
   },
-}) 
+})) 

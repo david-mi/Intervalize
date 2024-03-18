@@ -4,9 +4,10 @@ import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View, FlatList, Alert } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
 import CreateSession from "./CreateSession/CreateSession";
-import { styles } from "./mySessions.styles";
+import { styles as styleSheet } from "./mySessions.styles";
 
 import type { Session } from "@/types";
 
@@ -19,6 +20,7 @@ function MySessions() {
     setSessionStatus,
   } = useBoundedStore()
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   function startNewSession(session: Session) {
     setCurrentSession(session)

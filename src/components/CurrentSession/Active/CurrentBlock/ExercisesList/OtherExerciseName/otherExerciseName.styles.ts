@@ -1,13 +1,11 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   otherExerciseName: {
     textAlign: "center",
     opacity: 0.4,
     alignItems: "center",
     fontSize: 25,
-    color: THEME.COLORS.TEXT,
+    color: theme.COLORS.TEXT,
   },
-})
+}))

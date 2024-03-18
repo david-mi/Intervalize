@@ -1,11 +1,10 @@
 import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
-    padding: THEME.SPACINGS.PADDING,
-    gap: THEME.SPACINGS.GAP,
+    padding: theme.SPACINGS.PADDING,
+    gap: theme.SPACINGS.GAP,
     flex: 1,
   },
   item: {
@@ -18,13 +17,13 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 23,
     fontWeight: "600",
-    color: THEME.COLORS.TEXT,
+    color: theme.COLORS.TEXT,
   },
   intensityColors: {
-    gap: THEME.SPACINGS.GAP / 2,
+    gap: theme.SPACINGS.GAP / 2,
   },
   separator: {
-    borderBottomColor: THEME.COLORS.SECONDARY,
+    borderBottomColor: theme.COLORS.SECONDARY,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
-})
+}))

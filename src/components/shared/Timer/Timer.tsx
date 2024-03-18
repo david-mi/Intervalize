@@ -1,7 +1,8 @@
 import TextWithCustomFont from "@shared/TextWithCustomFont/TextWithCustomFont";
 import { View, Text } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./timer.styles";
+import { styles as styleSheet } from "./timer.styles";
 
 import type { Time } from "@/types";
 
@@ -10,6 +11,8 @@ type Props = Time<string> & {
 }
 
 function Timer({ minutes, seconds, size }: Props) {
+  const { styles } = useStyles(styleSheet)
+
   const timerContainerStyles = {
     ...styles.container,
     flex: size === "big" ? 0 : 1,

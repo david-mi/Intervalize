@@ -1,12 +1,10 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
     flexDirection: "row",
-    gap: THEME.SPACINGS.GAP,
+    gap: theme.SPACINGS.GAP,
     justifyContent: "space-evenly",
   },
   icon: {},
-})
+}))

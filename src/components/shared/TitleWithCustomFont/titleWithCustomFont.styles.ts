@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
 import { CustomFontsList } from "../../../types";
 
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet({
   title: {
     fontFamily: CustomFontsList.OSWALD_BOLD,
     fontSize: 30,

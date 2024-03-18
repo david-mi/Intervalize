@@ -1,8 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { type ComponentProps, forwardRef } from "react";
 import { Pressable, Text, type StyleProp, type ViewStyle } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./customButton.styles";
+import { styles as styleSheet } from "./customButton.styles";
 
 type RectangleButtonProps = ComponentProps<typeof Pressable> & {
   theme: "rectangle"
@@ -24,7 +25,7 @@ type NavigationButtonProps = ComponentProps<typeof Pressable> & {
 type Props = RectangleButtonProps | ControlButtonProps | NavigationButtonProps | ComponentProps<typeof Pressable>;
 
 const CustomButton = forwardRef(({ style, disabled, ...props }: Props, _) => {
-
+  const { styles } = useStyles(styleSheet)
   const defaultButtonStyles = [style as StyleProp<ViewStyle>, disabled && styles.disabledButton]
 
   if ("theme" in props === false) {

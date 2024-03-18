@@ -1,16 +1,14 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   colorPickerContainer: {
     flex: 1,
   },
   colorPicker: {
     marginTop: "auto",
     flex: 1,
-    gap: THEME.SPACINGS.GAP,
-    paddingHorizontal: THEME.SPACINGS.PADDING,
+    gap: theme.SPACINGS.GAP,
+    paddingHorizontal: theme.SPACINGS.PADDING,
     backgroundColor: "transparent",
   },
   preview: {
@@ -23,4 +21,4 @@ export const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
 
-})
+}))

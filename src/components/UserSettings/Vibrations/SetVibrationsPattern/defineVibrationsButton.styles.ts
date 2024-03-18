@@ -1,10 +1,8 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
-    gap: THEME.SPACINGS.GAP * 2,
+    gap: theme.SPACINGS.GAP * 2,
     alignItems: "center",
     paddingVertical: 25,
   },
@@ -12,10 +10,10 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 23,
     borderBottomWidth: 1,
-    color: THEME.COLORS.TEXT,
+    color: theme.COLORS.TEXT,
   },
   define: {
-    backgroundColor: THEME.COLORS.TERTIARY,
+    backgroundColor: theme.COLORS.TERTIARY,
     alignItems: "center",
     height: 250,
     width: 250,
@@ -23,7 +21,7 @@ export const styles = StyleSheet.create({
   },
   controlButtons: {
     flexDirection: "row",
-    gap: THEME.SPACINGS.GAP,
+    gap: theme.SPACINGS.GAP,
     justifyContent: "center",
   },
-})
+}))

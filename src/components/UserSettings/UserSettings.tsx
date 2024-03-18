@@ -3,11 +3,13 @@ import CustomButton from "@shared/CustomButton/CustomButton";
 import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { FlatList } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./userSettings.styles";
+import { styles as styleSheet } from "./userSettings.styles";
 
 function UserSettingsList() {
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   const settingsRoutesList: {
     routeName: string,

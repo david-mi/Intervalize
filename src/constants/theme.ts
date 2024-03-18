@@ -1,4 +1,4 @@
-const DARK_MODE = {
+export const DARK_THEME = {
   SPACINGS: {
     GAP: 20,
     PADDING: 20,
@@ -27,9 +27,9 @@ const DARK_MODE = {
     ITERATION_COUNT_TEXT: "white",
     CURRENT_ITERATION_BLOCK: "#1e1e1e",
   },
-}
+} as const
 
-const LIGHT_MODE = {
+export const LIGHT_THEME = {
   SPACINGS: {
     GAP: 20,
     PADDING: 20,
@@ -58,6 +58,4 @@ const LIGHT_MODE = {
     ITERATION_COUNT_TEXT: "#121212",
     CURRENT_ITERATION_BLOCK: "white",
   },
-}
-
-export const THEME = LIGHT_MODE
+} as const

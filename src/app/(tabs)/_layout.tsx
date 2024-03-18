@@ -4,12 +4,12 @@ import useBoundedStore from "@store/store";
 import { Tabs } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
-
-import { THEME } from "@/constants/theme";
+import { useStyles } from "react-native-unistyles";
 
 export default function TabLayout() {
   const { t } = useTranslation()
   const currentSessionName = useBoundedStore(({ currentSession }) => currentSession?.name)
+  const { theme } = useStyles()
 
   return (
     <Tabs
@@ -21,14 +21,14 @@ export default function TabLayout() {
           />
         ),
         animation: "slide_from_right",
-        headerTintColor: THEME.COLORS.HEADER_TEXT,
-        tabBarActiveTintColor: THEME.COLORS.TERTIARY,
-        tabBarInactiveTintColor: THEME.COLORS.TEXT,
-        tabBarActiveBackgroundColor: THEME.COLORS.TAB_BAR,
-        tabBarInactiveBackgroundColor: THEME.COLORS.TAB_BAR,
+        headerTintColor: theme.COLORS.HEADER_TEXT,
+        tabBarActiveTintColor: theme.COLORS.TERTIARY,
+        tabBarInactiveTintColor: theme.COLORS.TEXT,
+        tabBarActiveBackgroundColor: theme.COLORS.TAB_BAR,
+        tabBarInactiveBackgroundColor: theme.COLORS.TAB_BAR,
         tabBarStyle: { borderTopWidth: 0 },
         headerStyle: {
-          backgroundColor: THEME.COLORS.HEADER,
+          backgroundColor: theme.COLORS.HEADER,
         },
       })}
     >
@@ -39,7 +39,7 @@ export default function TabLayout() {
           tabBarLabel: t("currentSession"),
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
-              color={focused ? THEME.COLORS.TERTIARY : THEME.COLORS.TEXT_LIGHT}
+              color={focused ? theme.COLORS.TERTIARY : theme.COLORS.TEXT}
               name="directions-run"
               size={24}
             />
@@ -53,7 +53,7 @@ export default function TabLayout() {
           tabBarLabel: t("mySessions"),
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
-              color={focused ? THEME.COLORS.TERTIARY : THEME.COLORS.TAB_BAR_TEXT}
+              color={focused ? theme.COLORS.TERTIARY : theme.COLORS.TAB_BAR_TEXT}
               name="format-list-bulleted"
               size={24}
             />

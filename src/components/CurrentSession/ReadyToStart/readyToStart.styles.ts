@@ -1,8 +1,6 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
     flex: 1,
     alignSelf: "stretch",
@@ -12,12 +10,12 @@ export const styles = StyleSheet.create({
     marginBottom: "auto",
     textAlign: "center",
     fontSize: 35,
-    backgroundColor: THEME.COLORS.TERTIARY,
+    backgroundColor: theme.COLORS.TERTIARY,
     lineHeight: 50,
     paddingVertical: 25,
-    color: THEME.COLORS.TEXT_LIGHT,
+    color: theme.COLORS.TEXT_LIGHT,
   },
   button: {
     marginBottom: "auto",
   },
-})
+}))

@@ -1,24 +1,22 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   title: {
     fontSize: 35,
-    backgroundColor: THEME.COLORS.TERTIARY,
+    backgroundColor: theme.COLORS.TERTIARY,
     textAlign: "center",
     lineHeight: 50,
     paddingVertical: 25,
-    color: THEME.COLORS.TEXT_LIGHT,
+    color: theme.COLORS.TEXT_LIGHT,
   },
   buttonsContainer: {
     flex: 1,
-    gap: THEME.SPACINGS.GAP,
+    gap: theme.SPACINGS.GAP,
     justifyContent: "center",
   },
   container: {
     flex: 1,
     alignSelf: "stretch",
-    gap: THEME.SPACINGS.GAP,
+    gap: theme.SPACINGS.GAP,
   },
-})
+}))

@@ -1,18 +1,20 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
+import useBoundedStore from "@store/store";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./readyToStart.styles";
+import { styles as styleSheet } from "./readyToStart.styles";
 
-import useBoundedStore from "@store/store";
 import type { Session } from "@/types";
 
 function ReadyToStart() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
   const currentSession = useBoundedStore((state) => state.currentSession)
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   function onPress() {
     setSessionStatus("ACTIVE")

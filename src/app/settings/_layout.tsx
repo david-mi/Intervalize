@@ -2,10 +2,11 @@ import HeaderNavigationButton from "@shared/HeaderNavigationButton/HeaderNavigat
 import { Stack } from "expo-router";
 import { t } from "i18next";
 import React from "react";
-
-import { THEME } from "@/constants/theme";
+import { useStyles } from "react-native-unistyles";
 
 export default function TabLayout() {
+  const { theme } = useStyles()
+
   return (
     <Stack
       screenOptions={{
@@ -17,12 +18,12 @@ export default function TabLayout() {
           />
         ),
         animation: "slide_from_right",
-        headerTintColor: THEME.COLORS.HEADER_TEXT,
+        headerTintColor: theme.COLORS.HEADER_TEXT,
         headerStyle: {
-          backgroundColor: THEME.COLORS.HEADER,
+          backgroundColor: theme.COLORS.HEADER,
         },
         contentStyle: {
-          backgroundColor: THEME.COLORS.PRIMARY,
+          backgroundColor: theme.COLORS.PRIMARY,
         },
       }}
     >

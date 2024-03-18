@@ -1,17 +1,18 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
+import useBoundedStore from "@store/store";
 import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./finished.styles";
-
-import useBoundedStore from "@store/store";
+import { styles as styleSheet } from "./finished.styles";
 
 function Finished() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   function handleRestartSession() {
     setSessionStatus("ACTIVE")

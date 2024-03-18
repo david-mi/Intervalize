@@ -1,12 +1,13 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
+import useBoundedStore from "@store/store";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { Modal, View } from "react-native";
+import { useStyles } from "react-native-unistyles";
 import ColorPicker, { Preview, Panel1, HueSlider, OpacitySlider, type returnedResults } from "reanimated-color-picker";
 
-import { styles } from "./selectIntensityColor.styles";
+import { styles as styleSheet } from "./selectIntensityColor.styles";
 
-import useBoundedStore from "@store/store";
 import type { IntensityLevel } from "@/types";
 
 interface Props {
@@ -21,6 +22,7 @@ function SelectIntensityColor({ intensityLevel }: Props) {
   const [colorPickerValue, setColorPickerValue] = React.useState(userSettings.intensityColors[intensityLevel])
   const throttleTimeoutRef = React.useRef<NodeJS.Timeout | null>(null)
   const { t } = useTranslation()
+  const { styles } = useStyles(styleSheet)
 
   function toggleModal() {
     setShowModal((showModal) => !showModal)

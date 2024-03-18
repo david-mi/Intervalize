@@ -1,12 +1,14 @@
 import Timer from "@shared/Timer/Timer"
 import * as React from "react"
 import { View } from "react-native"
+import { useStyles } from "react-native-unistyles"
 
-import { styles } from "./sessionTimer.styles"
+import { styles as styleSheet } from "./sessionTimer.styles"
 
 import { useSessionTimer } from "@/hooks/useSessionTimer"
 
 function SessionTimer() {
+  const { styles } = useStyles(stylesheet)
   const { remainingMinutes, remainingSeconds } = useSessionTimer()
 
   return (

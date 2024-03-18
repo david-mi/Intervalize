@@ -2,8 +2,9 @@ import { MaterialIcons } from "@expo/vector-icons"
 import TextWithCustomFont from "@shared/TextWithCustomFont/TextWithCustomFont";
 import * as React from "react"
 import { View } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./iterations.styles";
+import { styles as styleSheet } from "./iterations.styles";
 
 interface Props {
   blockIterationsCount: number
@@ -11,6 +12,8 @@ interface Props {
 }
 
 function Iterations({ blockIterationsCount, currentBlockIterations }: Props) {
+  const { styles } = useStyles(stylesheet)
+
   if (currentBlockIterations === 1) {
     return null
   }

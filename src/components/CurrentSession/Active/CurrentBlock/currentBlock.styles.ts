@@ -1,15 +1,13 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
     position: "relative",
     marginTop: "auto",
     top: 25,
     marginBottom: "auto",
     borderWidth: 5,
-    borderColor: THEME.COLORS.SECONDARY,
-    backgroundColor: THEME.COLORS.CURRENT_ITERATION_BLOCK,
+    borderColor: theme.COLORS.SECONDARY,
+    backgroundColor: theme.COLORS.CURRENT_ITERATION_BLOCK,
   },
-})
+}))

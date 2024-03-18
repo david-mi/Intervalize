@@ -1,18 +1,16 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
     alignSelf: "stretch",
     flexDirection: "row",
     alignItems: "center",
     gap: 5,
-    backgroundColor: THEME.COLORS.SECONDARY,
+    backgroundColor: theme.COLORS.SECONDARY,
     justifyContent: "center",
   },
   text: {
-    color: THEME.COLORS.TEXT_LIGHT,
+    color: theme.COLORS.TEXT_LIGHT,
   },
   big: {
     fontSize: 80,
@@ -20,4 +18,4 @@ export const styles = StyleSheet.create({
   medium: {
     fontSize: 40,
   },
-})
+}))

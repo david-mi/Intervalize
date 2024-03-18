@@ -3,8 +3,9 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React from "react"
+import { useInitialTheme, useStyles, UnistylesRegistry } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
+import { LIGHT_THEME, DARK_THEME } from "@/constants/theme";
 import { useKeepScreenAwake } from "@/hooks/useKeepScreenAwake";
 import { useLanguageChanges } from "@/hooks/useLanguageChange";
 
@@ -17,6 +18,15 @@ if (__DEV__) {
 
 SplashScreen.preventAutoHideAsync();
 
+UnistylesRegistry
+  .addThemes({
+    light: LIGHT_THEME,
+    dark: DARK_THEME,
+  })
+  .addConfig({
+    adaptiveThemes: true,
+  })
+
 function Layout() {
   const [fontsLoaded, fontError] = useFonts({
     "clockicons": require("../../assets/fonts/clockicons.ttf"),
@@ -27,6 +37,8 @@ function Layout() {
   });
   useLanguageChanges()
   useKeepScreenAwake()
+  useInitialTheme("light")
+  const { theme } = useStyles()
 
   React.useEffect(() => {
     if (fontError) throw fontError;
@@ -45,15 +57,15 @@ function Layout() {
   return (
     <>
       <StatusBar
-        backgroundColor={THEME.COLORS.STATUS_BAR}
+        backgroundColor={theme.COLORS.STATUS_BAR}
         hidden={false}
-        style={THEME.COLORS.STATUS_BAR === "white" ? "dark" : "light"}
+        style={theme.COLORS.STATUS_BAR === "white" ? "dark" : "light"}
       />
       <Stack
         screenOptions={{
           headerShown: false,
           animation: "slide_from_right",
-          navigationBarColor: THEME.COLORS.NAVIGATION_BAR,
+          navigationBarColor: theme.COLORS.NAVIGATION_BAR,
         }}
       >
         <Stack.Screen name="(tabs)" />

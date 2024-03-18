@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet({
   container: {
     width: "100%",
     paddingVertical: 25,

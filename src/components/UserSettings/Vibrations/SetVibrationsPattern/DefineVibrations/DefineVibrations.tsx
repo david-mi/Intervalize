@@ -3,11 +3,10 @@ import CustomButton from "@shared/CustomButton/CustomButton";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
 import { View, type GestureResponderEvent, Vibration, Text } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./defineVibrations.styles";
+import { styles as styleSheet } from "./defineVibrations.styles";
 import type { DisabledButtonActions, DisabledButtonsState } from "../disabledButtonsReducer";
-
-import { THEME } from "@/constants/theme";
 
 interface Props {
   disabledButtons: DisabledButtonsState
@@ -20,6 +19,7 @@ function DefineVibrations(props: Props) {
   const { disabledButtons, dispatchButtonAction, customVibrationPatternRef, timeStampRef } = props
   const displayDefineInstructions = !disabledButtons.define && disabledButtons.stop
   const { t } = useTranslation()
+  const { styles, theme } = useStyles(styleSheet)
 
   function handleDefinePressIn(event: GestureResponderEvent) {
     customVibrationPatternRef.current.push(timeStampRef.current !== 0
@@ -59,7 +59,7 @@ function DefineVibrations(props: Props) {
       {displayDefineInstructions && <Text style={styles.instructions}>{t("defineVibrationPattern")}</Text>}
       <View style={styles.pressIconWrapper}>
         <MaterialIcons
-          color={THEME.COLORS.TEXT_LIGHT}
+          color={theme.COLORS.TEXT_LIGHT}
           name="touch-app"
           size={70}
         />

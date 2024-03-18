@@ -4,13 +4,13 @@ import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, TextInput, View, Text } from "react-native";
+import { useStyles } from "react-native-unistyles";
 
-import { styles } from "./createSessionForm.styles"
-
-import { THEME } from "@/constants/theme";
+import { styles as styleSheet } from "./createSessionForm.styles"
 
 function CreateSessionForm() {
   const { t } = useTranslation()
+  const { styles, theme } = useStyles(styleSheet)
 
   return (
     <View style={styles.form}>
@@ -19,7 +19,7 @@ function CreateSessionForm() {
         <Text style={styles.label}>{t("sessionName")}</Text>
         <TextInput
           placeholder={t("sessionNamePlaceholder")}
-          placeholderTextColor={THEME.COLORS.LABEL}
+          placeholderTextColor={theme.COLORS.LABEL}
           style={styles.input}
         />
       </View>

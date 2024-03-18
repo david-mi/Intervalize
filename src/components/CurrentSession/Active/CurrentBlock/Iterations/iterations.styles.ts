@@ -1,13 +1,11 @@
-import { StyleSheet } from "react-native";
+import { createStyleSheet } from "react-native-unistyles";
 
-import { THEME } from "@/constants/theme";
-
-export const styles = StyleSheet.create({
+export const styles = createStyleSheet((theme) => ({
   container: {
     zIndex: 10,
     position: "absolute",
     top: -40,
-    backgroundColor: THEME.COLORS.ITERATION_COUNT,
+    backgroundColor: theme.COLORS.ITERATION_COUNT,
     alignSelf: "center",
     borderRadius: 100,
     alignItems: "center",
@@ -16,12 +14,12 @@ export const styles = StyleSheet.create({
   text: {
     position: "absolute",
     fontSize: 25,
-    color: THEME.COLORS.ITERATION_COUNT_TEXT,
+    color: theme.COLORS.ITERATION_COUNT_TEXT,
     lineHeight: 36,
   },
   icon: {
     margin: -30,
     transform: [{ rotateX: "180deg" }],
-    color: THEME.COLORS.TEXT,
+    color: theme.COLORS.TEXT,
   },
-})
+}))

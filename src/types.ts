@@ -36,12 +36,15 @@ export enum CustomFontsList {
 
 export type CustomFont = `${CustomFontsList}`
 
+type Theme = "light" | "dark" | "adaptative"
+
 export interface UserSettings {
   vibrationsEnabled: boolean,
   vibrationPattern: number[],
   intensityColorsEnabled: boolean,
   intensityColors: { [key in IntensityLevel]: string }
-  toggleKeepScreenAwake: boolean
+  toggleKeepScreenAwake: boolean,
+  theme: Theme
 }
 
 export interface StorageType {

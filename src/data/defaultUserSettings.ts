@@ -12,6 +12,7 @@ export const defaultUserSettings: UserSettings = {
   },
   intensityColorsEnabled: true,
   toggleKeepScreenAwake: false,
+  theme: "adaptative",
 }
 
 export const defaultStorageData: StorageType = {

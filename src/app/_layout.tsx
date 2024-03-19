@@ -3,9 +3,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React from "react"
-import { useInitialTheme, useStyles, UnistylesRegistry } from "react-native-unistyles";
 
-import { LIGHT_THEME, DARK_THEME } from "@/constants/theme";
+import { useInitTheme } from "@/hooks/useInitTheme";
 import { useKeepScreenAwake } from "@/hooks/useKeepScreenAwake";
 import { useLanguageChanges } from "@/hooks/useLanguageChange";
 
@@ -18,15 +17,6 @@ if (__DEV__) {
 
 SplashScreen.preventAutoHideAsync();
 
-UnistylesRegistry
-  .addThemes({
-    light: LIGHT_THEME,
-    dark: DARK_THEME,
-  })
-  .addConfig({
-    adaptiveThemes: true,
-  })
-
 function Layout() {
   const [fontsLoaded, fontError] = useFonts({
     "clockicons": require("../../assets/fonts/clockicons.ttf"),
@@ -37,20 +27,20 @@ function Layout() {
   });
   useLanguageChanges()
   useKeepScreenAwake()
-  useInitialTheme("light")
-  const { theme } = useStyles()
+  const { themeInitialized, theme } = useInitTheme()
+  const hideSplashScreen = fontsLoaded && themeInitialized
 
   React.useEffect(() => {
     if (fontError) throw fontError;
   }, [fontError]);
 
   React.useEffect(() => {
-    if (fontsLoaded) {
+    if (hideSplashScreen) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [hideSplashScreen]);
 
-  if (!fontsLoaded) {
+  if (!hideSplashScreen) {
     return null;
   }
 

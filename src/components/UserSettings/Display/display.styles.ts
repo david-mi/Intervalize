@@ -3,9 +3,11 @@ import { createStyleSheet } from "react-native-unistyles";
 
 export const styles = createStyleSheet((theme) => ({
   container: {
-    padding: theme.SPACINGS.PADDING,
-    gap: theme.SPACINGS.GAP,
     flex: 1,
+    padding: theme.SPACINGS.PADDING,
+  },
+  scrollViewContainer: {
+    gap: theme.SPACINGS.GAP,
   },
   item: {
     padding: 20,
@@ -23,7 +25,7 @@ export const styles = createStyleSheet((theme) => ({
     gap: theme.SPACINGS.GAP / 2,
   },
   separator: {
-    borderBottomColor: theme.COLORS.SECONDARY,
+    borderBottomColor: theme.COLORS.TEXT,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
 }))

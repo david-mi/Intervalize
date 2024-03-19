@@ -36,7 +36,7 @@ export enum CustomFontsList {
 
 export type CustomFont = `${CustomFontsList}`
 
-type Theme = "light" | "dark" | "adaptative"
+export type Theme = "light" | "dark" | "adaptative"
 
 export interface UserSettings {
   vibrationsEnabled: boolean,

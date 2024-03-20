@@ -12,7 +12,7 @@ import "../langs/config"
 import "expo-dev-client";
 
 if (__DEV__) {
-  import("ReactotronConfig").then(() => console.log("Reactotron Configured"));
+  import("../tools/reactotron").then(() => console.log("Reactotron Configured"));
 }
 
 SplashScreen.preventAutoHideAsync();

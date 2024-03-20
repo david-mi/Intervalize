@@ -1,5 +1,4 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
-
 import useBoundedStore from "@store/store";
 
 function Stop() {

@@ -8,7 +8,7 @@ import { styles as styleSheet } from "./sessionTimer.styles"
 import { useSessionTimer } from "@/hooks/useSessionTimer"
 
 function SessionTimer() {
-  const { styles } = useStyles(stylesheet)
+  const { styles } = useStyles(styleSheet)
   const { remainingMinutes, remainingSeconds } = useSessionTimer()
 
   return (

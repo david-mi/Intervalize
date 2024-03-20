@@ -7,8 +7,8 @@ import DefineVibrations from "./DefineVibrations/DefineVibrations";
 import PlayVibrations from "./PlayVibrations/PlayVibrations";
 import ResetVibrations from "./ResetVibrations/ResetVibrations";
 import StopVibrations from "./StopVibrations/StopVibrations";
-import { styles as styleSheet } from "./defineVibrationsButton.styles";
 import { disabledButtonsReducer } from "./disabledButtonsReducer";
+import { styles as styleSheet } from "./setVibrationPattern.styles";
 
 import { useVibrationsPattern } from "@/hooks/useVibrationsPattern";
 

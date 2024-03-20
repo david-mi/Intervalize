@@ -12,7 +12,7 @@ interface Props {
 }
 
 function Iterations({ blockIterationsCount, currentBlockIterations }: Props) {
-  const { styles } = useStyles(stylesheet)
+  const { styles } = useStyles(styleSheet)
 
   if (currentBlockIterations === 1) {
     return null

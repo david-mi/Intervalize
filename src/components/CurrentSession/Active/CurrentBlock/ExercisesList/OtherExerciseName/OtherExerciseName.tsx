@@ -9,7 +9,7 @@ interface Props {
 }
 
 function OtherExerciseName({ exerciseName }: Props) {
-  const { styles } = useStyles(stylesheet)
+  const { styles } = useStyles(styleSheet)
 
   return (
     <TextWithCustomFont

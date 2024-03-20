@@ -20,6 +20,7 @@ export const DARK_THEME = {
     CHECKBOX_ICON: "#121212", // doit changer en light mode
     LABEL: "#989898",
     INPUT: "white",
+    INPUT_ERROR: "red",
     STATUS_BAR: "#121212", // doit changer en light mode
     STATUS_BAR_TEXT: "white", // doit changer en light mode
     NAVIGATION_BAR: "#121212", // doit changer en light mode
@@ -51,6 +52,7 @@ export const LIGHT_THEME = {
     CHECKBOX_ICON: "white", // doit changer en light mode
     LABEL: "#121212",
     INPUT: "white",
+    INPUT_ERROR: "red",
     STATUS_BAR: "white", // doit changer en light mode
     STATUS_BAR_TEXT: "#121212", // doit changer en light mode
     NAVIGATION_BAR: "white", // doit changer en light mode

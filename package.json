@@ -11,6 +11,7 @@
     "lint": "eslint ./src"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native-stack": "^6.9.17",
     "expo": "~50.0.4",
@@ -26,6 +27,7 @@
     "i18next": "^23.10.1",
     "immer": "^10.0.4",
     "react": "18.2.0",
+    "react-hook-form": "^7.51.1",
     "react-i18next": "^14.1.0",
     "react-native": "0.73.2",
     "react-native-bouncy-checkbox": "^3.0.7",
@@ -37,6 +39,7 @@
     "react-native-screens": "~3.29.0",
     "react-native-unistyles": "^2.5.0",
     "reanimated-color-picker": "^3.0.3",
+    "zod": "^3.22.4",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

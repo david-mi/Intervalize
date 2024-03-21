@@ -1,4 +1,3 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import CustomButton from "@shared/CustomButton/CustomButton";
 import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/CustomLabelInputErrorWrapper";
@@ -6,7 +5,7 @@ import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form"
 import { useTranslation } from "react-i18next";
-import { Pressable, View, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import CreateBlock from "./CreateBlock/CreateBlock";
@@ -65,7 +64,15 @@ function CreateSessionForm() {
         placeholder={t("sessionNamePlaceholder")}
       />
       <View style={styles.blocks}>
-        <TitleWithCustomFont style={styles.blocksTitle}>{t("blocks")}</TitleWithCustomFont>
+        <View style={styles.heading}>
+          <TitleWithCustomFont style={styles.blocksTitle}>{t("blocks")}</TitleWithCustomFont>
+          <CustomButton
+            icon={{ name: "add", style: styles.addBlockButtonIcon }}
+            onPress={() => append({ name: "", exercises: [], iterations: 1 })}
+            style={styles.addBlockButton}
+            theme="control"
+          />
+        </View>
         <ScrollView contentContainerStyle={styles.blocksButtons}>
           {blockFields.map((item, index) => {
             return (
@@ -79,16 +86,6 @@ function CreateSessionForm() {
             )
           })}
         </ScrollView>
-        <Pressable
-          onPress={() => append({ name: "", exercises: [], iterations: 1 })}
-          style={styles.addBlockButton}
-        >
-          <MaterialIcons
-            name="add"
-            size={40}
-            style={styles.addBlockButtonIcon}
-          />
-        </Pressable>
       </View>
       <CustomButton
         icon={{ name: "create-new-folder" }}

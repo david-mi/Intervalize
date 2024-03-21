@@ -28,6 +28,8 @@ export const styles = createStyleSheet((theme) => ({
   control: {
     backgroundColor: theme.COLORS.SECONDARY,
     borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
   controlIcon: {
     padding: 15,

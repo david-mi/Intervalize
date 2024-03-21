@@ -5,6 +5,7 @@ export const DARK_THEME = {
   },
   COLORS: {
     PRIMARY: "#121212",
+    PRIMARY_BACKGROUND: "rgb(119, 119, 119)",
     SECONDARY: "#1e1e1e",
     TERTIARY: "red",
     DISABLED_BUTTON: "#F0EFEF",
@@ -37,6 +38,7 @@ export const LIGHT_THEME = {
   },
   COLORS: {
     PRIMARY: "white",
+    PRIMARY_BACKGROUND: "rgba(148, 148, 148, 0.13)",
     SECONDARY: "#121212",
     TERTIARY: "red",
     DISABLED_BUTTON: "#F0EFEF",

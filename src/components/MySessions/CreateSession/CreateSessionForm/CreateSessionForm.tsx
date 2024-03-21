@@ -5,10 +5,11 @@ import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont
 import React from "react";
 import { useForm, Controller, useFieldArray } from "react-hook-form"
 import { useTranslation } from "react-i18next";
-import { Pressable, TextInput, View, Text, Modal, ScrollView } from "react-native";
-import { UnistylesRuntime, useStyles } from "react-native-unistyles";
+import { Pressable, TextInput, View, Text, ScrollView } from "react-native";
+import { useStyles } from "react-native-unistyles";
 import { z } from "zod";
 
+import CreateBlock from "./CreateBlock";
 import { styles as styleSheet } from "./createSessionForm.styles"
 
 const exerciseSchema = z.object({
@@ -35,12 +36,16 @@ const blockSchema = z.object({
   exercises: z.array(exerciseSchema).min(1),
 })
 
+export type BlockType = z.infer<typeof blockSchema>
+
 const sessionSchema = z.object({
   id: z.string().uuid(),
   createdAt: z.string().datetime(),
   name: z.string().min(1),
   blocks: z.array(blockSchema).min(1),
 });
+
+export type SessionType = z.infer<typeof sessionSchema>
 
 function CreateSessionForm() {
   const { t } = useTranslation()
@@ -64,73 +69,20 @@ function CreateSessionForm() {
     control,
     name: "blocks",
   });
-  const [openedBlockIndex, setOpenedBlockIndex] = React.useState<number | null>(null)
+  const [openedBlockIndex, setSelectedBlockIndex] = React.useState<number | null>(null)
 
-  console.log(errors, blockFields)
-
-  function onSubmit(data) {
+  function onSubmit(data: SessionType) {
     console.log(data)
   }
 
   if (openedBlockIndex !== null) {
     return (
-      <View style={styles.addBlock}>
-        <TitleWithCustomFont style={styles.title}>{t("creatingABlock")}</TitleWithCustomFont>
-        <Pressable
-          onPress={() => setOpenedBlockIndex(null)}
-          style={styles.closeModalButton}
-        >
-          <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
-        </Pressable>
-        <View style={styles.labelInputContainer}>
-          <Text style={styles.label}>{t("blockName")}</Text>
-          <Controller
-            control={control}
-            name={`blocks.${openedBlockIndex}.name`}
-            render={({ field: { onChange, onBlur, value } }) => {
-              console.log("block : " + value)
-              return (
-                <TextInput
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  placeholder={t("blockNamePlaceholder")}
-                  placeholderTextColor={theme.COLORS.LABEL}
-                  style={styles.input}
-                  value={value}
-                />
-              )
-            }}
-            rules={{
-              required: true,
-            }}
-          />
-          {errors.blocks?.[openedBlockIndex]?.name && <Text style={styles.error}>{errors.blocks?.[openedBlockIndex]?.name?.message}</Text>}
-        </View>
-        <View style={styles.labelInputContainer}>
-          <Text style={styles.label}>{t("iterationsNumber")}</Text>
-          <Controller
-            control={control}
-            name={`blocks.${openedBlockIndex}.iterations`}
-            render={({ field: { onChange, onBlur, value } }) => {
-              console.log("block : " + value)
-              return (
-                <TextInput
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  placeholder="Mettre un nombre"
-                  placeholderTextColor={theme.COLORS.LABEL}
-                  style={styles.input}
-                  value={String(value)}
-                />
-              )
-            }}
-            rules={{
-              required: true,
-            }}
-          />
-          {errors.blocks?.[openedBlockIndex]?.iterations && <Text style={styles.error}>{errors.blocks?.[openedBlockIndex]?.iterations?.message}</Text>}
-        </View>
-      </View>
+      <CreateBlock
+        control={control}
+        errors={errors}
+        openedBlockIndex={openedBlockIndex}
+        setSelectedBlockIndex={setSelectedBlockIndex}
+      />
     )
   }
 
@@ -166,7 +118,7 @@ function CreateSessionForm() {
               <CustomButton
                 icon={{ name: "create-new-folder" }}
                 key={item.id}
-                onPress={() => setOpenedBlockIndex(index)}
+                onPress={() => setSelectedBlockIndex(index)}
                 theme="rectangle"
                 title={`${t("block")} ${index + 1}`}
               />

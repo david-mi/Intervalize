@@ -42,10 +42,10 @@ export const styles = createStyleSheet((theme) => ({
   addBlockButton: {
     height: 30,
     width: 30,
+    backgroundColor: theme.COLORS.TERTIARY,
   },
   addBlockButtonIcon: {
     color: theme.COLORS.TEXT_LIGHT,
-    backgroundColor: theme.COLORS.TERTIARY,
     borderRadius: 50,
     padding: 0,
     fontSize: 30,

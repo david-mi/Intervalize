@@ -15,7 +15,7 @@ export const customLabelInputErrorWrapperStyles = createStyleSheet((theme) => ({
     borderWidth: 1,
     borderColor: theme.COLORS.LABEL,
     backgroundColor: theme.COLORS.INPUT,
-    color: theme.COLORS.TEXT,
+    color: theme.COLORS.TEXT_DARK,
     borderRadius: 5,
   },
   error: {

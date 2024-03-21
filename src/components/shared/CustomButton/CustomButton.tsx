@@ -63,6 +63,7 @@ const CustomButton = forwardRef(({ style, disabled, ...props }: Props, _) => {
       )
     }
     case "control": {
+      console.log(disabled, styles.disabledIcon)
       return (
         <Pressable
           {...props}

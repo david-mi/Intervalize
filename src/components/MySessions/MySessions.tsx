@@ -9,7 +9,7 @@ import { useStyles } from "react-native-unistyles";
 import CreateSession from "./CreateSession/CreateSession";
 import { styles as styleSheet } from "./mySessions.styles";
 
-import type { Session } from "@/types";
+import type { SessionType } from "@/types";
 
 function MySessions() {
   const {
@@ -22,7 +22,7 @@ function MySessions() {
   const { t } = useTranslation()
   const { styles } = useStyles(styleSheet)
 
-  function startNewSession(session: Session) {
+  function startNewSession(session: SessionType) {
     setCurrentSession(session)
     setSessionStatus("READY_TO_START")
     router.navigate("/")

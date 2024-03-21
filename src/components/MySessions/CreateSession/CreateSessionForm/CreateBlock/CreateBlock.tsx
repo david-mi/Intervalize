@@ -7,7 +7,8 @@ import { Pressable, TextInput, View, Text } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import { createBlockStyles } from "./createBlock.styles.ts"
-import type { SessionType } from "../CreateSessionForm";
+
+import type { SessionType } from "@/types.js";
 
 interface CreateBlockProps {
   errors: FieldErrors<SessionType>
@@ -19,7 +20,6 @@ interface CreateBlockProps {
 function CreateBlock({ errors, setSelectedBlockIndex, openedBlockIndex, control }: CreateBlockProps) {
   const blockErrors = errors.blocks?.[openedBlockIndex]
 
-  console.log(errors)
   const { t } = useTranslation()
   const { styles, theme } = useStyles(createBlockStyles)
   return (

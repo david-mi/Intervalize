@@ -1,12 +1,13 @@
-import type { Session } from "@/types"
+import type { SessionType } from "@/types"
 
-export const mockSessions: Session[] = [
+export const mockSessions: SessionType[] = [
   {
     id: "af7c1fe6-d669-414e-b066-e9733f0de7a8",
-    createdAt: new Date(2024, 0, 16),
+    createdAt: new Date(2024, 0, 16).toISOString(),
     name: "Mock Session 1",
     blocks: [
       {
+        name: "First block",
         iterations: 2,
         exercises: [
           {
@@ -21,6 +22,7 @@ export const mockSessions: Session[] = [
         ],
       },
       {
+        name: "Second block",
         iterations: 2,
         exercises: [
           {
@@ -53,6 +55,7 @@ export const mockSessions: Session[] = [
         ],
       },
       {
+        name: "Third Block",
         iterations: 1,
         exercises: [
           {
@@ -70,10 +73,11 @@ export const mockSessions: Session[] = [
   },
   {
     id: "08c71152-c552-42e7-b094-f510ff44e9cb",
-    createdAt: new Date(2024, 1, 1),
+    createdAt: new Date(2024, 1, 1).toISOString(),
     name: "Mock Session 2",
     blocks: [
       {
+        name: "First Block",
         iterations: 1,
         exercises: [
           {
@@ -88,6 +92,7 @@ export const mockSessions: Session[] = [
         ],
       },
       {
+        name: "Second Block",
         iterations: 2,
         exercises: [
           {
@@ -129,6 +134,7 @@ export const mockSessions: Session[] = [
         ],
       },
       {
+        name: "Third Block",
         iterations: 1,
         exercises: [
           {

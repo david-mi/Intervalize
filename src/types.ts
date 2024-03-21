@@ -1,3 +1,9 @@
+import type { ExerciseSchemaType, BlockSchemaType, SessionSchemaType } from "./schemas"
+
+export type ExerciseType = ExerciseSchemaType
+export type BlockType = BlockSchemaType
+export type SessionType = SessionSchemaType
+
 export type IntensityLevel = "LOW" | "MEDIUM" | "HIGH"
 
 export type SessionStatus = "NOT_SELECTED" | "READY_TO_START" | "ACTIVE" | "PAUSED" | "FINISHED"
@@ -5,25 +11,6 @@ export type SessionStatus = "NOT_SELECTED" | "READY_TO_START" | "ACTIVE" | "PAUS
 export interface Time<T extends number | string = number> {
   minutes: T
   seconds: T
-}
-
-export interface Exercise {
-  id: string
-  name: string
-  intensityLevel: IntensityLevel
-  duration: Time
-}
-
-export interface Block {
-  iterations: number
-  exercises: Exercise[]
-}
-
-export interface Session {
-  id: string
-  name: string
-  createdAt: Date
-  blocks: Block[]
 }
 
 export enum CustomFontsList {

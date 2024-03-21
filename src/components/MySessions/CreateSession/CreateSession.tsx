@@ -14,7 +14,6 @@ function CreateSession() {
   const { styles } = useStyles(styleSheet)
 
   function toggleModal() {
-    console.log("JE SUIS CLIQUEEEEEEEEEEEEEEEEEEEEEE")
     setDisplayModal((displayModal) => !displayModal)
   }
 

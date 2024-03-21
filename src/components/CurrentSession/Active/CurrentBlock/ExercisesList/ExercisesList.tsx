@@ -6,11 +6,11 @@ import CurrentExerciseName from "./CurrentExerciseName/CurrentExerciseName";
 import OtherExerciseName from "./OtherExerciseName/OtherExerciseName";
 import { styles as styleSheet } from "./exercisesList.styles";
 
-import type { Exercise } from "@/types";
+import type { ExerciseType } from "@/types";
 
 interface Props {
-  exercises: Exercise[]
-  currentExercise: Exercise
+  exercises: ExerciseType[]
+  currentExercise: ExerciseType
 }
 
 function ExercisesList({ currentExercise, exercises }: Props) {

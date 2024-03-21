@@ -1,15 +1,15 @@
 import type { ImmerStateCreator } from "../store"
 
 import { mockSessions } from "@/mocks"
-import type { SessionStatus, Session, IntensityLevel } from "@/types"
+import type { SessionStatus, SessionType, IntensityLevel } from "@/types"
 
 export interface SessionsSliceType {
   sessionStatus: SessionStatus,
   setSessionStatus: (sessionStatus: SessionStatus) => void,
-  sessions: Session[]
-  setSessions: (sessions: Session[]) => void,
-  currentSession: Session | null
-  setCurrentSession: (session: Session | null) => void
+  sessions: SessionType[]
+  setSessions: (sessions: SessionType[]) => void,
+  currentSession: SessionType | null
+  setCurrentSession: (session: SessionType | null) => void
   currentExerciseIntensityLevel: null | IntensityLevel
   setCurrentExerciseIntensityLevel: (currentExerciceIntensityLevel: null | IntensityLevel) => void
 }

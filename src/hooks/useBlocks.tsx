@@ -5,7 +5,7 @@ import { useShallow } from "zustand/react/shallow"
 
 import { useExerciseTimer } from "./useExercisesTimer"
 
-import type { Block } from "@/types"
+import type { BlockType } from "@/types"
 
 export function useBlocks() {
   const { setSessionStatus, currentSession, setCurrentExerciseIntensityLevel, userSettings } = useBoundedStore(
@@ -52,7 +52,7 @@ export function useBlocks() {
     }
   }
 
-  function switchToNextBlock(nextBlock: Block) {
+  function switchToNextBlock(nextBlock: BlockType) {
     currentBlockIndexRef.current += 1
     setCurrentExerciseIndex(0)
     setCurrentBlock(nextBlock)

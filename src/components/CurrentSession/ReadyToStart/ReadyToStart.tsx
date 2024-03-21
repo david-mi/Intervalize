@@ -8,7 +8,7 @@ import { useStyles } from "react-native-unistyles";
 
 import { styles as styleSheet } from "./readyToStart.styles";
 
-import type { Session } from "@/types";
+import type { SessionType } from "@/types";
 
 function ReadyToStart() {
   const setSessionStatus = useBoundedStore((state) => state.setSessionStatus)
@@ -22,7 +22,7 @@ function ReadyToStart() {
 
   return (
     <View style={styles.container}>
-      <TitleWithCustomFont style={styles.title}>{(currentSession as Session).name}</TitleWithCustomFont>
+      <TitleWithCustomFont style={styles.title}>{(currentSession as SessionType).name}</TitleWithCustomFont>
       <CustomButton
         icon={{ name: "play-circle" }}
         onPress={onPress}

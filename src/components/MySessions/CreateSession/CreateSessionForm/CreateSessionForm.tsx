@@ -9,7 +9,7 @@ import { Pressable, TextInput, View, Text, ScrollView } from "react-native";
 import { useStyles } from "react-native-unistyles";
 import { z } from "zod";
 
-import CreateBlock from "./CreateBlock";
+import CreateBlock from "./CreateBlock/CreateBlock";
 import { styles as styleSheet } from "./createSessionForm.styles"
 
 import { sessionSchema } from "@/schemas";

@@ -1,13 +1,16 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import CustomButton from "@shared/CustomButton/CustomButton";
 import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/CustomLabelInputErrorWrapper";
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
+import { randomUUID } from "expo-crypto"
 import React from "react";
-import { type Control, type FieldErrors } from "react-hook-form";
+import { useFieldArray, type Control, type FieldErrors } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Pressable, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import { createBlockStyles } from "./createBlock.styles.ts"
+import SectionWrapper from "../SectionWrapper/SectionWrapper";
 
 import type { BlockType, SessionType } from "@/types.js";
 
@@ -17,11 +20,33 @@ interface CreateBlockProps {
   selectedBlock: BlockType
   selectedBlockIndex: number
   setSelectedBlockIndex: React.Dispatch<React.SetStateAction<number | null>>
+  isFormValid: boolean
 }
-function CreateBlock({ errors, selectedBlock, setSelectedBlockIndex, selectedBlockIndex, control }: CreateBlockProps) {
+function CreateBlock(props: CreateBlockProps) {
+  const { errors, selectedBlock, setSelectedBlockIndex, selectedBlockIndex, control, isFormValid } = props
+
   const blockErrors = errors.blocks?.[selectedBlockIndex]
   const { t } = useTranslation()
   const { styles } = useStyles(createBlockStyles)
+  const {
+    fields: exercises,
+    append,
+  } = useFieldArray({
+    control,
+    name: `blocks.${selectedBlockIndex}.exercises`,
+  });
+
+  function appendNewExercise() {
+    append({
+      name: `Exercise ${exercises.length + 1}`,
+      id: randomUUID(),
+      duration: {
+        minutes: 0,
+        seconds: 1,
+      },
+      intensityLevel: "MEDIUM",
+    })
+  }
 
   return (
     <View style={styles.addBlock}>
@@ -33,7 +58,6 @@ function CreateBlock({ errors, selectedBlock, setSelectedBlockIndex, selectedBlo
         <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
       </Pressable>
       <CustomLabelInputErrorWrapper
-        autoFocus
         control={control}
         defaultValue={selectedBlock.name}
         error={blockErrors?.name}
@@ -48,6 +72,30 @@ function CreateBlock({ errors, selectedBlock, setSelectedBlockIndex, selectedBlo
         keyboardType="numeric"
         label={t("iterationsNumber")}
         name={`blocks.${selectedBlockIndex}.iterations`}
+      />
+      <SectionWrapper
+        appendElementHandler={appendNewExercise}
+        buttonsDisabled={!!blockErrors?.name || !!blockErrors?.iterations}
+        title={t("exercises")}
+      >
+        {exercises.map((item, index) => (
+          <CustomButton
+            disabled={!!blockErrors?.name || !!blockErrors?.iterations}
+            icon={{ name: "directions-run" }}
+            key={item.id}
+            onPress={() => setSelectedBlockIndex(index)}
+            theme="rectangle"
+            title={`${t("exercise")} ${index + 1}`}
+          />
+        ))}
+      </SectionWrapper>
+      <CustomButton
+        disabled={!isFormValid}
+        icon={{ name: "create-new-folder" }}
+        onPress={() => setSelectedBlockIndex(null)}
+        style={styles.saveSessionButton}
+        theme="rectangle"
+        title={t("createTheBlock")}
       />
     </View>
   );

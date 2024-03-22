@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import CustomButton from "@shared/CustomButton/CustomButton";
 import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/CustomLabelInputErrorWrapper";
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
+import { randomUUID } from "expo-crypto"
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form"
 import { useTranslation } from "react-i18next";
@@ -27,7 +28,7 @@ function CreateSessionForm() {
     mode: "onChange",
     resolver: zodResolver(sessionSchema),
     defaultValues: {
-      id: "08c71152-c552-42e7-b094-f510ff44e9cb",
+      id: randomUUID(),
       createdAt: new Date(2024, 1, 1).toISOString(),
     },
   })
@@ -42,13 +43,18 @@ function CreateSessionForm() {
   const nameValue = watch("name")
   const isSessionNameValid = nameValue?.length > 0 && !errors.name
 
-  function onSubmit(data: SessionType) {
-    console.log(data)
+  function appendNewBlock() {
+    append({
+      id: randomUUID(),
+      name: `Block ${blocks.length + 1}`
+      , exercises: [],
+      iterations: 1,
+    })
+    setSelectedBlockIndex(blocks.length)
   }
 
-  function appendNewBlock() {
-    append({ name: `Block ${blocks.length + 1}`, exercises: [], iterations: 1 })
-    setSelectedBlockIndex(blocks.length)
+  function onSubmit(data: SessionType) {
+    console.log(data)
   }
 
   if (selectedBlockIndex !== null) {

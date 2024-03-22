@@ -17,6 +17,7 @@ export const exerciseSchema = z.object({
 export type ExerciseSchemaType = z.infer<typeof exerciseSchema>
 
 export const blockSchema = z.object({
+  id: z.string().uuid(),
   name: z.string().min(3),
   iterations: z.coerce
     .number()

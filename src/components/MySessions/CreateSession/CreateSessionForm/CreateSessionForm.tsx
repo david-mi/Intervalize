@@ -5,10 +5,11 @@ import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form"
 import { useTranslation } from "react-i18next";
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import CreateBlock from "./CreateBlock/CreateBlock";
+import SectionsWrapper from "./SectionsWrapper/SectionWrapper";
 import { styles as styleSheet } from "./createSessionForm.styles"
 
 import { sessionSchema } from "@/schemas";
@@ -71,32 +72,22 @@ function CreateSessionForm() {
         name="name"
         placeholder={t("sessionNamePlaceholder")}
       />
-      <View style={styles.blocks}>
-        <View style={styles.heading}>
-          <TitleWithCustomFont style={styles.blocksTitle}>{t("blocks")}</TitleWithCustomFont>
+      <SectionsWrapper
+        appendElementHandler={appendNewBlock}
+        buttonsDisabled={!isSessionNameValid}
+        title={t("blocks")}
+      >
+        {blockFields.map((item, index) => (
           <CustomButton
             disabled={!isSessionNameValid}
-            icon={{ name: "add", style: styles.addBlockButtonIcon }}
-            onPress={appendNewBlock}
-            style={styles.addBlockButton}
-            theme="control"
+            icon={{ name: "create-new-folder" }}
+            key={item.id}
+            onPress={() => setSelectedBlockIndex(index)}
+            theme="rectangle"
+            title={`${t("block")} ${index + 1}`}
           />
-        </View>
-        <ScrollView contentContainerStyle={styles.blocksButtons}>
-          {blockFields.map((item, index) => {
-            return (
-              <CustomButton
-                disabled={!isSessionNameValid}
-                icon={{ name: "create-new-folder" }}
-                key={item.id}
-                onPress={() => setSelectedBlockIndex(index)}
-                theme="rectangle"
-                title={`${t("block")} ${index + 1}`}
-              />
-            )
-          })}
-        </ScrollView>
-      </View>
+        ))}
+      </SectionsWrapper>
       <CustomButton
         disabled={!isValid}
         icon={{ name: "create-new-folder" }}

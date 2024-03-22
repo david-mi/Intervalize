@@ -9,7 +9,7 @@ import { View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import CreateBlock from "./CreateBlock/CreateBlock";
-import SectionsWrapper from "./SectionsWrapper/SectionWrapper";
+import SectionWrapper from "./SectionWrapper/SectionWrapper";
 import { styles as styleSheet } from "./createSessionForm.styles"
 
 import { sessionSchema } from "@/schemas";
@@ -75,7 +75,7 @@ function CreateSessionForm() {
         placeholder={t("sessionNamePlaceholder")}
         selectTextOnFocus
       />
-      <SectionsWrapper
+      <SectionWrapper
         appendElementHandler={appendNewBlock}
         buttonsDisabled={!isSessionNameValid}
         title={t("blocks")}
@@ -90,7 +90,7 @@ function CreateSessionForm() {
             title={`${t("block")} ${index + 1}`}
           />
         ))}
-      </SectionsWrapper>
+      </SectionWrapper>
       <CustomButton
         disabled={!isValid}
         icon={{ name: "create-new-folder" }}

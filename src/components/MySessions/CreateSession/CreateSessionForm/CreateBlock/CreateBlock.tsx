@@ -4,37 +4,34 @@ import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/C
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
 import { randomUUID } from "expo-crypto"
 import React from "react";
-import { useFieldArray, type Control, type FieldErrors, type UseFieldArrayRemove } from "react-hook-form";
+import { useFieldArray, type Control, type FieldErrors } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Alert, Pressable, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
-import { createBlockStyles } from "./createBlock.styles.ts"
+import { createBlockStyles } from "./createBlock.styles"
 import SectionWrapper from "../SectionWrapper/SectionWrapper";
 
-import type { BlockType, SessionType } from "@/types.js";
+import type { BlockType, SessionType } from "@/types";
 
 interface CreateBlockProps {
-  errors: FieldErrors<SessionType>
+  blockErrors?: FieldErrors<BlockType>
+  closeCreateBlock: () => void
   control: Control<SessionType>
-  selectedBlock: BlockType
-  selectedBlockIndex: number
-  setSelectedBlockIndex: React.Dispatch<React.SetStateAction<number | null>>
+  fieldArrayName: `blocks.${number}`
   isFormValid: boolean
-  removeBlock: UseFieldArrayRemove
+  removeBlock: () => void
+  selectedBlock: BlockType
 }
-function CreateBlock(props: CreateBlockProps) {
-  const { errors, selectedBlock, setSelectedBlockIndex, selectedBlockIndex, control, isFormValid, removeBlock } = props
 
-  const blockErrors = errors.blocks?.[selectedBlockIndex]
+function CreateBlock(props: CreateBlockProps) {
+  const { blockErrors, closeCreateBlock, control, isFormValid, fieldArrayName, removeBlock, selectedBlock } = props
+
   const { t } = useTranslation()
   const { styles } = useStyles(createBlockStyles)
-  const {
-    fields: exercises,
-    append,
-  } = useFieldArray({
+  const { fields: exercises, append } = useFieldArray({
     control,
-    name: `blocks.${selectedBlockIndex}.exercises`,
+    name: `${fieldArrayName}.exercises`,
   });
 
   function appendNewExercise() {
@@ -49,31 +46,29 @@ function CreateBlock(props: CreateBlockProps) {
     })
   }
 
-  function handleCloseBlockCreateBlock() {
-    if (!isFormValid) {
-      Alert.alert(
-        t("incompleteBlock"),
-        t("deleteTheBlock"),
-        [
-          { text: t("abort"), style: "cancel" },
-          {
-            text: t("delete"), onPress: () => {
-              setSelectedBlockIndex(null)
-              removeBlock(selectedBlockIndex)
-            },
+  function handleCloseCreateBlock() {
+    if (isFormValid) return closeCreateBlock()
+
+    Alert.alert(
+      t("incompleteBlock"),
+      t("deleteTheBlock"),
+      [
+        { text: t("abort"), style: "cancel" },
+        {
+          text: t("delete"), onPress: () => {
+            closeCreateBlock()
+            removeBlock()
           },
-        ]
-      );
-    } else {
-      setSelectedBlockIndex(null)
-    }
+        },
+      ]
+    );
   }
 
   return (
     <View style={styles.addBlock}>
       <TitleWithCustomFont style={styles.title}>{t("creatingABlock")}</TitleWithCustomFont>
       <Pressable
-        onPress={handleCloseBlockCreateBlock}
+        onPress={handleCloseCreateBlock}
         style={styles.closeModalButton}
       >
         <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
@@ -83,7 +78,7 @@ function CreateBlock(props: CreateBlockProps) {
         defaultValue={selectedBlock.name}
         error={blockErrors?.name}
         label={t("blockName")}
-        name={`blocks.${selectedBlockIndex}.name`}
+        name={`${fieldArrayName}.name`}
         placeholder={t("blockNamePlaceholder")}
       />
       <CustomLabelInputErrorWrapper
@@ -92,7 +87,7 @@ function CreateBlock(props: CreateBlockProps) {
         error={blockErrors?.iterations}
         keyboardType="numeric"
         label={t("iterationsNumber")}
-        name={`blocks.${selectedBlockIndex}.iterations`}
+        name={`${fieldArrayName}.iterations`}
       />
       <SectionWrapper
         appendElementHandler={appendNewExercise}
@@ -104,7 +99,7 @@ function CreateBlock(props: CreateBlockProps) {
             disabled={!!blockErrors?.name || !!blockErrors?.iterations}
             icon={{ name: "directions-run" }}
             key={item.id}
-            onPress={() => setSelectedBlockIndex(index)}
+            onPress={() => { }}
             theme="rectangle"
             title={`${t("exercise")} ${index + 1}`}
           />
@@ -113,7 +108,7 @@ function CreateBlock(props: CreateBlockProps) {
       <CustomButton
         disabled={!isFormValid}
         icon={{ name: "create-new-folder" }}
-        onPress={() => setSelectedBlockIndex(null)}
+        onPress={() => closeCreateBlock}
         style={styles.saveSessionButton}
         theme="rectangle"
         title={t("createTheBlock")}

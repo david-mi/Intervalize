@@ -61,13 +61,13 @@ function CreateSessionForm() {
   if (selectedBlockIndex !== null) {
     return (
       <CreateBlock
+        blockErrors={errors.blocks?.[selectedBlockIndex]}
+        closeCreateBlock={() => setSelectedBlockIndex(null)}
         control={control}
-        errors={errors}
+        fieldArrayName={`blocks.${selectedBlockIndex}` as const}
         isFormValid={isValid}
-        removeBlock={removeBlock}
+        removeBlock={() => removeBlock(selectedBlockIndex)}
         selectedBlock={blocks[selectedBlockIndex]}
-        selectedBlockIndex={selectedBlockIndex}
-        setSelectedBlockIndex={setSelectedBlockIndex}
       />
     )
   }

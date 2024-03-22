@@ -20,8 +20,8 @@ function CreateSessionForm() {
   const {
     control,
     handleSubmit,
-    formState: { errors },
-    trigger,
+    formState: { errors, isValid },
+    watch,
   } = useForm<SessionType>({
     mode: "onChange",
     resolver: zodResolver(sessionSchema),
@@ -38,16 +38,16 @@ function CreateSessionForm() {
     name: "blocks",
   });
   const [openedBlockIndex, setSelectedBlockIndex] = React.useState<number | null>(null)
-  console.log(errors)
+  const nameValue = watch("name")
+  const isSessionNameValid = nameValue?.length > 0 && !errors.name
+
   function onSubmit(data: SessionType) {
     console.log(data)
   }
 
-  async function handleAddBlockButtonPress() {
-    const isSessionNameValid = await trigger("name")
-    if (!isSessionNameValid) return
-
+  function appendNewBlock() {
     append({ name: "", exercises: [], iterations: 1 })
+    setSelectedBlockIndex(blockFields.length - 1)
   }
 
   if (openedBlockIndex !== null) {
@@ -75,9 +75,9 @@ function CreateSessionForm() {
         <View style={styles.heading}>
           <TitleWithCustomFont style={styles.blocksTitle}>{t("blocks")}</TitleWithCustomFont>
           <CustomButton
-            disabled={!!errors.name}
+            disabled={!isSessionNameValid}
             icon={{ name: "add", style: styles.addBlockButtonIcon }}
-            onPress={handleAddBlockButtonPress}
+            onPress={appendNewBlock}
             style={styles.addBlockButton}
             theme="control"
           />
@@ -86,7 +86,7 @@ function CreateSessionForm() {
           {blockFields.map((item, index) => {
             return (
               <CustomButton
-                disabled={!!errors.name}
+                disabled={!isSessionNameValid}
                 icon={{ name: "create-new-folder" }}
                 key={item.id}
                 onPress={() => setSelectedBlockIndex(index)}
@@ -98,6 +98,7 @@ function CreateSessionForm() {
         </ScrollView>
       </View>
       <CustomButton
+        disabled={!isValid}
         icon={{ name: "create-new-folder" }}
         onPress={handleSubmit(onSubmit)}
         style={styles.saveSessionButton}

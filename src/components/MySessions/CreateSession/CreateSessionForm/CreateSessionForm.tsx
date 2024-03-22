@@ -34,7 +34,8 @@ function CreateSessionForm() {
   })
   const {
     fields: blocks,
-    append,
+    append: appendBlock,
+    remove: removeBlock,
   } = useFieldArray({
     control,
     name: "blocks",
@@ -43,8 +44,8 @@ function CreateSessionForm() {
   const nameValue = watch("name")
   const isSessionNameValid = nameValue?.length > 0 && !errors.name
 
-  function appendNewBlock() {
-    append({
+  function handleAppendBlock() {
+    appendBlock({
       id: randomUUID(),
       name: `Block ${blocks.length + 1}`
       , exercises: [],
@@ -63,6 +64,7 @@ function CreateSessionForm() {
         control={control}
         errors={errors}
         isFormValid={isValid}
+        removeBlock={removeBlock}
         selectedBlock={blocks[selectedBlockIndex]}
         selectedBlockIndex={selectedBlockIndex}
         setSelectedBlockIndex={setSelectedBlockIndex}
@@ -82,7 +84,7 @@ function CreateSessionForm() {
         placeholder={t("sessionNamePlaceholder")}
       />
       <SectionWrapper
-        appendElementHandler={appendNewBlock}
+        appendElementHandler={handleAppendBlock}
         buttonsDisabled={!isSessionNameValid}
         title={t("blocks")}
       >

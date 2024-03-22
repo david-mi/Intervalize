@@ -4,9 +4,9 @@ import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/C
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
 import { randomUUID } from "expo-crypto"
 import React from "react";
-import { useFieldArray, type Control, type FieldErrors } from "react-hook-form";
+import { useFieldArray, type Control, type FieldErrors, type UseFieldArrayRemove } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Pressable, View } from "react-native";
+import { Alert, Pressable, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import { createBlockStyles } from "./createBlock.styles.ts"
@@ -21,9 +21,10 @@ interface CreateBlockProps {
   selectedBlockIndex: number
   setSelectedBlockIndex: React.Dispatch<React.SetStateAction<number | null>>
   isFormValid: boolean
+  removeBlock: UseFieldArrayRemove
 }
 function CreateBlock(props: CreateBlockProps) {
-  const { errors, selectedBlock, setSelectedBlockIndex, selectedBlockIndex, control, isFormValid } = props
+  const { errors, selectedBlock, setSelectedBlockIndex, selectedBlockIndex, control, isFormValid, removeBlock } = props
 
   const blockErrors = errors.blocks?.[selectedBlockIndex]
   const { t } = useTranslation()
@@ -48,11 +49,31 @@ function CreateBlock(props: CreateBlockProps) {
     })
   }
 
+  function handleCloseBlockCreateBlock() {
+    if (!isFormValid) {
+      Alert.alert(
+        t("incompleteBlock"),
+        t("deleteTheBlock"),
+        [
+          { text: t("abort"), style: "cancel" },
+          {
+            text: t("delete"), onPress: () => {
+              setSelectedBlockIndex(null)
+              removeBlock(selectedBlockIndex)
+            },
+          },
+        ]
+      );
+    } else {
+      setSelectedBlockIndex(null)
+    }
+  }
+
   return (
     <View style={styles.addBlock}>
       <TitleWithCustomFont style={styles.title}>{t("creatingABlock")}</TitleWithCustomFont>
       <Pressable
-        onPress={() => setSelectedBlockIndex(null)}
+        onPress={handleCloseBlockCreateBlock}
         style={styles.closeModalButton}
       >
         <MaterialIcons name="close" style={styles.closeModalButtonIcon} />

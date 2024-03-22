@@ -27,11 +27,13 @@ export const sectionWrapperStyles = createStyleSheet((theme) => ({
     width: 30,
     backgroundColor: theme.COLORS.TERTIARY,
   },
+  elementButtonsWrapper: {
+    flex: 1,
+    padding: theme.SPACINGS.PADDING,
+    backgroundColor: theme.COLORS.PRIMARY_BACKGROUND,
+  },
   elementButtons: {
     gap: theme.SPACINGS.GAP / 2,
-    backgroundColor: theme.COLORS.PRIMARY_BACKGROUND,
-    padding: theme.SPACINGS.PADDING,
-    flex: 1,
   },
   appendElementButtonIcon: {
     color: theme.COLORS.TEXT_LIGHT,

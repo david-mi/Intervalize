@@ -27,9 +27,11 @@ function SectionWrapper({ title, appendElementHandler, buttonsDisabled, children
           theme="control"
         />
       </View>
-      <ScrollView contentContainerStyle={styles.elementButtons}>
-        {children}
-      </ScrollView>
+      <View style={styles.elementButtonsWrapper}>
+        <ScrollView contentContainerStyle={styles.elementButtons}>
+          {children}
+        </ScrollView>
+      </View>
     </View>
   );
 }

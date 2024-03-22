@@ -62,6 +62,7 @@ function CreateSessionForm() {
       <CreateBlock
         control={control}
         errors={errors}
+        isFormValid={isValid}
         selectedBlock={blocks[selectedBlockIndex]}
         selectedBlockIndex={selectedBlockIndex}
         setSelectedBlockIndex={setSelectedBlockIndex}
@@ -73,13 +74,12 @@ function CreateSessionForm() {
     <View style={styles.form}>
       <TitleWithCustomFont style={styles.title}>{t("creatingASession")}</TitleWithCustomFont>
       <CustomLabelInputErrorWrapper
-        autoFocus
         control={control}
+        defaultValue={nameValue}
         error={errors.name}
         label={t("sessionName")}
         name="name"
         placeholder={t("sessionNamePlaceholder")}
-        selectTextOnFocus
       />
       <SectionWrapper
         appendElementHandler={appendNewBlock}

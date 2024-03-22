@@ -1,7 +1,6 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
 import React from "react"
 
 import { useInitTheme } from "@/hooks/useInitTheme";
@@ -45,23 +44,18 @@ function Layout() {
   }
 
   return (
-    <>
-      <StatusBar
-        backgroundColor={theme.COLORS.STATUS_BAR}
-        hidden={false}
-        style={theme.COLORS.STATUS_BAR === "white" ? "dark" : "light"}
-      />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          animation: "slide_from_right",
-          navigationBarColor: theme.COLORS.NAVIGATION_BAR,
-        }}
-      >
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="settings" />
-      </Stack>
-    </>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        animation: "slide_from_right",
+        navigationBarColor: theme.COLORS.NAVIGATION_BAR,
+        statusBarColor: theme.COLORS.NAVIGATION_BAR,
+        statusBarStyle: theme.STATUS_BAR_STYLE,
+      }}
+    >
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="settings" />
+    </Stack>
   )
 }
 

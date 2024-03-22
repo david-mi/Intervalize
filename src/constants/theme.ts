@@ -1,4 +1,5 @@
 export const DARK_THEME = {
+  STATUS_BAR_STYLE: "light",
   SPACINGS: {
     GAP: 20,
     PADDING: 20,
@@ -10,21 +11,21 @@ export const DARK_THEME = {
     TERTIARY: "red",
     DISABLED_BUTTON: "#F0EFEF",
     DISABLED_ICON: "#E4E4E4",
-    TEXT: "white", // doit changer en light mode
+    TEXT: "white",
     TEXT_LIGHT: "white",
     TEXT_DARK: "#121212",
-    HEADER: "#121212", // doit changer en light mode
-    HEADER_TEXT: "white", // doit changer en light mode
-    TAB_BAR: "#121212", // doit changer  en light mode
-    TAB_BAR_TEXT: "white", // doit changer en light mode
-    CHECKBOX: "white", // doit changer en light mode
-    CHECKBOX_ICON: "#121212", // doit changer en light mode
+    HEADER: "#121212",
+    HEADER_TEXT: "white",
+    TAB_BAR: "#121212",
+    TAB_BAR_TEXT: "white",
+    CHECKBOX: "white",
+    CHECKBOX_ICON: "#121212",
     LABEL: "#989898",
     INPUT: "white",
     INPUT_ERROR: "red",
-    STATUS_BAR: "#121212", // doit changer en light mode
-    STATUS_BAR_TEXT: "white", // doit changer en light mode
-    NAVIGATION_BAR: "#121212", // doit changer en light mode
+    STATUS_BAR: "#121212",
+    STATUS_BAR_TEXT: "white",
+    NAVIGATION_BAR: "#121212",
     ITERATION_COUNT: "#121212",
     ITERATION_COUNT_TEXT: "white",
     CURRENT_ITERATION_BLOCK: "#1e1e1e",
@@ -32,6 +33,7 @@ export const DARK_THEME = {
 } as const
 
 export const LIGHT_THEME = {
+  STATUS_BAR_STYLE: "dark",
   SPACINGS: {
     GAP: 20,
     PADDING: 20,
@@ -43,21 +45,21 @@ export const LIGHT_THEME = {
     TERTIARY: "red",
     DISABLED_BUTTON: "#F0EFEF",
     DISABLED_ICON: "#E4E4E4",
-    TEXT: "#121212", // doit changer en light mode
+    TEXT: "#121212",
     TEXT_LIGHT: "white",
     TEXT_DARK: "#121212",
-    HEADER: "white", // doit changer en light mode
-    HEADER_TEXT: "#121212", // doit changer en light mode
-    TAB_BAR: "white", // doit changer  en light mode
-    TAB_BAR_TEXT: "#121212", // doit changer en light mode
-    CHECKBOX: "#121212", // doit changer en light mode
-    CHECKBOX_ICON: "white", // doit changer en light mode
+    HEADER: "white",
+    HEADER_TEXT: "#121212",
+    TAB_BAR: "white",
+    TAB_BAR_TEXT: "#121212",
+    CHECKBOX: "#121212",
+    CHECKBOX_ICON: "white",
     LABEL: "#121212",
     INPUT: "white",
     INPUT_ERROR: "red",
-    STATUS_BAR: "white", // doit changer en light mode
-    STATUS_BAR_TEXT: "#121212", // doit changer en light mode
-    NAVIGATION_BAR: "white", // doit changer en light mode
+    STATUS_BAR: "white",
+    STATUS_BAR_TEXT: "#121212",
+    NAVIGATION_BAR: "white",
     ITERATION_COUNT: "white",
     ITERATION_COUNT_TEXT: "#121212",
     CURRENT_ITERATION_BLOCK: "white",

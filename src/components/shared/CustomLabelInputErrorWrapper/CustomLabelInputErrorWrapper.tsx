@@ -30,12 +30,9 @@ function CustomLabelInputErrorWrapper({ error, control, placeholder, label, name
             onChangeText={onChange}
             placeholder={placeholder}
             style={styles.input}
-            value={value}
+            value={String(value)}
           />
         )}
-        rules={{
-          required: true,
-        }}
       />
       {error && <Text style={styles.error}>{error.message}</Text>}
     </View>

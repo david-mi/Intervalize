@@ -9,45 +9,46 @@ import { useStyles } from "react-native-unistyles";
 
 import { createBlockStyles } from "./createBlock.styles.ts"
 
-import type { SessionType } from "@/types.js";
+import type { BlockType, SessionType } from "@/types.js";
 
 interface CreateBlockProps {
   errors: FieldErrors<SessionType>
   control: Control<SessionType>
+  selectedBlock: BlockType
+  selectedBlockIndex: number
   setSelectedBlockIndex: React.Dispatch<React.SetStateAction<number | null>>
-  openedBlockIndex: number
 }
-
-function CreateBlock({ errors, setSelectedBlockIndex, openedBlockIndex, control }: CreateBlockProps) {
-  const blockErrors = errors.blocks?.[openedBlockIndex]
-
+function CreateBlock({ errors, selectedBlock, setSelectedBlockIndex, selectedBlockIndex, control }: CreateBlockProps) {
+  const blockErrors = errors.blocks?.[selectedBlockIndex]
   const { t } = useTranslation()
   const { styles } = useStyles(createBlockStyles)
+
   return (
     <View style={styles.addBlock}>
-      <View style={styles.addBlock}>
-        <TitleWithCustomFont style={styles.title}>{t("creatingABlock")}</TitleWithCustomFont>
-        <Pressable
-          onPress={() => setSelectedBlockIndex(null)}
-          style={styles.closeModalButton}
-        >
-          <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
-        </Pressable>
-        <CustomLabelInputErrorWrapper
-          control={control}
-          error={blockErrors?.name}
-          label={t("blockName")}
-          name={`blocks.${openedBlockIndex}.name`}
-          placeholder={t("blockNamePlaceholder")}
-        />
-        <CustomLabelInputErrorWrapper
-          control={control}
-          error={blockErrors?.iterations}
-          keyboardType="numeric"
-          label={t("iterationsNumber")}
-          name={`blocks.${openedBlockIndex}.iterations`}
-        />
-      </View>
+      <TitleWithCustomFont style={styles.title}>{t("creatingABlock")}</TitleWithCustomFont>
+      <Pressable
+        onPress={() => setSelectedBlockIndex(null)}
+        style={styles.closeModalButton}
+      >
+        <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
+      </Pressable>
+      <CustomLabelInputErrorWrapper
+        autoFocus
+        control={control}
+        defaultValue={selectedBlock.name}
+        error={blockErrors?.name}
+        label={t("blockName")}
+        name={`blocks.${selectedBlockIndex}.name`}
+        placeholder={t("blockNamePlaceholder")}
+      />
+      <CustomLabelInputErrorWrapper
+        control={control}
+        defaultValue={String(selectedBlock.iterations)}
+        error={blockErrors?.iterations}
+        keyboardType="numeric"
+        label={t("iterationsNumber")}
+        name={`blocks.${selectedBlockIndex}.iterations`}
+      />
     </View>
   );
 }

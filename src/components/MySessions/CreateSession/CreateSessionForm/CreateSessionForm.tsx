@@ -32,13 +32,13 @@ function CreateSessionForm() {
     },
   })
   const {
-    fields: blockFields,
+    fields: blocks,
     append,
   } = useFieldArray({
     control,
     name: "blocks",
   });
-  const [openedBlockIndex, setSelectedBlockIndex] = React.useState<number | null>(null)
+  const [selectedBlockIndex, setSelectedBlockIndex] = React.useState<number | null>(null)
   const nameValue = watch("name")
   const isSessionNameValid = nameValue?.length > 0 && !errors.name
 
@@ -47,16 +47,17 @@ function CreateSessionForm() {
   }
 
   function appendNewBlock() {
-    append({ name: "", exercises: [], iterations: 1 })
-    setSelectedBlockIndex(blockFields.length - 1)
+    append({ name: `Block ${blocks.length + 1}`, exercises: [], iterations: 1 })
+    setSelectedBlockIndex(blocks.length)
   }
 
-  if (openedBlockIndex !== null) {
+  if (selectedBlockIndex !== null) {
     return (
       <CreateBlock
         control={control}
         errors={errors}
-        openedBlockIndex={openedBlockIndex}
+        selectedBlock={blocks[selectedBlockIndex]}
+        selectedBlockIndex={selectedBlockIndex}
         setSelectedBlockIndex={setSelectedBlockIndex}
       />
     )
@@ -66,18 +67,20 @@ function CreateSessionForm() {
     <View style={styles.form}>
       <TitleWithCustomFont style={styles.title}>{t("creatingASession")}</TitleWithCustomFont>
       <CustomLabelInputErrorWrapper
+        autoFocus
         control={control}
         error={errors.name}
         label={t("sessionName")}
         name="name"
         placeholder={t("sessionNamePlaceholder")}
+        selectTextOnFocus
       />
       <SectionsWrapper
         appendElementHandler={appendNewBlock}
         buttonsDisabled={!isSessionNameValid}
         title={t("blocks")}
       >
-        {blockFields.map((item, index) => (
+        {blocks.map((item, index) => (
           <CustomButton
             disabled={!isSessionNameValid}
             icon={{ name: "create-new-folder" }}

@@ -75,7 +75,7 @@ function CreateBlock(props: CreateBlockProps) {
   }
 
   function handleModifyBlock() {
-    updateBlock(getValues(`${fieldArrayName}`))
+    updateBlock(getValues(fieldArrayName))
     closeCreateBlock()
   }
 
@@ -86,6 +86,7 @@ function CreateBlock(props: CreateBlockProps) {
         control={control}
         exerciseErrors={blockErrors?.exercises?.[selectedExerciseIndex]}
         fieldArrayName={`${fieldArrayName}.exercises.${selectedExerciseIndex}`}
+        getValues={getValues}
         removeExercise={() => removeExercise(selectedExerciseIndex)}
         selectedExercise={exercises[selectedExerciseIndex]}
         updateExercise={(exercise: ExerciseType) => updateExercise(selectedExerciseIndex, exercise)}
@@ -94,7 +95,7 @@ function CreateBlock(props: CreateBlockProps) {
   }
 
   return (
-    <View style={styles.addBlock}>
+    <View style={styles.editBlock}>
       <TitleWithCustomFont style={styles.title}>{t("blockEdition")}</TitleWithCustomFont>
       <Pressable
         onPress={handleCloseCreateBlock}
@@ -139,7 +140,7 @@ function CreateBlock(props: CreateBlockProps) {
           disabled={!isFormValid}
           icon={{ name: "save" }}
           onPress={handleModifyBlock}
-          style={styles.saveSessionButton}
+          style={styles.saveBlockButton}
           theme="rectangle"
           title={t("saveTheBlock")}
         />

@@ -14,7 +14,7 @@ import SectionWrapper from "./SectionWrapper/SectionWrapper";
 import { styles as styleSheet } from "./createSessionForm.styles"
 
 import { sessionSchema } from "@/schemas";
-import type { SessionType } from "@/types";
+import type { BlockType, SessionType } from "@/types";
 
 function CreateSessionForm() {
   const { t } = useTranslation()
@@ -24,10 +24,12 @@ function CreateSessionForm() {
     handleSubmit,
     formState: { errors, isValid },
     watch,
+    getValues,
   } = useForm<SessionType>({
     mode: "onChange",
     resolver: zodResolver(sessionSchema),
     defaultValues: {
+      name: "",
       id: randomUUID(),
       createdAt: new Date(2024, 1, 1).toISOString(),
     },
@@ -36,6 +38,7 @@ function CreateSessionForm() {
     fields: blocks,
     append: appendBlock,
     remove: removeBlock,
+    update: updateBlock,
   } = useFieldArray({
     control,
     name: "blocks",
@@ -65,9 +68,11 @@ function CreateSessionForm() {
         closeCreateBlock={() => setSelectedBlockIndex(null)}
         control={control}
         fieldArrayName={`blocks.${selectedBlockIndex}` as const}
+        getValues={getValues}
         isFormValid={isValid}
         removeBlock={() => removeBlock(selectedBlockIndex)}
         selectedBlock={blocks[selectedBlockIndex]}
+        updateBlock={(block: BlockType) => updateBlock(selectedBlockIndex, block)}
       />
     )
   }
@@ -95,7 +100,7 @@ function CreateSessionForm() {
             key={item.id}
             onPress={() => setSelectedBlockIndex(index)}
             theme="rectangle"
-            title={`${t("block")} ${index + 1}`}
+            title={item.name}
           />
         ))}
       </SectionWrapper>

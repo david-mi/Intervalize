@@ -74,6 +74,12 @@ export const createBlockStyles = createStyleSheet((theme) => ({
     fontSize: 40,
     color: theme.COLORS.TEXT,
   },
+  scrollable: {
+    flexGrow: 1,
+    backgroundColor: theme.COLORS.PRIMARY,
+    justifyContent: "space-between",
+    gap: theme.SPACINGS.GAP / 2,
+  },
   addBlock: {
     flex: 1,
     gap: theme.SPACINGS.GAP,

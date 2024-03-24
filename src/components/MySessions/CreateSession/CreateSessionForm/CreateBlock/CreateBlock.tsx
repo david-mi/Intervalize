@@ -6,7 +6,7 @@ import { randomUUID } from "expo-crypto"
 import React from "react";
 import { useFieldArray, type Control, type FieldErrors, type UseFormGetValues } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Alert, Pressable, View } from "react-native";
+import { Alert, Pressable, ScrollView, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import CreateExercise from "./CreateExercise/CreateExercise";
@@ -102,46 +102,48 @@ function CreateBlock(props: CreateBlockProps) {
       >
         <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
       </Pressable>
-      <CustomLabelInputErrorWrapper
-        control={control}
-        defaultValue={selectedBlock.name}
-        error={blockErrors?.name}
-        label={t("blockName")}
-        name={`${fieldArrayName}.name`}
-        placeholder={t("blockNamePlaceholder")}
-      />
-      <CustomLabelInputErrorWrapper
-        control={control}
-        defaultValue={String(selectedBlock.iterations)}
-        error={blockErrors?.iterations}
-        keyboardType="numeric"
-        label={t("iterationsNumber")}
-        name={`${fieldArrayName}.iterations`}
-      />
-      <SectionWrapper
-        appendElementHandler={handleAppendExercise}
-        buttonsDisabled={!!blockErrors?.name || !!blockErrors?.iterations}
-        title={t("exercises")}
-      >
-        {exercises.map((item, index) => (
-          <CustomButton
-            disabled={!!blockErrors?.name || !!blockErrors?.iterations}
-            icon={{ name: "directions-run" }}
-            key={item.id}
-            onPress={() => setSelectedExerciseIndex(index)}
-            theme="rectangle"
-            title={item.name}
-          />
-        ))}
-      </SectionWrapper>
-      <CustomButton
-        disabled={!isFormValid}
-        icon={{ name: "save" }}
-        onPress={handleModifyBlock}
-        style={styles.saveSessionButton}
-        theme="rectangle"
-        title={t("saveTheBlock")}
-      />
+      <ScrollView contentContainerStyle={styles.scrollable}>
+        <CustomLabelInputErrorWrapper
+          control={control}
+          defaultValue={selectedBlock.name}
+          error={blockErrors?.name}
+          label={t("blockName")}
+          name={`${fieldArrayName}.name`}
+          placeholder={t("blockNamePlaceholder")}
+        />
+        <CustomLabelInputErrorWrapper
+          control={control}
+          defaultValue={String(selectedBlock.iterations)}
+          error={blockErrors?.iterations}
+          keyboardType="numeric"
+          label={t("iterationsNumber")}
+          name={`${fieldArrayName}.iterations`}
+        />
+        <SectionWrapper
+          appendElementHandler={handleAppendExercise}
+          buttonsDisabled={!!blockErrors?.name || !!blockErrors?.iterations}
+          title={t("exercises")}
+        >
+          {exercises.map((item, index) => (
+            <CustomButton
+              disabled={!!blockErrors?.name || !!blockErrors?.iterations}
+              icon={{ name: "directions-run" }}
+              key={item.id}
+              onPress={() => setSelectedExerciseIndex(index)}
+              theme="rectangle"
+              title={item.name}
+            />
+          ))}
+        </SectionWrapper>
+        <CustomButton
+          disabled={!isFormValid}
+          icon={{ name: "save" }}
+          onPress={handleModifyBlock}
+          style={styles.saveSessionButton}
+          theme="rectangle"
+          title={t("saveTheBlock")}
+        />
+      </ScrollView>
     </View>
   );
 }

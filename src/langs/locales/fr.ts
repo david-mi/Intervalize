@@ -6,7 +6,7 @@ export const frTranslation = {
   blockName: "Nom du block",
   blockNamePlaceholder: "Exemple : Echauffement",
   chooseASession: "Veuillez choisir une séance à lancer",
-  createASession: "Create a session",
+  createASession: "Créer une séance",
   createTheSession: "Créer la session",
   createTheExercise: "Créer l'exercice",
   creatingASession: "Création d'une séance",

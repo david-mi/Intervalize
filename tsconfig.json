@@ -25,6 +25,9 @@
       "@validation/*": [
         "./src/services/validation/*"
       ],
+      "@langs/*": [
+        "./src/langs/*"
+      ],
       "@/*": [
         "./src/*"
       ],

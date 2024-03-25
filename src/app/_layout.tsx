@@ -7,7 +7,7 @@ import { useInitTheme } from "@/hooks/useInitTheme";
 import { useKeepScreenAwake } from "@/hooks/useKeepScreenAwake";
 import { useLanguageChanges } from "@/hooks/useLanguageChange";
 
-import "../langs/config"
+import "@langs/config"
 import "expo-dev-client";
 
 if (__DEV__) {

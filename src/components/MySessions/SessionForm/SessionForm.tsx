@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import CustomButton from "@shared/CustomButton/CustomButton";
 import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/CustomLabelInputErrorWrapper";
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
+import { sessionSchema } from "@validation/schemas/session/session";
 import { randomUUID } from "expo-crypto"
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form"
@@ -14,7 +15,6 @@ import EditBlock from "./EditBlock/EditBlock";
 import SectionWrapper from "./SectionWrapper/SectionWrapper";
 import { styles as styleSheet } from "./sessionForm.styles"
 
-import { sessionSchema } from "@/schemas";
 import type { BlockType, SessionType } from "@/types";
 
 interface Props {

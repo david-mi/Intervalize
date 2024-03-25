@@ -1,4 +1,13 @@
+const zodErrors = {
+  requiredField: "Champ requis",
+  mustBeAValidNumber: "Doit être un nombre valide",
+  mustContainBetween: "Doit contenir entre {{min}} et {{max}} caractères",
+  mustBeAnInteger: "Doit être un nombre entier",
+  mustBeAtLeast: "Doit être au moins {{min}}",
+}
+
 export const frTranslation = {
+  ...zodErrors,
   abort: "Annuler",
   blocks: "Blocs",
   block: "Bloc",

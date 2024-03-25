@@ -1,4 +1,4 @@
-import type { ExerciseSchemaType, BlockSchemaType, SessionSchemaType } from "./schemas"
+import type { ExerciseSchemaType, BlockSchemaType, SessionSchemaType } from "./services/validation/schemas/session/session"
 
 export type ExerciseType = ExerciseSchemaType
 export type BlockType = BlockSchemaType

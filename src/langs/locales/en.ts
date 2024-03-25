@@ -1,6 +1,15 @@
 import type { TranslationType } from "../types";
 
+const zodErrors = {
+  requiredField: "Required field",
+  mustBeAValidNumber: "Must be a valid number",
+  mustContainBetween: "Must contain between {{min}} and {{max}} characters",
+  mustBeAnInteger: "Must be an integer",
+  mustBeAtLeast: "Must be at least {{min}}",
+}
+
 export const enTranslations: TranslationType = {
+  ...zodErrors,
   abort: "Abort",
   blocks: "Blocks",
   block: "Block",

@@ -22,6 +22,9 @@
       "@storage/*": [
         "./src/services/storage/*"
       ],
+      "@validation/*": [
+        "./src/services/validation/*"
+      ],
       "@/*": [
         "./src/*"
       ],

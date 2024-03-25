@@ -28,12 +28,16 @@
       "@/*": [
         "./src/*"
       ],
-    }
+    },
+    "types": [
+      "vitest/globals"
+    ]
   },
   "extends": "expo/tsconfig.base",
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "ReactotronConfig.ts",
+    "vitest.config.mjs",
   ]
 }

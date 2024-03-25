@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { View, FlatList, Alert } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
-import CreateSession from "./CreateSession/CreateSession";
+import SessionForm from "./SessionForm/SessionForm";
 import { styles as styleSheet } from "./mySessions.styles";
 
 import type { SessionType } from "@/types";
@@ -21,6 +21,11 @@ function MySessions() {
   } = useBoundedStore()
   const { t } = useTranslation()
   const { styles } = useStyles(styleSheet)
+  const [displaySessionForm, setDisplaySessionForm] = React.useState(false)
+
+  function toggleSessionForm() {
+    setDisplaySessionForm((displaySessionForm) => !displaySessionForm)
+  }
 
   function startNewSession(session: SessionType) {
     setCurrentSession(session)
@@ -55,6 +60,14 @@ function MySessions() {
     }
   }
 
+  if (displaySessionForm) {
+    return (
+      <SessionForm
+        toggleSessionForm={toggleSessionForm}
+      />
+    )
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -73,7 +86,13 @@ function MySessions() {
         }}
         style={styles.listWrapper}
       />
-      <CreateSession />
+      <CustomButton
+        icon={{ name: "format-list-bulleted-add" }}
+        onPress={toggleSessionForm}
+        style={styles.createSessionButton}
+        theme="rectangle"
+        title={t("createASession")}
+      />
     </View>
   );
 }

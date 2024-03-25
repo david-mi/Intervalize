@@ -1,3 +1,4 @@
+import { MaterialIcons } from "@expo/vector-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import CustomButton from "@shared/CustomButton/CustomButton";
 import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/CustomLabelInputErrorWrapper";
@@ -6,17 +7,21 @@ import { randomUUID } from "expo-crypto"
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form"
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import EditBlock from "./EditBlock/EditBlock";
 import SectionWrapper from "./SectionWrapper/SectionWrapper";
-import { styles as styleSheet } from "./createSessionForm.styles"
+import { styles as styleSheet } from "./sessionForm.styles"
 
 import { sessionSchema } from "@/schemas";
 import type { BlockType, SessionType } from "@/types";
 
-function CreateSessionForm() {
+interface Props {
+  toggleSessionForm: () => void
+}
+
+function SessionForm({ toggleSessionForm }: Props) {
   const { t } = useTranslation()
   const { styles } = useStyles(styleSheet)
   const {
@@ -78,8 +83,11 @@ function CreateSessionForm() {
   }
 
   return (
-    <View style={styles.form}>
+    <View style={styles.sessionForm}>
       <TitleWithCustomFont style={styles.title}>{t("creatingASession")}</TitleWithCustomFont>
+      <Pressable onPress={toggleSessionForm} style={styles.closeModalButton}>
+        <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
+      </Pressable>
       <CustomLabelInputErrorWrapper
         control={control}
         defaultValue={nameValue}
@@ -116,4 +124,4 @@ function CreateSessionForm() {
   );
 }
 
-export default CreateSessionForm;
+export default SessionForm;

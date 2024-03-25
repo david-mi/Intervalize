@@ -15,4 +15,7 @@ export const styles = createStyleSheet((theme) => ({
     gap: theme.SPACINGS.GAP,
     alignItems: "stretch",
   },
+  createSessionButton: {
+    backgroundColor: theme.COLORS.TERTIARY,
+  },
 })) 

@@ -1,19 +1,28 @@
 import { z } from "zod";
 
+function minutesAndSecondsSchema() {
+  return z
+    .string()
+    .refine(
+      (value) => !isNaN(Number(value)) && value !== "",
+      { message: "Must be a valid number" }
+    )
+    .refine(
+      (value) => {
+        const valueToNumber = Number(value);
+        return valueToNumber >= 0 && valueToNumber < 60
+      },
+      { message: "Number must be between 0 and 59" }
+    )
+    .transform(Number);
+}
+
 export const exerciseSchema = z.object({
   id: z.string().uuid(),
   name: z.string().min(3),
   duration: z.object({
-    minutes: z.coerce
-      .number()
-      .int()
-      .nonnegative()
-      .max(59),
-    seconds: z.coerce
-      .number()
-      .int()
-      .nonnegative()
-      .max(59),
+    minutes: minutesAndSecondsSchema(),
+    seconds: minutesAndSecondsSchema(),
   }),
   intensityLevel: z.union([
     z.literal("LOW"),

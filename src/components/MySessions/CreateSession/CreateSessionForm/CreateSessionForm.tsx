@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
-import CreateBlock from "./CreateBlock/CreateBlock";
+import EditBlock from "./EditBlock/EditBlock";
 import SectionWrapper from "./SectionWrapper/SectionWrapper";
 import { styles as styleSheet } from "./createSessionForm.styles"
 
@@ -63,9 +63,9 @@ function CreateSessionForm() {
 
   if (selectedBlockIndex !== null) {
     return (
-      <CreateBlock
+      <EditBlock
         blockErrors={errors.blocks?.[selectedBlockIndex]}
-        closeCreateBlock={() => setSelectedBlockIndex(null)}
+        closeEditBlock={() => setSelectedBlockIndex(null)}
         control={control}
         fieldArrayName={`blocks.${selectedBlockIndex}` as const}
         getValues={getValues}

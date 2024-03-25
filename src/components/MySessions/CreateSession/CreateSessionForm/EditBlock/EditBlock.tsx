@@ -10,14 +10,14 @@ import { Alert, Pressable, ScrollView, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import CreateExercise from "./CreateExercise/CreateExercise";
-import { createBlockStyles } from "./createBlock.styles"
+import { editBlockStyles } from "./editBlock.styles"
 import SectionWrapper from "../SectionWrapper/SectionWrapper";
 
 import type { BlockType, SessionType, ExerciseType } from "@/types";
 
-interface CreateBlockProps {
+interface EditBlockProps {
   blockErrors?: FieldErrors<BlockType>
-  closeCreateBlock: () => void
+  closeEditBlock: () => void
   control: Control<SessionType>
   fieldArrayName: `blocks.${number}`
   isFormValid: boolean
@@ -27,11 +27,11 @@ interface CreateBlockProps {
   updateBlock: (block: BlockType) => void
 }
 
-function CreateBlock(props: CreateBlockProps) {
-  const { blockErrors, closeCreateBlock, control, isFormValid, fieldArrayName, removeBlock, selectedBlock, getValues, updateBlock } = props
+function EditBlock(props: EditBlockProps) {
+  const { blockErrors, closeEditBlock, control, isFormValid, fieldArrayName, removeBlock, selectedBlock, getValues, updateBlock } = props
 
   const { t } = useTranslation()
-  const { styles } = useStyles(createBlockStyles)
+  const { styles } = useStyles(editBlockStyles)
   const {
     fields: exercises,
     append: appendExercise,
@@ -56,8 +56,8 @@ function CreateBlock(props: CreateBlockProps) {
     setSelectedExerciseIndex(exercises.length)
   }
 
-  function handleCloseCreateBlock() {
-    if (isFormValid) return closeCreateBlock()
+  function handleCloseEditBlock() {
+    if (isFormValid) return closeEditBlock()
 
     Alert.alert(
       t("incompleteBlock"),
@@ -66,7 +66,7 @@ function CreateBlock(props: CreateBlockProps) {
         { text: t("abort"), style: "cancel" },
         {
           text: t("delete"), onPress: () => {
-            closeCreateBlock()
+            closeEditBlock()
             removeBlock()
           },
         },
@@ -76,7 +76,7 @@ function CreateBlock(props: CreateBlockProps) {
 
   function handleModifyBlock() {
     updateBlock(getValues(fieldArrayName))
-    closeCreateBlock()
+    closeEditBlock()
   }
 
   if (selectedExerciseIndex !== null) {
@@ -98,7 +98,7 @@ function CreateBlock(props: CreateBlockProps) {
     <View style={styles.editBlock}>
       <TitleWithCustomFont style={styles.title}>{t("blockEdition")}</TitleWithCustomFont>
       <Pressable
-        onPress={handleCloseCreateBlock}
+        onPress={handleCloseEditBlock}
         style={styles.closeModalButton}
       >
         <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
@@ -149,4 +149,4 @@ function CreateBlock(props: CreateBlockProps) {
   );
 }
 
-export default CreateBlock;
+export default EditBlock;

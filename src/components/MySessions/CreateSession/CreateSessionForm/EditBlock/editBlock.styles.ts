@@ -1,6 +1,6 @@
 import { createStyleSheet } from "react-native-unistyles";
 
-export const createBlockStyles = createStyleSheet((theme) => ({
+export const editBlockStyles = createStyleSheet((theme) => ({
   editBlock: {
     flex: 1,
     gap: theme.SPACINGS.GAP,

@@ -2,10 +2,18 @@ import { z } from "zod";
 
 export const exerciseSchema = z.object({
   id: z.string().uuid(),
-  name: z.string(),
+  name: z.string().min(3),
   duration: z.object({
-    minutes: z.number().min(0).max(59),
-    seconds: z.number().min(1).max(59),
+    minutes: z.coerce
+      .number()
+      .int()
+      .nonnegative()
+      .max(59),
+    seconds: z.coerce
+      .number()
+      .int()
+      .nonnegative()
+      .max(59),
   }),
   intensityLevel: z.union([
     z.literal("LOW"),

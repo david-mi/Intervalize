@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { Alert, Pressable, ScrollView, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
-import CreateExercise from "./CreateExercise/CreateExercise";
+import EditExercise from "./EditExercise/EditExercise";
 import { editBlockStyles } from "./editBlock.styles"
 import SectionWrapper from "../SectionWrapper/SectionWrapper";
 
@@ -81,8 +81,8 @@ function EditBlock(props: EditBlockProps) {
 
   if (selectedExerciseIndex !== null) {
     return (
-      <CreateExercise
-        closeCreateExercise={() => setSelectedExerciseIndex(null)}
+      <EditExercise
+        closeEditExercise={() => setSelectedExerciseIndex(null)}
         control={control}
         exerciseErrors={blockErrors?.exercises?.[selectedExerciseIndex]}
         fieldArrayName={`${fieldArrayName}.exercises.${selectedExerciseIndex}`}

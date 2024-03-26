@@ -142,7 +142,7 @@ function EditBlock(props: EditBlockProps) {
           onPress={handleModifyBlock}
           style={styles.saveBlockButton}
           theme="rectangle"
-          title={t("saveTheBlock")}
+          title={t("saveBlock")}
         />
       </ScrollView>
     </View>

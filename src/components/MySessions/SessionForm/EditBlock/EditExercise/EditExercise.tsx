@@ -101,7 +101,7 @@ function EditExercise(props: EditExerciseProps) {
           onPress={handleModifyExercise}
           style={styles.saveExerciseButton}
           theme="rectangle"
-          title={t("createTheExercise")}
+          title={t("saveExercise")}
         />
       </ScrollView>
     </View>

@@ -2,11 +2,11 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React from "react"
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { useInitTheme } from "@/hooks/useInitTheme";
 import { useKeepScreenAwake } from "@/hooks/useKeepScreenAwake";
 import { useLanguageChanges } from "@/hooks/useLanguageChange";
-
 import "@langs/config"
 import "expo-dev-client";
 
@@ -44,18 +44,20 @@ function Layout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-        animation: "slide_from_right",
-        navigationBarColor: theme.COLORS.NAVIGATION_BAR,
-        statusBarColor: theme.COLORS.NAVIGATION_BAR,
-        statusBarStyle: theme.STATUS_BAR_STYLE,
-      }}
-    >
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="settings" />
-    </Stack>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          animation: "slide_from_right",
+          navigationBarColor: theme.COLORS.NAVIGATION_BAR,
+          statusBarColor: theme.COLORS.NAVIGATION_BAR,
+          statusBarStyle: theme.STATUS_BAR_STYLE,
+        }}
+      >
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="settings" />
+      </Stack>
+    </GestureHandlerRootView>
   )
 }
 

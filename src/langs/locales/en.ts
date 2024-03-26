@@ -53,6 +53,7 @@ export const enTranslations: TranslationType = {
   restart: "Restart",
   seconds: "Seconds",
   saveTheBlock: "Save the block",
+  session: "Session",
   sessionFinished: "Session finished",
   sessionIsRunning: "A session is currently running",
   sessionName: "Session name",

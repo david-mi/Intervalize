@@ -45,7 +45,7 @@ function EditBlock(props: EditBlockProps) {
 
   function handleAppendExercise() {
     appendExercise({
-      name: `Exercise ${exercises.length + 1}`,
+      name: `${t("exercise")} ${exercises.length + 1}`,
       id: randomUUID(),
       duration: {
         minutes: 0,

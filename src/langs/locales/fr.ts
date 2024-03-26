@@ -51,6 +51,7 @@ export const frTranslation = {
   restart: "Recommencer",
   seconds: "Secondes",
   saveTheBlock: "Sauvegarder le bloc",
+  session: "Séance",
   sessionFinished: "Séance terminée",
   sessionIsRunning: "Une session est en cours",
   sessionName: "Nom de la séance",

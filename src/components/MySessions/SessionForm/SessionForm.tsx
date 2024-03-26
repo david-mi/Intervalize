@@ -57,7 +57,7 @@ function SessionForm({ toggleSessionForm }: Props) {
   function handleAppendBlock() {
     appendBlock({
       id: randomUUID(),
-      name: `Block ${blocks.length + 1}`
+      name: `${t("block")} ${blocks.length + 1}`
       , exercises: [],
       iterations: 1,
     })

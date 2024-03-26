@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Alert, Pressable, View, ScrollView } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
+import CustomCheckboxGroupWrapper from "./CustomCheckboxGroupWrapper/CustomCheckboxGroupWrapper";
 import { editExerciseStyles } from "./editExercise.styles";
 
 import type { SessionType, ExerciseType } from "@/types";
@@ -86,7 +87,7 @@ function EditExercise(props: EditExerciseProps) {
             label={t("seconds")}
             name={`${fieldArrayName}.duration.seconds`}
           />
-          <CustomLabelInputErrorWrapper
+          <CustomCheckboxGroupWrapper
             control={control}
             defaultValue={selectedExercise.intensityLevel}
             error={exerciseErrors?.intensityLevel}

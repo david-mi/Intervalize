@@ -1,6 +1,5 @@
 import type { ImmerStateCreator } from "../store"
 
-import { mockSessions } from "@/mocks"
 import type { SessionStatus, SessionType, IntensityLevel } from "@/types"
 
 export interface SessionsSliceType {
@@ -8,6 +7,8 @@ export interface SessionsSliceType {
   setSessionStatus: (sessionStatus: SessionStatus) => void,
   sessions: SessionType[]
   setSessions: (sessions: SessionType[]) => void,
+  addSession: (session: SessionType) => void,
+  updateSession: (sessionId: SessionType) => void,
   currentSession: SessionType | null
   setCurrentSession: (session: SessionType | null) => void
   currentExerciseIntensityLevel: null | IntensityLevel
@@ -21,10 +22,23 @@ export const createSessionsSlice: ImmerStateCreator<SessionsSliceType> = (set) =
       state.sessionStatus = sessionStatus
     })
   },
-  sessions: mockSessions,
+  sessions: [],
   setSessions: (sessions) => {
     set(state => {
       state.sessions = sessions
+    })
+  },
+  addSession: (sessionToAdd) => {
+    set(state => {
+      state.sessions.push(sessionToAdd)
+    })
+  },
+  updateSession: (sessionToUpdate) => {
+    set(state => {
+      const sessionToUpdateIndex = state.sessions.findIndex((session) => session.id === sessionToUpdate.id)
+      if (sessionToUpdateIndex !== -1) {
+        state.sessions[sessionToUpdateIndex] = sessionToUpdate
+      }
     })
   },
   currentSession: null,

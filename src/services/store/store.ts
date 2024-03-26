@@ -6,7 +6,7 @@ import { createSessionsSlice, type SessionsSliceType } from "./slices/sessions";
 import { createUserSettingsSlice, type UserSettingsSliceType } from "./slices/userSettings";
 import { storage } from "../storage";
 
-import type { UserSettings } from "@/types";
+import type { SessionType, UserSettings } from "@/types";
 
 export type ImmerStateCreator<T> = StateCreator<
   T,
@@ -14,6 +14,11 @@ export type ImmerStateCreator<T> = StateCreator<
   [],
   T
 >;
+
+interface PersistedState {
+  userSettings: UserSettings
+  sessions: SessionType[]
+}
 
 const useBoundedStore = create<SessionsSliceType & UserSettingsSliceType>()(
   persist(
@@ -39,14 +44,16 @@ const useBoundedStore = create<SessionsSliceType & UserSettingsSliceType>()(
       })),
       partialize: (state) => ({
         userSettings: state.userSettings,
+        sessions: state.sessions,
       }),
       version: 0,
       merge(persistedState, currentState) {
         return {
           ...currentState,
+          ...persistedState as PersistedState,
           userSettings: {
             ...currentState.userSettings,
-            ...(persistedState as { userSettings: UserSettings }).userSettings,
+            ...(persistedState as PersistedState).userSettings,
           },
         }
       },

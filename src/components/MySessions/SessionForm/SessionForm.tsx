@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import CustomButton from "@shared/CustomButton/CustomButton";
 import CustomLabelInputErrorWrapper from "@shared/CustomLabelInputErrorWrapper/CustomLabelInputErrorWrapper";
 import TitleWithCustomFont from "@shared/TitleWithCustomFont/TitleWithCustomFont";
+import useBoundedStore from "@store/store";
 import { sessionSchema } from "@validation/schemas/session/session";
 import { randomUUID } from "expo-crypto"
 import React from "react";
@@ -51,6 +52,7 @@ function SessionForm({ toggleSessionForm }: Props) {
   const [selectedBlockIndex, setSelectedBlockIndex] = React.useState<number | null>(null)
   const nameValue = watch("name")
   const isSessionNameValid = nameValue?.length > 0 && !errors.name
+  const addSession = useBoundedStore((state) => state.addSession)
 
   function handleAppendBlock() {
     appendBlock({
@@ -62,8 +64,9 @@ function SessionForm({ toggleSessionForm }: Props) {
     setSelectedBlockIndex(blocks.length)
   }
 
-  function onSubmit(data: SessionType) {
-    console.log(data)
+  function onSubmit(session: SessionType) {
+    addSession(session)
+    toggleSessionForm()
   }
 
   if (selectedBlockIndex !== null) {

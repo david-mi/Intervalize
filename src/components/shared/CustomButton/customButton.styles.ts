@@ -4,8 +4,10 @@ export const styles = createStyleSheet((theme) => ({
   rectangle: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     paddingVertical: 25,
+    paddingHorizontal: theme.SPACINGS.GAP * 1.5,
+    gap: theme.SPACINGS.GAP,
     borderRadius: 4,
     shadowColor: theme.COLORS.SECONDARY,
     shadowOffset: {
@@ -24,6 +26,7 @@ export const styles = createStyleSheet((theme) => ({
   text: {
     fontSize: 20,
     color: theme.COLORS.TEXT_LIGHT,
+    flex: 1,
   },
   control: {
     backgroundColor: theme.COLORS.SECONDARY,

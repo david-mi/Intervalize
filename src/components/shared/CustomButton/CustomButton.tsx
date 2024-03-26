@@ -46,7 +46,7 @@ const CustomButton = forwardRef(({ style, disabled, ...props }: Props, _) => {
           disabled={disabled}
           style={[styles.rectangle, ...defaultButtonStyles]}
         >
-          <Text style={styles.text}>{props.title}</Text>
+          <Text numberOfLines={1} style={styles.text}>{props.title}</Text>
           {props.icon && (
             <MaterialIcons
               {...props.icon}

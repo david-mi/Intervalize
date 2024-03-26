@@ -13,6 +13,7 @@ function OtherExerciseName({ exerciseName }: Props) {
 
   return (
     <TextWithCustomFont
+      numberOfLines={1}
       style={{
         ...styles.otherExerciseName,
         transform: [{ scale: 0.6 }],

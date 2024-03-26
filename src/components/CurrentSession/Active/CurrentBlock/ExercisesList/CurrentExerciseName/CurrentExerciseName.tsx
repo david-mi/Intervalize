@@ -17,7 +17,11 @@ function CurrentExerciseName({ scrollHandler, currentExerciseName }: Props) {
   }, [])
 
   return (
-    <TextWithCustomFont fontFamily="oswald-bold" style={styles.currentExercise}>
+    <TextWithCustomFont
+      fontFamily="oswald-bold"
+      numberOfLines={2}
+      style={styles.currentExercise}
+    >
       {currentExerciseName}
     </TextWithCustomFont>
   )

@@ -29,6 +29,8 @@ export const DARK_THEME = {
     ITERATION_COUNT: "#121212",
     ITERATION_COUNT_TEXT: "white",
     CURRENT_ITERATION_BLOCK: "#1e1e1e",
+    DELETE_SESSION_BUTTON: "#ff5252",
+    EDIT_SESSION_BUTTON: "orange",
   },
 } as const
 
@@ -63,5 +65,7 @@ export const LIGHT_THEME = {
     ITERATION_COUNT: "white",
     ITERATION_COUNT_TEXT: "#121212",
     CURRENT_ITERATION_BLOCK: "white",
+    DELETE_SESSION_BUTTON: "#ff4343",
+    EDIT_SESSION_BUTTON: "#ff8e32",
   },
 } as const

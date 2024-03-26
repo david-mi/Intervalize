@@ -3,9 +3,10 @@ import useBoundedStore from "@store/store";
 import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
-import { View, FlatList, Alert } from "react-native";
+import { FlatList, Alert, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
+import SessionButton from "./SessionButton/SessionButton";
 import SessionForm from "./SessionForm/SessionForm";
 import { styles as styleSheet } from "./mySessions.styles";
 
@@ -74,16 +75,12 @@ function MySessions() {
         contentContainerStyle={styles.list}
         data={sessions}
         horizontal={false}
-        renderItem={({ item }) => {
-          return (
-            <CustomButton
-              icon={{ name: "touch-app" }}
-              onPress={() => handlePress(item.id)}
-              theme="rectangle"
-              title={item.name}
-            />
-          )
-        }}
+        renderItem={({ item: session }) => (
+          <SessionButton
+            onPress={handlePress}
+            session={session}
+          />
+        )}
         style={styles.listWrapper}
       />
       <CustomButton

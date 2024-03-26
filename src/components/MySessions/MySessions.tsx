@@ -1,9 +1,8 @@
 import CustomButton from "@shared/CustomButton/CustomButton";
 import useBoundedStore from "@store/store";
-import { router } from "expo-router";
 import * as React from "react"
 import { useTranslation } from "react-i18next";
-import { FlatList, Alert, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 
 import SessionButton from "./SessionButton/SessionButton";
@@ -13,58 +12,27 @@ import { styles as styleSheet } from "./mySessions.styles";
 import type { SessionType } from "@/types";
 
 function MySessions() {
-  const {
-    sessions,
-    currentSession,
-    setCurrentSession,
-    sessionStatus,
-    setSessionStatus,
-  } = useBoundedStore()
+  const { sessions } = useBoundedStore()
   const { t } = useTranslation()
   const { styles } = useStyles(styleSheet)
-  const [displaySessionForm, setDisplaySessionForm] = React.useState(false)
+  const [sessionFormDisplayed, setSessionFormDisplayed] = React.useState(false)
+  const [sessionToUpdate, setSessionToUpdate] = React.useState<null | SessionType>(null)
 
-  function toggleSessionForm() {
-    setDisplaySessionForm((displaySessionForm) => !displaySessionForm)
+  function closeSessionForm() {
+    setSessionFormDisplayed(false)
+    setSessionToUpdate(null)
   }
 
-  function startNewSession(session: SessionType) {
-    setCurrentSession(session)
-    setSessionStatus("READY_TO_START")
-    router.navigate("/")
+  function displaySessionForm(sessionToUpdate: SessionType | null = null) {
+    setSessionFormDisplayed(true)
+    setSessionToUpdate(sessionToUpdate)
   }
 
-  function handlePress(sessionId: string) {
-    const foundSession = sessions.find(session => session.id === sessionId)!
-
-    if (foundSession.id === undefined) {
-      return Alert.alert(t("sessionNotFound"))
-    }
-
-    const haveAnActiveSession = (
-      currentSession !== null &&
-      sessionStatus !== "READY_TO_START"
-      && sessionStatus !== "FINISHED"
-    )
-
-    if (haveAnActiveSession) {
-      Alert.alert(
-        t("sessionIsRunning"),
-        t("startANewSession"),
-        [
-          { text: t("abort"), style: "cancel" },
-          { text: t("start"), onPress: () => startNewSession(foundSession) },
-        ]
-      );
-    } else {
-      startNewSession(foundSession)
-    }
-  }
-
-  if (displaySessionForm) {
+  if (sessionFormDisplayed) {
     return (
       <SessionForm
-        toggleSessionForm={toggleSessionForm}
+        closeSessionForm={closeSessionForm}
+        sessionToUpdate={sessionToUpdate}
       />
     )
   }
@@ -77,15 +45,16 @@ function MySessions() {
         horizontal={false}
         renderItem={({ item: session }) => (
           <SessionButton
-            onPress={handlePress}
             session={session}
+            setSessionToUpdate={setSessionToUpdate}
+            setSessionFormDisplayed={setSessionFormDisplayed}
           />
         )}
         style={styles.listWrapper}
       />
       <CustomButton
         icon={{ name: "format-list-bulleted-add" }}
-        onPress={toggleSessionForm}
+        onPress={() => displaySessionForm(null)}
         style={styles.createSessionButton}
         theme="rectangle"
         title={t("createASession")}

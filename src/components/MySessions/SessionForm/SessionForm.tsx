@@ -19,12 +19,14 @@ import { styles as styleSheet } from "./sessionForm.styles"
 import type { BlockType, SessionType } from "@/types";
 
 interface Props {
-  toggleSessionForm: () => void
+  closeSessionForm: () => void
+  sessionToUpdate: SessionType | null
 }
 
-function SessionForm({ toggleSessionForm }: Props) {
+function SessionForm({ closeSessionForm, sessionToUpdate }: Props) {
   const { t } = useTranslation()
   const { styles } = useStyles(styleSheet)
+
   const {
     control,
     handleSubmit,
@@ -34,7 +36,7 @@ function SessionForm({ toggleSessionForm }: Props) {
   } = useForm<SessionType>({
     mode: "onChange",
     resolver: zodResolver(sessionSchema),
-    defaultValues: {
+    defaultValues: sessionToUpdate || {
       name: "",
       id: randomUUID(),
       createdAt: new Date(2024, 1, 1).toISOString(),
@@ -53,6 +55,7 @@ function SessionForm({ toggleSessionForm }: Props) {
   const nameValue = watch("name")
   const isSessionNameValid = nameValue?.length > 0 && !errors.name
   const addSession = useBoundedStore((state) => state.addSession)
+  const updateSession = useBoundedStore((state) => state.updateSession)
 
   function handleAppendBlock() {
     appendBlock({
@@ -65,8 +68,13 @@ function SessionForm({ toggleSessionForm }: Props) {
   }
 
   function onSubmit(session: SessionType) {
-    addSession(session)
-    toggleSessionForm()
+    if (sessionToUpdate) {
+      updateSession(session)
+    } else {
+      addSession(session)
+    }
+
+    closeSessionForm()
   }
 
   if (selectedBlockIndex !== null) {
@@ -87,8 +95,8 @@ function SessionForm({ toggleSessionForm }: Props) {
 
   return (
     <View style={styles.sessionForm}>
-      <TitleWithCustomFont style={styles.title}>{t("creatingASession")}</TitleWithCustomFont>
-      <Pressable onPress={toggleSessionForm} style={styles.closeModalButton}>
+      <TitleWithCustomFont style={styles.title}>{sessionToUpdate ? t("editingASession") : t("creatingASession")}</TitleWithCustomFont>
+      <Pressable onPress={closeSessionForm} style={styles.closeModalButton}>
         <MaterialIcons name="close" style={styles.closeModalButtonIcon} />
       </Pressable>
       <CustomLabelInputErrorWrapper
@@ -121,7 +129,7 @@ function SessionForm({ toggleSessionForm }: Props) {
         onPress={handleSubmit(onSubmit)}
         style={styles.saveSessionButton}
         theme="rectangle"
-        title={t("createTheSession")}
+        title={sessionToUpdate ? t("saveSession") : t("createTheSession")}
       />
     </View>
   );

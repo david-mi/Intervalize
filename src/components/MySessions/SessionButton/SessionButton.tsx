@@ -1,7 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import CustomButton from "@shared/CustomButton/CustomButton";
+import useBoundedStore from "@store/store";
+import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import { Drawer } from "react-native-ui-lib";
 import { useStyles } from "react-native-unistyles";
 
@@ -10,13 +12,48 @@ import { sessionButtonStyles } from "./styles"
 import type { SessionType } from "@/types";
 
 interface SessionButtonProps {
-  onPress: (sessionId: string) => void
   session: SessionType
+  setSessionToUpdate: React.Dispatch<React.SetStateAction<SessionType | null>>
+  setSessionFormDisplayed: (displayed: boolean) => void
 }
 
-function SessionButton({ onPress, session }: SessionButtonProps) {
+function SessionButton({ session, setSessionToUpdate, setSessionFormDisplayed }: SessionButtonProps) {
   const { t } = useTranslation()
   const { styles, theme } = useStyles(sessionButtonStyles)
+
+  const {
+    currentSession,
+    setCurrentSession,
+    sessionStatus,
+    setSessionStatus,
+  } = useBoundedStore()
+
+  function startNewSession(session: SessionType) {
+    setCurrentSession(session)
+    setSessionStatus("READY_TO_START")
+    router.navigate("/")
+  }
+
+  function handlePress() {
+    const haveAnActiveSession = (
+      currentSession !== null &&
+      sessionStatus !== "READY_TO_START"
+      && sessionStatus !== "FINISHED"
+    )
+
+    if (haveAnActiveSession) {
+      Alert.alert(
+        t("sessionIsRunning"),
+        t("startANewSession"),
+        [
+          { text: t("abort"), style: "cancel" },
+          { text: t("start"), onPress: () => startNewSession(session) },
+        ]
+      );
+    } else {
+      startNewSession(session)
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -34,7 +71,10 @@ function SessionButton({ onPress, session }: SessionButtonProps) {
         }
         rightItems={[
           {
-            onPress: () => console.log("read pressed"),
+            onPress: () => {
+              setSessionToUpdate(session)
+              setSessionFormDisplayed(true)
+            },
             background: theme.COLORS.EDIT_SESSION_BUTTON,
             customElement: (
               <MaterialIcons
@@ -48,7 +88,7 @@ function SessionButton({ onPress, session }: SessionButtonProps) {
       >
         <CustomButton
           icon={{ name: "touch-app" }}
-          onPress={() => onPress(session.id)}
+          onPress={handlePress}
           theme="rectangle"
           title={session.name}
         />

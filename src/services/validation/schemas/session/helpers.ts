@@ -3,8 +3,7 @@ import { z } from "zod";
 
 export function createMinutesAndSecondsSchema() {
   return z
-    .string()
-    .trim()
+    .union([z.string(), z.number()])
     .refine(
       (value) => !isNaN(Number(value)) && value !== "",
       { message: i18next.t("mustBeAValidNumber") }
